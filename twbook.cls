@@ -22,6 +22,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{twbook}[2013/03/25 v0.03 Standard LaTeX Dokumenten-Klasse fuer Dokumente der FH Technikum Wien]
 
+\newcommand{\toComplete}{To be completed...}
 
 \newcommand{\sprache}{english}
 \DeclareOption{german}{\renewcommand*{\sprache}{german}}
@@ -553,8 +554,8 @@ urlcolor=TWblue, urlbordercolor=white}
 \newcommand{\studentnumber}[1]{\gdef\@studentnumber{#1}}
 \newcommand*{\@place}{}
 \newcommand{\place}[1]{\gdef\@place{#1}}
-\newcommand*{\@kurzfassung}{}
-\newcommand{\kurzfassung}[1]{\gdef\@kurzfassung{#1}}
+\newcommand*{\@summary}{}
+\newcommand{\summary}[1]{\gdef\@summary{#1}}
 \newcommand*{\@schlagworte}{}
 \newcommand{\schlagworte}[1]{\gdef\@schlagworte{#1}}
 \newcommand*{\@outline}{}
@@ -677,10 +678,10 @@ urlcolor=TWblue, urlbordercolor=white}
 \color{black}\normalsize\mdseries
 
 \Ifstr{\doctype}{PROJEKTBERICHT}{
-\ifx\@kurzfassung\@empty
+\ifx\@summary\@empty
 \else\clearpage
-\chapter*{Kurzfassung}
-\@kurzfassung
+\chapter*{Summary}
+\@summary
 \ifx\@schlagworte\@empty
 \else\vfill\paragraph*{Schlagworte:}\@schlagworte
 \fi
@@ -696,10 +697,10 @@ urlcolor=TWblue, urlbordercolor=white}
 \fi}{}
 
 \Ifstr{\doctype}{SEMINARARBEIT}{
-\ifx\@kurzfassung\@empty
+\ifx\@summary\@empty
 \else\clearpage
-\chapter*{Kurzfassung}
-\@kurzfassung
+\chapter*{Summary}
+\@summary
 \ifx\@schlagworte\@empty
 \else\vfill\paragraph*{Schlagworte:}\@schlagworte
 \fi
@@ -721,10 +722,10 @@ urlcolor=TWblue, urlbordercolor=white}
 \else\vfill\paragraph*{Keywords:}\@keywords
 \fi
 \fi
-\ifx\@kurzfassung\@empty
+\ifx\@summary\@empty
 \else\clearpage
-\chapter*{Kurzfassung}
-\@kurzfassung
+\chapter*{Summary}
+\@summary
 \ifx\@schlagworte\@empty
 \else\vfill\paragraph*{Schlagworte:}\@schlagworte
 \fi
@@ -754,13 +755,13 @@ urlcolor=TWblue, urlbordercolor=white}
     entspricht.\grqq\vspace{4\baselineskip}
 
   \noindent \@place, \today\hspace{0.4\linewidth}Unterschrift
-\ifx\@kurzfassung\@empty
+\ifx\@summary\@empty
 \ifx\@schlagworte\@empty
 \else\clearpage\null\vfill\paragraph*{Schlagworte:}\@schlagworte
 \fi
 \else\clearpage
-\chapter*{Kurzfassung}
-\@kurzfassung
+\chapter*{Summary}
+\@summary
 \ifx\@schlagworte\@empty
 \else\vfill\paragraph*{Schlagworte:}\@schlagworte
 \fi
@@ -814,13 +815,13 @@ urlcolor=TWblue, urlbordercolor=white}
     entspricht.\grqq\vspace{4\baselineskip}
 
   \noindent \@place, \today\hspace{0.4\linewidth}Unterschrift
-\ifx\@kurzfassung\@empty
+\ifx\@summary\@empty
   \ifx\@schlagworte\@empty
   \else\clearpage\null\vfill\paragraph*{Schlagworte:}\@schlagworte
   \fi
 \else\clearpage
-  \chapter*{Kurzfassung}
-  \@kurzfassung
+  \chapter*{Summary}
+  \@summary
   \ifx\@schlagworte\@empty
   \else\vfill\paragraph*{Schlagworte:}\@schlagworte
   \fi
@@ -872,13 +873,13 @@ urlcolor=TWblue, urlbordercolor=white}
     the upload tool.``\vspace{4\baselineskip}
 
   \noindent \@place, \today\hspace{0.4\linewidth}Signature
-\ifx\@kurzfassung\@empty
+\ifx\@summary\@empty
   \ifx\@schlagworte\@empty
   \else\clearpage\null\vfill\paragraph*{Schlagworte:}\@schlagworte
   \fi
 \else\clearpage
-  \chapter*{Kurzfassung}
-  \@kurzfassung
+  \chapter*{Summary}
+  \@summary
   \ifx\@schlagworte\@empty
   \else\vfill\paragraph*{Schlagworte:}\@schlagworte
   \fi
@@ -930,13 +931,13 @@ urlcolor=TWblue, urlbordercolor=white}
     the upload tool.``\vspace{4\baselineskip}
 
   \noindent \@place, \today\hspace{0.4\linewidth}Signature
-  \ifx\@kurzfassung\@empty
+  \ifx\@summary\@empty
   \ifx\@schlagworte\@empty
   \else\clearpage\null\vfill\paragraph*{Schlagworte:}\@schlagworte
   \fi
 \else\clearpage
-  \chapter*{Kurzfassung}
-  \@kurzfassung
+  \chapter*{Summary}
+  \@summary
   \ifx\@schlagworte\@empty
   \else\vfill\paragraph*{Schlagworte:}\@schlagworte
   \fi
@@ -948,6 +949,9 @@ urlcolor=TWblue, urlbordercolor=white}
   \fi
 \else\clearpage
   \chapter*{Abstract}
+  \@outline
+  \clearpage
+  \chapter*{German Abstract}
   \@outline
   \ifx\@keywords\@empty
   \else\vfill\paragraph*{Keywords:}\@keywords
@@ -982,7 +986,7 @@ urlcolor=TWblue, urlbordercolor=white}
   \renewcommand*{\labelitemiii}{
     \LARGE\raisebox{0.3ex}{$\centerdot$}\hspace{-5pt}}
 }{}
-%% Verfasser der Änderung: Otrebski
+%% Verfasser der ï¿½nderung: Otrebski
 \endinput 
 \endinput
 %%

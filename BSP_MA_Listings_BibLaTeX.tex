@@ -27,6 +27,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
 %
 % Hier biblatex & Biber konfigurieren; Vergessen Sie nicht, dass Sie biber verwenden müssen um eine Bibliothek zu erzeugen
 %
@@ -70,7 +75,7 @@
 % Einträge für Deckblatt, Kurzfassung, etc.
 %
 \title{Transparency in\\Decentraland DAO}
-\author{Comerci Wolcanyik, Nicolás}
+\author{Comerci Wolcanyik, Nicol{\'a}s}
 \studentnumber{2120299002}
 %\author{Titel Vorname Name, Titel\and{}Titel Vorname Name, Titel}
 %\studentnumber{XXXXXXXXXXXXXXX\and{}XXXXXXXXXXXXXXX}
@@ -81,11 +86,9 @@
 %\secondsupervisor[Begutachter]{Titel Vorname Name, Titel}
 %\secondsupervisor[Begutachterinnen]{Titel Vorname Name, Titel}
 \place{Vienna}
-\kurzfassung{\blindtext}
-\schlagworte{Schlagwort1, Schlagwort2, Schlagwort3, Schlagwort4}
-\outline{\blindtext}
+\outline{\toComplete}
 \keywords{Keyword1, Keyword2, Keyword3, Keyword4}
-%\acknowledgements{\blindtext}
+\acknowledgements{\toComplete}
 
 \begin{document}
 
@@ -94,153 +97,44 @@
 %
 % .. und hier beginnt die eigentliche Arbeit. Viel Erfolg beim Verfassen!
 %
-\chapter{Erste Überschrift der Ebene 1 (chapter)}
-\blinddocument
+\chapter{Introduction}
+From October 31, 2008 (when the Bitcoin whitepaper was published) to the present day, people's interest in Blockchain technology has been growing progressively and increased exponentially from 2020 onwards. 
 
-\blindmathpaper
+There are a large number of projects that rely on this technology to date, one of them is Decentraland: a 3D digital world that will be discussed in the next section and that uses Ethereum to execute its transactions.
 
-\section{Erste Überschrift Tiefe 2 (section)}
-\blindtext
+One of the great advantages of Blockchain is transparency: anyone can verify all transactions made, from the first to the last. But how easy is it for an average user to access this information? What kind of analysis and conclusions can be drawn once obtained? This paper will seek to answer these questions specifically using Decentraland's DAO as the object of study.
+\clearpage
 
-\subsection{Erste Überschrift Tiefe 3 (subsection)}
-\blindtext
+\chapter{Basics}
+\section{Blockchain}
+Today there are different types of blockchain, but based on the original concept and taking as a reference the article \emph{"La blockchain: fundamentos, aplicaciones y relaci{\'o}n con otras tecnolog{\'\i}as disruptivas"}\cite{blockchain}, it was created to store the transaction history of Bitcoin, but with the course of time it has seen great potential to be applied in other areas due to the properties it offers. The blockchain provides an immutable distributed database based on a growing sequence of blocks. These blocks, being public, form an open system that enhances trust based on the transparency and robustness of the blockchain construction technique. The system, although open, is also semi-anonymous: users identify themselves with public keys (pseudonyms), not with their real identities.
 
-\subsubsection{Erste Überschrift Tiefe 4 (subsubsection)}
-\blindtext
+This database can be shared by a large number of users on a \emph{peer-to-peer} basis and allows information to be stored in an immutable and orderly manner. The information added to the blockchain is public, can be accessed at any time by any user of the network and can only be added to the blockchain if there is an agreement between the majority of the parties. After a certain period of time, it can be assumed that the information added to a block can no longer be modified (immutability).
 
-\chapter{Zweite Überschrift der Tiefe 1 (chapter)}
-\blindtext
+By design, this system intrinsically provides tolerance to node failures, robustness against manipulation and transparency, since it is public.
 
-\section{Zweite Überschrift Tiefe 2 (section)}
-\blindtext
+\section{Etherum}
 
-\section{Zweite Überschrift Tiefe 2 (section)}
-\blindtext
+\chapter{Practical Part}
+\toComplete
 
-\subsection{Zweite Überschrift Tiefe 3 (subsection)}
-\blindtext
+\chapter{Discussion}
+\toComplete
 
-\subsection{Dritte Überschrift Tiefe 3 (subsection)}
-\blindtext
+\chapter{Conclussion}
+\toComplete
 
-\subsubsection{Zweite Überschrift Tiefe 4 (subsubsection)}
-\blindtext
+\chapter{Summary}
+\toComplete
 
-\noindent Querverweise werden in \LaTeX{} automatisch erzeugt und verwaltet, damit sie leicht aktualisiert werden können. Hier wird zum Beispiel auf Abbildung \ref{Abb1} verwiesen.
+\chapter{Lists}
+\toComplete
 
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.5\linewidth]{PICs/buchruecken}
-\caption{Beispiel für die Beschriftung eines Buchrückens.}\label{Abb1}
-\end{figure}
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.5\linewidth]{PICs/buchruecken}
-\caption{2. Beispiel für die Beschriftung eines Buchrückens.}\label{Abb2}
-\end{figure}
+\chapter{Glossary (optional)}
+\toComplete
 
-Und hier ist ein Verweis auf Tabelle \ref{tab1}. Das gezeigte Tabellenformat ist nur ein Beispiel. Tabellen können individuell gestaltet werden.
-
-\begin{table}[!htbp]
-\centering
-\caption{Semesterplan der Lehrveranstaltung \glqq Angewandte Mathematik\grqq.}\label{tab1}
-\begin{tabular}{| p{0.3\linewidth} | p{0.3\linewidth} | p{0.3\linewidth} |}\hline
-Datum & Thema & Raum\\\hline
-20.08.2008 & Graphentheorie & HS 3.13\\
-01.10.2008 & Biomathematik & HS 1.05\\\hline
-\end{tabular}
-\end{table}
-\begin{table}[!htbp]
-\centering
-\caption{2. Semesterplan der Lehrveranstaltung \glqq Angewandte Mathematik\grqq.}\label{tab2}
-\begin{tabular}{| p{0.3\linewidth} | p{0.3\linewidth} | p{0.3\linewidth} |}\hline
-Datum & Thema & Raum\\\hline
-20.08.2008 & Graphentheorie & HS 3.13\\
-01.10.2008 & Biomathematik & HS 1.05\\\hline
-\end{tabular}
-\end{table}
-
-Hier wird auf die Formel \ref{Gl1} verwiesen.
-
-\begin{align}
-x = -\frac{p}{2}\pm\sqrt{\frac{p^2}{4}-q}\label{Gl1}
-\end{align}
-\begin{align}
-x = -\frac{p}{2}\pm\sqrt{\frac{p^2}{4}-q}\label{Gl2}
-\end{align}
-
-\begin{lstlisting}[language=C++,name={1. Beispiel},label={sc:bsp:1}]
-#include <iostream>
-
-void SayHello(void)
-{
-    // Kommentar
-    cout << "Hello World!" << endl;
-}
-
-int main(int argc, char **argv)
-{
-    SayHello();
-    return 0;
-}
-\end{lstlisting}
-
-Literaturverweise sollten automatisch verwaltet werden, vor allem, wenn es viele Quellenverweise gibt. Beispiele sind  \cite{Ko05a}, \cite{Ko05b}, \cite{MiGo05}, \cite{TeGo14}, \cite{HuHa07}, \cite{HuZi10}, \cite{ZiKu07}, \cite{He07}, \cite{SIE11}, \cite{SIE14}, \cite{ISO98}, \cite{ATM11}, \cite{Hu11}, \cite{Po10}. Das verwendete Zitierformat (bzw.~das Format des Literaturverzeichnisses) ist entspechend der Vorgaben der Studiengänge zu wählen.
-Es wird dringend empfohlen, BibTeX~zu verwenden (wie in diesem Beispiel).
-
-\chapter{Dritte Überschrift der Tiefe 1 (chapter)}
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.5\linewidth]{PICs/buchruecken}
-\caption{3. Beispiel für die Beschriftung eines Buchrückens.}\label{Abb3}
-\end{figure}
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.5\linewidth]{PICs/buchruecken}
-\caption{4. Beispiel für die Beschriftung eines Buchrückens.}\label{Abb4}
-\end{figure}
-
-
-\begin{table}[!htbp]
-\centering
-\caption{3. Semesterplan der Lehrveranstaltung \glqq Angewandte Mathematik\grqq.}\label{tab3}
-\begin{tabular}{| p{0.3\linewidth} | p{0.3\linewidth} | p{0.3\linewidth} |}\hline
-Datum & Thema & Raum\\\hline
-20.08.2008 & Graphentheorie & HS 3.13\\
-01.10.2008 & Biomathematik & HS 1.05\\\hline
-\end{tabular}
-\end{table}
-\begin{table}[!htbp]
-\centering
-\caption{4. Semesterplan der Lehrveranstaltung \glqq Angewandte Mathematik\grqq.}\label{tab4}
-\begin{tabular}{| p{0.3\linewidth} | p{0.3\linewidth} | p{0.3\linewidth} |}\hline
-Datum & Thema & Raum\\\hline
-20.08.2008 & Graphentheorie & HS 3.13\\
-01.10.2008 & Biomathematik & HS 1.05\\\hline
-\end{tabular}
-\end{table}
-
-\begin{align}
-x = -\frac{p}{2}\pm\sqrt{\frac{p^2}{4}-q}\label{Gl3}
-\end{align}
-\begin{align}
-x = -\frac{p}{2}\pm\sqrt{\frac{p^2}{4}-q}\label{Gl4}
-\end{align}
-\begin{lstlisting}[language=C++,name={2. Beispiel},label={sc:bsp:2}]
-#include <iostream>
-
-void SayHello(void)
-{
-    // Kommentar
-    cout << "Hello World!" << endl;
-}
-
-int main(int argc, char **argv)
-{
-    SayHello();
-    return 0;
-}
-\end{lstlisting}
+\chapter{Appendix (optional)}
+\toComplete
 
 %
 % Hier beginnen die Verzeichnisse.
@@ -248,7 +142,6 @@ int main(int argc, char **argv)
 \clearpage
 \printbibliography
 \clearpage
-
 % Das Abbildungsverzeichnis
 \listoffigures
 \clearpage
@@ -275,7 +168,4 @@ int main(int argc, char **argv)
 %
 \clearpage
 \appendix
-\chapter{Anhang A}
-\clearpage
-\chapter{Anhang B}
 \end{document}
