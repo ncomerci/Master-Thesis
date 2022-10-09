@@ -26,6 +26,7 @@
 \documentclass[MSE,Master,english]{twbook}%\documentclass[Bachelor,BMR,ngerman]{twbook}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{csquotes}
 
 \tolerance=1
 \emergencystretch=\maxdimen
@@ -45,6 +46,9 @@
 \lstset{captionpos=b, numberbychapter=false,caption=\lstname,frame=single, numbers=left, stepnumber=1, numbersep=2pt, xleftmargin=15pt, framexleftmargin=15pt, numberstyle=\tiny, tabsize=3, columns=fixed, basicstyle={\fontfamily{pcr}\selectfont\footnotesize}, keywordstyle=\bfseries, commentstyle={\color[gray]{0.33}\itshape}, stringstyle=\color[gray]{0.25}, breaklines, breakatwhitespace, breakautoindent}
 \lstloadlanguages{[ANSI]C, C++, [gnu]make, gnuplot, Matlab}
 
+\usepackage[xindy]{glossaries}
+\makenoidxglossaries
+\renewcommand{\glossarysection}[2][]{}
 %Formatieren des Quellcodeverzeichnisses
 \makeatletter
 % Setzen der Bezeichnungen für das Quellcodeverzeichnis/Abkürzungsverzeichnis in Abhängigkeit von der eingestellten Sprache
@@ -70,7 +74,6 @@
 
 % Die nachfolgenden Pakete stellen sonst nicht benötigte Features zur Verfügung
 \usepackage{blindtext}
-
 %
 % Einträge für Deckblatt, Kurzfassung, etc.
 %
@@ -90,6 +93,31 @@
 \keywords{Keyword1, Keyword2, Keyword3, Keyword4}
 \acknowledgements{\toComplete}
 
+% Glossary entries
+\newglossaryentry{MANA}
+{
+  name=MANA,
+  description={Is Decentraland's fungible, ERC20 cryptocurrency token limited to a total original supply of 2,805,886,393},
+}
+\newglossaryentry{LAND}
+{
+  name=LAND,
+  description={Is a scarce, non-fungible digital asset maintained in an Ethereum smart contract that represents the parcels of virtual land within Decentraland},
+  plural=LANDs
+}
+\newglossaryentry{ESTATE}
+{
+  name=ESTATE,
+  description={A cluster of adjacent LANDs},
+  plural=ESTATEs
+}
+\newglossaryentry{NFT}
+{
+  name=NFT,
+  description={non-fungible tokens are unique, distinguishable digital assets. The information contained within a non-fungible token is unique to that token},
+  plural=NFTs
+}
+
 \begin{document}
 
 \maketitle
@@ -102,7 +130,8 @@ From October 31, 2008 (when the Bitcoin whitepaper was published) to the present
 
 There are a large number of projects that rely on this technology to date, one of them is Decentraland: a 3D digital world that will be discussed in the next section and that uses Ethereum to execute its transactions.
 
-One of the great advantages of Blockchain is transparency: anyone can verify all transactions made, from the first to the last. But how easy is it for an average user to access this information? What kind of analysis and conclusions can be drawn once obtained? This paper will seek to answer these questions specifically using Decentraland's DAO as the object of study.
+One of the great advantages of Blockchain is transparency: anyone can verify all transactions made, from the first to the last. But how easy is it for an average user to access this information? What kind of analysis and conclusions can be drawn once obtained? This paper will seek to answer these questions specifically using Decentraland's DAO as the object of study. \\
+\toComplete
 \clearpage
 
 \chapter{Basics}
@@ -124,13 +153,13 @@ Ethereum is a technology for building apps and organizations, holding assets, tr
 Also it is \textbf{programmable} using \textbf{smart contracts} (see \ref{sm}), so that means that people can build apps that use the blockchain to store data or control what apps can do. This results in a general purpose blockchain that can be programmed to do anything.\cite{ethereum}
 
 \section{Smart contracts\label{sm}}
-\emph{"A smart contract is a computerized transaction protocol that executes the terms of a contract. The general objectives of smart contract design are to satisfy common contractual conditions (such as payment terms, liens, confidentiality, and even enforcement), minimize exceptions both malicious and accidental, and minimize the need for trusted intermediaries. Related economic goals include lowering fraud loss, arbitration and enforcement costs, and other transaction costs."} Nick Szabo, 1994.\cite{smartContracts}
+\emph{"A smart contract is a computerized transaction protocol that executes the terms of a contract. The general objectives of smart contract design are to satisfy common contractual conditions (such as payment terms, liens, confidentiality, and even enforcement), minimize exceptions both malicious and accidental, and minimize the need for trusted intermediaries. Related economic goals include lowering fraud loss, arbitration and enforcement costs, and other transaction costs."} Nick Szabo, 1994.\cite{smartContracts} \\
 
 Smart contracts live on the Ethereum blockchain. They only execute when triggered by a transaction from a user (or another contract). These programs are called \ac{Dapp}.
 
 Once a smart contract is published to Ethereum, it will be online and operational for as long as Ethereum exists. Not even the author can take it down. Since smart contracts are automated, they do not discriminate against any user and are always ready to use.\cite{ethereum}
 
-\section{Decentralized Autonomous Organization (\ac{DAO})}
+\section{\NoCaseChange{\acl{DAO}} (DAO)}
 A DAO is a collectively-owned, blockchain-governed organization working towards a shared mission.
 
 DAOs allow people to work with like-minded individuals around the globe without trusting a benevolent leader to manage the funds or operations. There is no CEO who can spend funds on a whim or CFO who can manipulate the books. Instead, blockchain-based rules baked into the code define how the organization works and how funds are spent.
@@ -139,7 +168,7 @@ They have built-in treasuries that no one has the authority to access without th
 
 Table \ref{table:DAOComparison} on page \pageref{table:DAOComparison} compares a DAO with a traditional organization:
 \begin{center}
-  \begin{table}
+  \begin{table}[htb]
     \begin{tabular}{ | m{20em} | m{20em} | }
       \hline
       \textbf{DAO} & \textbf{Traditional organization} \\ 
@@ -160,8 +189,17 @@ Table \ref{table:DAOComparison} on page \pageref{table:DAOComparison} compares a
   \end{table}
 \end{center}
 
-\chapter{Practical Part}
-\toComplete
+\section{Decentraland\label{dcl}}
+Decentraland is a decentralized virtual reality platform powered by the Ethereum blockchain. It is an open source project, maintained by the Decentraland Foundation and driven by its community. 
+
+Within the Decentraland platform, users can create, experience, and monetize their content and applications. The finite, traversable, 3D virtual space within Decentraland is called \textbf{\gls{LAND}}, a non-fungible digital asset or more commonly known as a \ac{NFT}, maintained in an Ethereum smart contract. Land is divided into parcels that are identified by cartesian coordinates (x,y). These parcels are permanently owned by members of the community and are purchased using \textbf{\gls{MANA}}, Decentraland's cryptocurrency token. This gives users full control over the environments and applications that they create, which can range from anything like static 3D scenes to more interactive applications or games.\cite{DCL}
+
+The Decentraland DAO is the decision-making tool for digital assets holders in Decentraland's virtual world. Through votes in the DAO, the community can issue grants and make changes to the lists of banned names, POIs, and catalyst nodes. The DAO also controls the \gls{LAND} and \gls{ESTATE} smart contracts.\cite{DCLDAO}
+
+\chapter{Problem}
+As already mentioned in section \ref{dcl}, Decentraland is open source and community driven. Based on this, where many actors are involved in decision making, it is essential to have as much information as possible about the status of the project in order to make informed decisions.
+
+The problem was that there was no tool or solution that could publicly provide information to everyone in semi-real time about the state of the DAO treasury and the different assets of the community. Of course the information was and still is available since the blockchain is public but not everyone has the time or knowledge to collect such data and analyze it.
 
 \chapter{Discussion}
 \toComplete
@@ -175,8 +213,9 @@ Table \ref{table:DAOComparison} on page \pageref{table:DAOComparison} compares a
 \chapter{Lists}
 \toComplete
 
-\chapter{Glossary (optional)}
-\toComplete
+\chapter{Glossary}
+% \glossarysection
+\printnoidxglossaries
 
 \chapter{Appendix (optional)}
 \toComplete
@@ -206,6 +245,7 @@ Table \ref{table:DAOComparison} on page \pageref{table:DAOComparison} compares a
     \acro{Crypto}{Cryptocurrency}
     \acro{Dapp}{Decentralized App}
     \acro{DAO}{Decentralized Autonomous Organization}
+    \acro{NFT}{Non-Fungible Token}
 \end{acronym}
 
 %
