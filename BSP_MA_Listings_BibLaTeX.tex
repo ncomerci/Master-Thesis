@@ -27,6 +27,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{csquotes}
+\usepackage{multicol}
+\usepackage{graphicx}
+\graphicspath{ {./PICs/} }
 
 \tolerance=1
 \emergencystretch=\maxdimen
@@ -142,22 +145,73 @@ This database can be shared by a large number of users on a \emph{peer-to-peer} 
 
 By design, this system intrinsically provides tolerance to node failures, robustness against manipulation and transparency, since it is public.
 
-\section{Cryptocurrency}
+\section{Digital Assets}
+A digital asset\cite{digAssets} is generally anything that is created and stored digitally, is identifiable and discoverable, and has or provides value. Digital assets have become more popular and valuable as technological advances become integrated into our personal and professional lives. Data, images, video, written content, and more have long been considered digital assets with ownership rights.
+
+Most digital items, like a company's brand, can be assigned a value, monetary or intangible. Some digital items might only be valuable to the creator or one person, such as a family picture on your phone taken at a gathering. Others could be valuable to a much wider audience.
+
+In the past, digital assets such as data or scanned documents were owned and used by organizations to realize value. However, when blockchain and cryptocurrency were introduced in 2009, digital assets were again redefined. Anything in digital form became something that could be used to create value via tokenization on a blockchain. \\
+
 \ac{Crypto} is essentially a digital currency that use blockchain technology and cryptography to facilitate secure and anonymous transactions. The crypto market is worth over USD 500 billion.\cite{crypto}
 
-What made it different from normal bank transfers or other financial services like Paypal is that there was no middle man for the first time. A middle-man is a central authority like a bank or government that intervenes in a transaction between the sender and recipient. They have the power to surveill, censor or revert transactions and they can share the sensitive data they collect with third parties. They also often dictate which financial services people have access to.\cite{ethereum}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{crypto_ranking.png}
+  \caption{Top 10 cryptocurrencies by market capitalization \cite{coinmarketcap}}
+  \label{fig:ranking}
+\end{figure}
 
-\section{Ethereum}
-Ethereum is a technology for building apps and organizations, holding assets, transacting and communicating without being controlled by a central authority. There is no need to hand over personal details to use it - the user remains in control of their own data and what is being shared. Ethereum has its own cryptocurrency, Ether, which is used to pay for certain activities on the Ethereum network.
 
-Also it is \textbf{programmable} using \textbf{smart contracts} (see \ref{sm}), so that means that people can build apps that use the blockchain to store data or control what apps can do. This results in a general purpose blockchain that can be programmed to do anything.\cite{ethereum}
+What made it different from normal bank transfers or other financial services like Paypal is that there was no middle man for the first time. A middle-man is a central authority like a bank or government that intervenes in a transaction between the sender and recipient. They have the power to surveill, censor or revert transactions and they can share the sensitive data they collect with third parties. They also often dictate which financial services people have access to.\cite{ethereum} \\
+
+There are many different types of digital assets.\cite{digAssets} Here is a list of many of the familiar ones:
+\begin{multicols}{2}
+  \begin{itemize}
+    \item Photos
+    \item Documents
+    \item Videos
+    \item Books
+    \item Audio/Music
+    \item Animations
+    \item Illustrations
+    \item Manuscripts
+    \item Emails and email accounts
+    \item Logos
+    \item Metadata
+    \item Content
+    \item Social media accounts
+    \item Gaming accounts
+  \end{itemize}
+\end{multicols}
+
+Newer digital assets are based on blockchain or similar technologies:
+\begin{multicols}{2}
+  \begin{itemize}
+    \item Non-Fungible Tokens
+    \item Cryptocurrency
+    \item Tokens
+    \item Crypto Assets
+    \item Tokenized Assets
+    \item Security Tokens
+    \item Central Bank Digital Currencies
+  \end{itemize}
+\end{multicols}
+
+It is worth devoting a few paragraphs to the Non-Fungible Tokens (\glspl{NFT}): for the purposes of definition, a non-fungible token\cite{nft} can be seen as a unit of digital information (token) that is stored on a blockchain and is not inherently interchangeable with other digital assets (non-fungible). The term "fungible" derives from the economic and accounting literatures, and is defined as anything that is interchangeable with an identical or similar object. Traditional form of currency, whether equivalent sums of paper money or identical unit of precious metals, are fungible objects, and this is what helps them to serve as mediums of exchange, because they are understood to be of equal value. One can substitute a five-dollar bill with five one-dollar bills because both are fungible.
+
+Assets that are commonly considered fungible are regulated commodities, common shares (stocks), financial options, and bills of money. By contrast, a non-fungible asset may be a person's car, for example, since someone borrowing a friend's car would not repay their debt to their friend by giving them another person's car. Collectible items such as baseball cards represent a traditional example of non-fungible assets, since each card would have unique attributes which enhance or diminish their value compared to other baseball cards. In the virtual realm, objects were originally thought to be difficult in terms of proving their uniqueness and distinguishability so that they could be considered "non-fungible".
 
 \section{Smart contracts\label{sm}}
 \emph{"A smart contract is a computerized transaction protocol that executes the terms of a contract. The general objectives of smart contract design are to satisfy common contractual conditions (such as payment terms, liens, confidentiality, and even enforcement), minimize exceptions both malicious and accidental, and minimize the need for trusted intermediaries. Related economic goals include lowering fraud loss, arbitration and enforcement costs, and other transaction costs."} Nick Szabo, 1994.\cite{smartContracts} \\
 
-Smart contracts live on the Ethereum blockchain. They only execute when triggered by a transaction from a user (or another contract). These programs are called \ac{Dapp}.
+Smart contracts live on the Ethereum blockchain  (see \ref{eth}). They only execute when triggered by a transaction from a user (or another contract). These programs are called \ac{Dapp}.
 
 Once a smart contract is published to Ethereum, it will be online and operational for as long as Ethereum exists. Not even the author can take it down. Since smart contracts are automated, they do not discriminate against any user and are always ready to use.\cite{ethereum}
+
+\section{Ethereum\label{eth}}
+Ethereum is a technology for building apps and organizations, holding assets, transacting and communicating without being controlled by a central authority. There is no need to hand over personal details to use it - the user remains in control of their own data and what is being shared. Ethereum has its own cryptocurrency, Ether, which is used to pay for certain activities on the Ethereum network.
+
+Also it is \textbf{programmable} using \textbf{smart contracts}, so that means that people can build apps that use the blockchain to store data or control what apps can do. This results in a general purpose blockchain that can be programmed to do anything.\cite{ethereum}
 
 \section{\NoCaseChange{\acl{DAO}} (DAO)}
 A DAO is a collectively-owned, blockchain-governed organization working towards a shared mission.
@@ -196,10 +250,25 @@ Within the Decentraland platform, users can create, experience, and monetize the
 
 The Decentraland DAO is the decision-making tool for digital assets holders in Decentraland's virtual world. Through votes in the DAO, the community can issue grants and make changes to the lists of banned names, POIs, and catalyst nodes. The DAO also controls the \gls{LAND} and \gls{ESTATE} smart contracts.\cite{DCLDAO}
 
-\chapter{Problem}
+\chapter{Problem/Requirements/Validation}
+\section{Problem}
 As already mentioned in section \ref{dcl}, Decentraland is open source and community driven. Based on this, where many actors are involved in decision making, it is essential to have as much information as possible about the status of the project in order to make informed decisions.
 
-The problem was that there was no tool or solution that could publicly provide information to everyone in semi-real time about the state of the DAO treasury and the different assets of the community. Of course the information was and still is available since the blockchain is public but not everyone has the time or knowledge to collect such data and analyze it.
+So far there was no tool or solution that could publicly provide information to everyone about the state of the DAO treasury and the different assets of the community. Of course the information was and still is available since the blockchain is public, but not everyone has the time or knowledge to collect such data and analyze it.
+
+Therefore, in summary, there was a need to develop a tool that would provide information publicly on the state of the DAO's treasury and the different assets of the community to enable informed decision making.
+
+\section{Requirements}
+For the solution of this problem, the following requirements were mandatory:
+\begin{enumerate}
+  \item One
+  \item Two
+  \item Three
+\end{enumerate}
+
+
+\chapter{Solution}
+\toComplete
 
 \chapter{Discussion}
 \toComplete
