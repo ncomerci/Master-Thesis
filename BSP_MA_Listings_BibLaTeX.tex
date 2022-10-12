@@ -213,6 +213,59 @@ Ethereum is a technology for building apps and organizations, holding assets, tr
 
 Also it is \textbf{programmable} using \textbf{smart contracts}, so that means that people can build apps that use the blockchain to store data or control what apps can do. This results in a general purpose blockchain that can be programmed to do anything.\cite{ethereum}
 
+\subsection{How did it begin?}
+Although the Ethereum blockchain has a number of founders, Vitalik Buterin\cite{ethHistory} was the one who initially published a white paper explaining the concept of Ethereum in November 2013. Following Buterin's initial work, other brains jumped on board in various capacities to help bring the project to fruition.
+
+It gained awareness in early 2014 when Buterin brought the concept of the blockchain project into the public eye at a Bitcoin conference in Miami Florida. The project raised capital via an initial coin offering (ICO) later the same year, selling millions of dollars worth of ETH coins in exchange for funds to use for the development of the project. Between July 22 and Sept. 2, 2014, the asset sale sold over \$18 million worth of ETH, paid for in Bitcoin.
+
+Although ETH coins were purchasable in 2014, the Ethereum blockchain did not actually go live until July 30, 2015, meaning ETH buyers had to wait for the blockchain to launch before they could move or use their ETH. 
+
+Called Frontier, the first iteration of the Ethereum blockchain simply got the chain off the ground and running, hosting smart contracts and proof-of-work mining. The initial launch gave folks the opportunity to set up their mining apparatuses and start building on the network.
+
+\subsection{Proof-of-Work (PoW) vs. Proof-of-Stake (PoS)}
+The Ethereum network began by using a consensus mechanism that involved \ac{PoW}\cite{PoW}. This allowed the nodes of the Ethereum network to agree on the state of all information recorded on the Ethereum blockchain and prevented certain kinds of economic attacks. However, Ethereum switched off proof-of-work in 2022 and started using proof-of-stake instead.
+
+Proof-of-work is the underlying algorithm that sets the difficulty and rules for the work miners do on proof-of-work blockchains. Mining is the "work" itself. It's the act of adding valid blocks to the chain. This is important because the chain's length helps the network follow the correct fork of the blockchain. The more "work" done, the longer the chain, and the higher the block number, the more certain the network can be of the current state of things. \\
+
+On Sept. 15, 2022 Ethereum switched to \ac{PoS}\cite{PoS}. In proof-of-work, miners prove they have capital at risk by expending energy. Ethereum uses proof-of-stake, where validators explicitly stake capital in the form of ETH into a smart contract on Ethereum. This staked ETH then acts as collateral that can be destroyed if the validator behaves dishonestly or lazily. The validator is then responsible for checking that new blocks propagated over the network are valid and occasionally creating and propagating new blocks themselves. \\
+
+Proof-of-stake comes with a number of improvements to the now-deprecated proof-of-work system:
+
+\begin{itemize}
+  \item Better energy efficiency - there is no need to use lots of energy on proof-of-work computations
+  \item Lower barriers to entry, reduced hardware requirements - there is no need for elite hardware to stand a chance of creating new blocks
+  \item Reduced centralization risk - proof-of-stake should lead to more nodes securing the network
+  \item Because of the low energy requirement less ETH issuance is required to incentivize participation
+  \item Economic penalties for misbehaviour make 51\% style attacks exponentially more costly for an attacker compared to proof-of-work
+  \item The community can resort to social recovery of an honest chain if a 51\% attack were to overcome the crypto-economic defenses.
+\end{itemize}
+
+\subsection{Statistics}
+
+In the figure \ref{fig:dailyTxs} can be observed that the daily amount of transactions ranges between 1M and 1.25M since late 2020, with a peak of 1.7M daily transactions in May 2021.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{daily_txs.png}
+  \caption{Daily Ethereum transactions \cite{etherscan}}
+  \label{fig:dailyTxs}
+\end{figure}
+
+There are more than 200 million unique addresses in Ethereum as shown in the figure \ref{fig:uniqueAddr}.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{unique_addresses.png}
+  \caption{Unique Ethereum addresses \cite{etherscan}}
+  \label{fig:uniqueAddr}
+\end{figure}
+
+But only between 400,000 and 600,000 addresses are currently active, meaning between 0.2\% and 0.3\% of the unique addresses (see figure \ref{fig:activeAddr}).
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{active_addresses.png}
+  \caption{Active Ethereum addresses \cite{etherscan}}
+  \label{fig:activeAddr}
+\end{figure}
+
 \section{\NoCaseChange{\acl{DAO}} (DAO)}
 A DAO is a collectively-owned, blockchain-governed organization working towards a shared mission.
 
@@ -238,7 +291,7 @@ Table \ref{table:DAOComparison} on page \pageref{table:DAOComparison} compares a
       All activity is transparent and fully public. & Activity is typically private, and limited to the public. \\
       \hline
     \end{tabular}
-    \caption{Comparison between a DAO and a traditional organization}
+    \caption{Comparison between a DAO and a traditional organization \cite{DAO}}
     \label{table:DAOComparison}
   \end{table}
 \end{center}
@@ -315,6 +368,8 @@ For the solution of this problem, the following requirements were mandatory:
     \acro{Dapp}{Decentralized App}
     \acro{DAO}{Decentralized Autonomous Organization}
     \acro{NFT}{Non-Fungible Token}
+    \acro{PoW}{Proof-of-Work}
+    \acro{PoS}{Proof-of-Stake}
 \end{acronym}
 
 %
