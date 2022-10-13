@@ -26,6 +26,7 @@
 \documentclass[MSE,Master,english]{twbook}%\documentclass[Bachelor,BMR,ngerman]{twbook}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{float}
 \usepackage{csquotes}
 \usepackage{multicol}
 \usepackage{graphicx}
@@ -122,7 +123,6 @@
 }
 
 \begin{document}
-
 \maketitle
 
 %
@@ -154,13 +154,12 @@ In the past, digital assets such as data or scanned documents were owned and use
 
 \ac{Crypto} is essentially a digital currency that use blockchain technology and cryptography to facilitate secure and anonymous transactions. The crypto market is worth over USD 500 billion.\cite{crypto}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{crypto_ranking.png}
   \caption{Top 10 cryptocurrencies by market capitalization \cite{coinmarketcap}}
   \label{fig:ranking}
 \end{figure}
-
 
 What made it different from normal bank transfers or other financial services like Paypal is that there was no middle man for the first time. A middle-man is a central authority like a bank or government that intervenes in a transaction between the sender and recipient. They have the power to surveill, censor or revert transactions and they can share the sensitive data they collect with third parties. They also often dictate which financial services people have access to.\cite{ethereum} \\
 
@@ -243,7 +242,7 @@ Proof-of-stake comes with a number of improvements to the now-deprecated proof-o
 \subsection{Statistics}
 
 In the figure \ref{fig:dailyTxs} can be observed that the daily amount of transactions ranges between 1M and 1.25M since late 2020, with a peak of 1.7M daily transactions in May 2021.
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{daily_txs.png}
   \caption{Daily Ethereum transactions \cite{etherscan}}
@@ -251,7 +250,7 @@ In the figure \ref{fig:dailyTxs} can be observed that the daily amount of transa
 \end{figure}
 
 There are more than 200 million unique addresses in Ethereum as shown in the figure \ref{fig:uniqueAddr}.
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{unique_addresses.png}
   \caption{Unique Ethereum addresses \cite{etherscan}}
@@ -259,7 +258,7 @@ There are more than 200 million unique addresses in Ethereum as shown in the fig
 \end{figure}
 
 But only between 400,000 and 600,000 addresses are currently active, meaning between 0.2\% and 0.3\% of the unique addresses (see figure \ref{fig:activeAddr}).
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{active_addresses.png}
   \caption{Active Ethereum addresses \cite{etherscan}}
@@ -275,7 +274,7 @@ They have built-in treasuries that no one has the authority to access without th
 
 Table \ref{table:DAOComparison} on page \pageref{table:DAOComparison} compares a DAO with a traditional organization:
 \begin{center}
-  \begin{table}[htb]
+  \begin{table}[H]
     \begin{tabular}{ | m{20em} | m{20em} | }
       \hline
       \textbf{DAO} & \textbf{Traditional organization} \\ 
@@ -296,12 +295,37 @@ Table \ref{table:DAOComparison} on page \pageref{table:DAOComparison} compares a
   \end{table}
 \end{center}
 
-\section{Decentraland\label{dcl}}
-Decentraland is a decentralized virtual reality platform powered by the Ethereum blockchain. It is an open source project, maintained by the Decentraland Foundation and driven by its community. 
+\section{Metaverse\label{dcl}}
+\emph{"The Metaverse is the post-reality universe, a perpetual and persistent multiuser environment merging physical reality with digital virtuality. It is based on the convergence of technologies that enable multisensory interactions with virtual environments, digital objects and people such as \ac{VR} and \ac{AR}. Hence, the Metaverse is an interconnected web of social, networked immersive environments in persistent multiuser platforms. It enables seamless embodied user communication in real-time and dynamic interactions with digital artifacts. Its first iteration was a web of virtual worlds where avatars were able to teleport among them. The contemporary iteration of the Metaverse features social, immersive VR platforms compatible with massive multiplayer online video games, open game worlds and AR collaborative spaces."} Stylianos Mystakidis, 2022. \cite{metaverse} \\
 
-Within the Decentraland platform, users can create, experience, and monetize their content and applications. The finite, traversable, 3D virtual space within Decentraland is called \textbf{\gls{LAND}}, a non-fungible digital asset or more commonly known as a \ac{NFT}, maintained in an Ethereum smart contract. Land is divided into parcels that are identified by cartesian coordinates (x,y). These parcels are permanently owned by members of the community and are purchased using \textbf{\gls{MANA}}, Decentraland's cryptocurrency token. This gives users full control over the environments and applications that they create, which can range from anything like static 3D scenes to more interactive applications or games.\cite{DCL}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{metaverse.png}
+  \caption{Description of the metaverse \cite{metaverse}}
+  \label{fig:metaverse}
+\end{figure}
 
-The Decentraland DAO is the decision-making tool for digital assets holders in Decentraland's virtual world. Through votes in the DAO, the community can issue grants and make changes to the lists of banned names, POIs, and catalyst nodes. The DAO also controls the \gls{LAND} and \gls{ESTATE} smart contracts.\cite{DCLDAO}
+Decentraland\cite{DCL} is a decentralized virtual reality platform, better known as a metaverse, powered by the Ethereum blockchain. It is an open source project, maintained by the Decentraland Foundation and driven by its community. 
+
+Within the Decentraland platform, users can create, experience, and monetize their content and applications. The finite, traversable, 3D virtual space within Decentraland is called \textbf{\gls{LAND}}, a non-fungible digital asset or more commonly known as a \ac{NFT}, maintained in an Ethereum smart contract. Land is divided into parcels that are identified by cartesian coordinates (x,y). These parcels are permanently owned by members of the community and are purchased using \textbf{\gls{MANA}}, Decentraland's cryptocurrency token. This gives users full control over the environments and applications that they create, which can range from anything like static 3D scenes to more interactive applications or games.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{dcl.png}
+  \caption{Screenshot of Decentraland}
+  \label{fig:dcl}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{dcl_map.png}
+  \caption{Top view of Decentraland's map \cite{genesisCity}}
+  \label{fig:dcl_map}
+\end{figure}
+
+The Decentraland DAO\cite{DCLDAO} is the decision-making tool for digital assets holders in Decentraland's virtual world. Through votes in the DAO, the community can issue grants and make changes to the lists of banned names, POIs, and catalyst nodes. The DAO also controls the \gls{LAND} and \gls{ESTATE} smart contracts.
+
+These proposals, the votes submitted, and final results are all stored in IPFS via Snapshot, a gas-less voting client. Approved proposals with binding actions are enacted on the Ethereum blockchain by a committee by means of a multi-sig wallet. This committee is overseen by the Security Advisory Board (SAB), another multisig with trusted key holders. This Committee was voted into place by the community in the previous release of the DAO.
 
 \chapter{Problem/Requirements/Validation}
 \section{Problem}
@@ -370,6 +394,8 @@ For the solution of this problem, the following requirements were mandatory:
     \acro{NFT}{Non-Fungible Token}
     \acro{PoW}{Proof-of-Work}
     \acro{PoS}{Proof-of-Stake}
+    \acro{VR}{Virtual Reality}
+    \acro{AR}{Augmented Reality}
 \end{acronym}
 
 %
