@@ -327,7 +327,7 @@ The Decentraland DAO\cite{DCLDAO} is the decision-making tool for digital assets
 
 These proposals, the votes submitted, and final results are all stored in IPFS via Snapshot, a gas-less voting client. Approved proposals with binding actions are enacted on the Ethereum blockchain by a committee by means of a multi-sig wallet. This committee is overseen by the Security Advisory Board (SAB), another multisig with trusted key holders. This Committee was voted into place by the community in the previous release of the DAO.
 
-\chapter{Problem/Requirements/Validation}
+\chapter{Methodology}
 \section{Problem}
 As already mentioned in section \ref{dcl}, Decentraland is open source and community driven. Based on this, where many actors are involved in decision making, it is essential to have as much information as possible about the status of the project in order to make informed decisions.
 
@@ -338,11 +338,79 @@ Therefore, in summary, there was a need to develop a tool that would provide inf
 \section{Requirements}
 For the solution of this problem, the following requirements were mandatory:
 \begin{enumerate}
-  \item One
-  \item Two
-  \item Three
+  \item It must be possible to visualize the general state of the DAO's treasury and the different assets of the community.
+  \item It must be possible to visualize metrics to be able to make decisions.
+  \item Data collection must be from public sources.
+  \item The data collection scripts must be open source.
+  \item Both the information collected and the metrics performed must be accessible to anyone.
 \end{enumerate}
 
+\section{Methods}
+The goal of this project is about collecting and processing Decentraland's public data and making it available to stakeholders in a consumable format. The scope includes:
+
+\begin{itemize}
+  \item \textbf{Accounting:} Tracking different streams such as
+  \begin{itemize}
+    \item Income
+    \item Expenses
+    \item Revenue
+    \item Balance
+  \end{itemize}
+  \item \textbf{Market:} Sizing transacted value in the world and liquidity
+  \begin{itemize}
+    \item Tracking sales data
+    \item DAO and Creators revenue
+    \item Estimation of economy size
+    \item Defining health indicators
+  \end{itemize}
+  \item \textbf{Operations:} Defining business unit performance metrics
+  \begin{itemize}
+    \item Teams Performance
+    \item Execution times, operative expenses, etc.
+    \item Does any team need to shrink or expand?
+  \end{itemize}
+\end{itemize}
+
+\subsection{Data collection sources}
+\subsubsection{IPFS}
+The \ac{IPFS} \cite{ipfs} is a protocol, hypermedia and file sharing peer-to-peer network for storing and sharing data in a distributed file system. IPFS uses content-addressing to uniquely identify each file in a global namespace connecting IPFS hosts. It can among others replace the location based hypermedia server protocols http and https to distribute the World Wide Web.
+
+IPFS allows users to host and receive content in a manner similar to BitTorrent. As opposed to a centrally located server, IPFS is built around a decentralized system of user-operators who hold a portion of the overall data, creating a resilient system of file storage and sharing. Any user in the network can serve a file by its content address, and other peers in the network can find and request that content from any node who has it using a \ac{DHT}.
+
+In contrast to BitTorrent, IPFS aims to create a single global network. This means that if two users publish a block of data with the same hash, the peers downloading the content from "user 1" will also exchange data with the ones downloading it from "user 2". IPFS aims to replace protocols used for static webpage delivery by using gateways which are accessible with HTTP. Users may choose not to install an IPFS client on their device and instead use a public gateway.
+
+\subsubsection{Infura}
+Infura\cite{infura} is a blockchain development suite that provides application programming interfaces (APIs) and developer tools. It provides fast and reliable access to the Ethereum network to enable developers to build software and Web3 applications that scale to meet user demand.
+As an Infrastructure-as-a-Service (Iaas) and Web3 backend infrastructure provider, it offers documentation and resources to help developers build decentralized applications (dApps) quickly. This is achieved by reducing the time spent building infrastructure from scratch. Infura offers enterprise-ready infrastructure using a distributed cloud-hosted network of nodes. This removes much of the friction associated with the development and ownership of proprietary computing and storage facilities. 
+
+The Infura Ethereum API provides developers with easy-to-access Ethereum-based infrastructure to build decentralized applications. Using it, builders can connect applications in just a few seconds using a single line of code. This makes it simple to take advantage of fast, highly available Ethereum infrastructure. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{infura.png}
+  \caption{Diagram of information flow through Infura \cite{infura}}
+  \label{fig:infura}
+\end{figure}
+
+\subsubsection{Snapshot}
+Snapshot\cite{snapshot} is a decentralized voting system. It provides flexibility on how voting power is calculated for a vote. It supports various voting types to cater to the needs of organizations. Creating proposals and voting on Snapshot is user-friendly and does not cost gas as the process is performed off-chain.
+In short, Snapshot is an off-chain gasless multi-governance client with easy to verify and hard to contest results.
+
+Its key features are: \\
+\begin{itemize}
+  \item Free (gasless) to create proposals and vote on them
+  \item Votes are signed messages easily verifiable online
+  \item Multiple voting systems - Single choice, Approval voting, Quadratic voting, and more
+  \item Flexible voting strategies to calculate voting results - vote with ERC20s, NFTs, other contracts, and more
+  \item Fully open-source with MIT license
+\end{itemize}
+
+\subsubsection{Covalent}
+Covalent\cite{covalent} is a multi-chain unified application programming interface that brings visibility to billions of data points for multiple blockchains. As an indexing querying solution for blockchains, the platform offers a diverse range of actionable insights that enable developers to optimize the allocation of resources, bringing greater utility to decentralized applications using a single, unified API.
+
+Covalent collates millions of data points from different organizations. Rather than searching for data from multiple locations on multiple blockchains, the network provides a one-stop-shop for high-quality multi-chain data.  
+
+This is made possible by aggregating various data feeds from nodes on different blockchains. The Covalent API then facilitates the distribution of customized data feeds to suit the individual needs of users. This data can be broad or specific, depending on the application. For example, the API can provide both the historical and current performance of digital assets. This could be for a small handful of assets or to analyze the entire crypto market. Plus, when data is requested, it is returned quickly in a uniform, consistent manner. Regardless of how many blockchains are queried, all relevant data is presented in a single API. \\
 
 \chapter{Solution}
 \toComplete
@@ -396,6 +464,8 @@ For the solution of this problem, the following requirements were mandatory:
     \acro{PoS}{Proof-of-Stake}
     \acro{VR}{Virtual Reality}
     \acro{AR}{Augmented Reality}
+    \acro{IPFS}{InterPlanetary File System}
+    \acro{DHT}{Distributed Hash Table}
 \end{acronym}
 
 %
