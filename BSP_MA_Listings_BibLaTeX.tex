@@ -333,20 +333,18 @@ As already mentioned in section \ref{dcl}, Decentraland is open source and commu
 
 So far there was no tool or solution that could publicly provide information to everyone about the state of the DAO treasury and the different assets of the community. Of course the information was and still is available since the blockchain is public, but not everyone has the time or knowledge to collect such data and analyze it.
 
-Therefore, in summary, there was a need to develop a tool that would provide information publicly on the state of the DAO's treasury and the different assets of the community to enable informed decision making.
+Therefore, in summary, there was a need to develop a tool that would provide information publicly on the state of the DAO's treasury and the different assets of the community to enable informed decision making. \\
 
-\section{Requirements}
-For the solution of this problem, the following requirements were mandatory:
-\begin{enumerate}
-  \item It must be possible to visualize the general state of the DAO's treasury and the different assets of the community.
-  \item It must be possible to visualize metrics to be able to make decisions.
-  \item Data collection must be from public sources.
-  \item The data collection scripts must be open source.
-  \item Both the information collected and the metrics performed must be accessible to anyone.
-\end{enumerate}
+To begin designing the solution, three main sources were considered: \\
+
+First, the Decentraland community. It is necessary to understand the current needs to be able to propose a solution to the problem, that is why it was taken as main input the requests of the users through conversations and interviews. \\
+
+The next was the team that maintains the DAO platform, known as DAO Squad. From them were obtained the technical requirements needed to carry out the design of the tool and the implementation path. \\
+
+Lastly, the Data team from the Decentraland foundation. Once all the information was obtained, it is necessary to make sense of it through charts and analytics, which is why the support of this team was provided to represent all the valuable information in the best possible way.
 
 \section{Methods}
-The goal of this project is about collecting and processing Decentraland's public data and making it available to stakeholders in a consumable format. The scope includes:
+After reviewing the community's requests, it was determined that the goal of this project must be about collecting and processing Decentraland's public data and making it available to stakeholders in a consumable format. The scope includes:
 
 \begin{itemize}
   \item \textbf{Accounting:} Tracking different streams such as
@@ -371,6 +369,16 @@ The goal of this project is about collecting and processing Decentraland's publi
   \end{itemize}
 \end{itemize}
 
+\subsection{Requirements}
+For the solution of this problem, the following requirements were mandatory:
+\begin{enumerate}
+  \item It must be possible to visualize the general state of the DAO's treasury and the different assets of the community.
+  \item It must be possible to visualize metrics to be able to make decisions.
+  \item Data collection must be from public sources.
+  \item The data collection scripts must be open source.
+  \item Both the information collected and the metrics performed must be accessible to anyone.
+\end{enumerate}
+
 \subsection{Data collection sources}
 \subsubsection{IPFS}
 The \ac{IPFS} \cite{ipfs} is a protocol, hypermedia and file sharing peer-to-peer network for storing and sharing data in a distributed file system. IPFS uses content-addressing to uniquely identify each file in a global namespace connecting IPFS hosts. It can among others replace the location based hypermedia server protocols http and https to distribute the World Wide Web.
@@ -381,7 +389,7 @@ In contrast to BitTorrent, IPFS aims to create a single global network. This mea
 
 \subsubsection{Infura}
 Infura\cite{infura} is a blockchain development suite that provides application programming interfaces (APIs) and developer tools. It provides fast and reliable access to the Ethereum network to enable developers to build software and Web3 applications that scale to meet user demand.
-As an Infrastructure-as-a-Service (Iaas) and Web3 backend infrastructure provider, it offers documentation and resources to help developers build decentralized applications (dApps) quickly. This is achieved by reducing the time spent building infrastructure from scratch. Infura offers enterprise-ready infrastructure using a distributed cloud-hosted network of nodes. This removes much of the friction associated with the development and ownership of proprietary computing and storage facilities. 
+As an Infrastructure-as-a-Service (IaaS) and Web3 backend infrastructure provider, it offers documentation and resources to help developers build decentralized applications (dApps) quickly. This is achieved by reducing the time spent building infrastructure from scratch. Infura offers enterprise-ready infrastructure using a distributed cloud-hosted network of nodes. This removes much of the friction associated with the development and ownership of proprietary computing and storage facilities. 
 
 The Infura Ethereum API provides developers with easy-to-access Ethereum-based infrastructure to build decentralized applications. Using it, builders can connect applications in just a few seconds using a single line of code. This makes it simple to take advantage of fast, highly available Ethereum infrastructure. 
 
@@ -408,7 +416,7 @@ Its key features are: \\
 \subsubsection{Covalent}
 Covalent\cite{covalent} is a multi-chain unified application programming interface that brings visibility to billions of data points for multiple blockchains. As an indexing querying solution for blockchains, the platform offers a diverse range of actionable insights that enable developers to optimize the allocation of resources, bringing greater utility to decentralized applications using a single, unified API.
 
-Covalent collates millions of data points from different organizations. Rather than searching for data from multiple locations on multiple blockchains, the network provides a one-stop-shop for high-quality multi-chain data.  
+Covalent collates millions of data points from different organizations. Rather than searching for data from multiple locations on multiple blockchains, the network provides a one-stop-shop for high-quality multi-chain data.
 
 This is made possible by aggregating various data feeds from nodes on different blockchains. The Covalent API then facilitates the distribution of customized data feeds to suit the individual needs of users. This data can be broad or specific, depending on the application. For example, the API can provide both the historical and current performance of digital assets. This could be for a small handful of assets or to analyze the entire crypto market. Plus, when data is requested, it is returned quickly in a uniform, consistent manner. Regardless of how many blockchains are queried, all relevant data is presented in a single API. \\
 
