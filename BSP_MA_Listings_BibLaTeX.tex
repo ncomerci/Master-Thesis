@@ -343,7 +343,7 @@ The next was the team that maintains the DAO platform, known as DAO Squad. From 
 
 Lastly, the Data team from the Decentraland foundation. Once all the information was obtained, it is necessary to make sense of it through charts and analytics, which is why the support of this team was provided to represent all the valuable information in the best possible way.
 
-\section{Methods}
+\section{Methods\label{methods}}
 After reviewing the community's requests, it was determined that the goal of this project must be about collecting and processing Decentraland's public data and making it available to stakeholders in a consumable format. The scope includes:
 
 \begin{itemize}
@@ -418,10 +418,16 @@ Covalent\cite{covalent} is a multi-chain unified application programming interfa
 
 Covalent collates millions of data points from different organizations. Rather than searching for data from multiple locations on multiple blockchains, the network provides a one-stop-shop for high-quality multi-chain data.
 
-This is made possible by aggregating various data feeds from nodes on different blockchains. The Covalent API then facilitates the distribution of customized data feeds to suit the individual needs of users. This data can be broad or specific, depending on the application. For example, the API can provide both the historical and current performance of digital assets. This could be for a small handful of assets or to analyze the entire crypto market. Plus, when data is requested, it is returned quickly in a uniform, consistent manner. Regardless of how many blockchains are queried, all relevant data is presented in a single API. \\
+This is made possible by aggregating various data feeds from nodes on different blockchains. The Covalent API then facilitates the distribution of customized data feeds to suit the individual needs of users. This data can be broad or specific, depending on the application. For example, the API can provide both the historical and current performance of digital assets. This could be for a small handful of assets or to analyze the entire crypto market. Plus, when data is requested, it is returned quickly in a uniform, consistent manner. Regardless of how many blockchains are queried, all relevant data is presented in a single API.
 
 \chapter{Solution}
-\toComplete
+For the implementation of such tool that meets the requirements mentioned in section \ref{methods} it was decided, first of all, to create a public repository\footnote{\url{https://github.com/Decentraland-DAO/transparency}} within the Decentraland DAO organization where the code of the scripts with their respective version history will be stored. In this way, the tool is auditable by anyone who is willing to do so.
+
+Since data must be collected every day and different sources must be consumed, Node.js was chosen for the backend of the project as it is easily configurable to run periodically in a GitHub Action\footnote{\url{https://github.com/actions/setup-node}}. As for the programming language chosen, Typescript was used due to the versatility it offers and, naturally, for the typing - since it is very useful when working with data. The collected information is available in two widely used formats: \textbf{CSV} \& \textbf{JSON}. The first one is very useful for data analysis and the second one to be consumed by other applications.
+
+Finally, Google Data Studio\footnote{\url{https://datastudio.google.com/u/0/reporting/fca13118-c18d-4e68-9582-ad46d2dd5ce9/page/p_nlc90z86rc}} is used to visualize the metrics, which uses as input the information from the CSVs collected with the scripts (previously uploaded to a Google spreadsheet). This allows the community to have a simple way to visualize metrics that can be easily shared with other people.
+
+\subsection{From data to metrics}
 
 \chapter{Discussion}
 \toComplete
