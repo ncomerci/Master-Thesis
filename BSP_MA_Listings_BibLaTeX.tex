@@ -380,12 +380,9 @@ For the solution of this problem, the following requirements were mandatory:
 \end{enumerate}
 
 \subsection{Data collection sources}
-\subsubsection{IPFS}
-The \ac{IPFS} \cite{ipfs} is a protocol, hypermedia and file sharing peer-to-peer network for storing and sharing data in a distributed file system. IPFS uses content-addressing to uniquely identify each file in a global namespace connecting IPFS hosts. It can among others replace the location based hypermedia server protocols http and https to distribute the World Wide Web.
+\subsubsection{Decentraland's Catalyst Nodes}
+A Catalyst\cite{catalyst} is a Server that bundles different Services required by the Decentraland World. Some of the main responsibilities of the server are the management of the decentralized storage for most of the content needed by the client and the orchestration of communications between peers. Each Catalyst node exposes a set of services that work as the backbone for the platform and also exposes a public API.
 
-IPFS allows users to host and receive content in a manner similar to BitTorrent. As opposed to a centrally located server, IPFS is built around a decentralized system of user-operators who hold a portion of the overall data, creating a resilient system of file storage and sharing. Any user in the network can serve a file by its content address, and other peers in the network can find and request that content from any node who has it using a \ac{DHT}.
-
-In contrast to BitTorrent, IPFS aims to create a single global network. This means that if two users publish a block of data with the same hash, the peers downloading the content from "user 1" will also exchange data with the ones downloading it from "user 2". IPFS aims to replace protocols used for static webpage delivery by using gateways which are accessible with HTTP. Users may choose not to install an IPFS client on their device and instead use a public gateway.
 
 \subsubsection{Infura}
 Infura\cite{infura} is a blockchain development suite that provides application programming interfaces (APIs) and developer tools. It provides fast and reliable access to the Ethereum network to enable developers to build software and Web3 applications that scale to meet user demand.
@@ -399,6 +396,13 @@ The Infura Ethereum API provides developers with easy-to-access Ethereum-based i
   \caption{Diagram of information flow through Infura \cite{infura}}
   \label{fig:infura}
 \end{figure}
+
+\subsubsection{The Graph}
+The Graph\cite{thegraph} is a decentralized protocol for indexing and querying data from blockchains, starting with Ethereum. It makes it possible to query data that is difficult to query directly.
+
+To get this data, every single transfer event issued would have to be processed, read the IPFS\footnote{\url{https://docs.ipfs.tech/concepts/what-is-ipfs/}} metadata using the token ID and IPFS hash, and then aggregated. Even for such relatively simple queries, a \ac{Dapp} running in a browser would take hours or even days to get an answer.
+
+The Graph solves this with a decentralized protocol that indexes and enables the performant and efficient querying of blockchain data. These APIs (indexed "subgraphs") can then be queried with a standard GraphQL API. Today, there is a hosted service as well as a decentralized protocol with the same capabilities. Both are backed by the open source implementation of Graph Node.
 
 \subsubsection{Snapshot}
 Snapshot\cite{snapshot} is a decentralized voting system. It provides flexibility on how voting power is calculated for a vote. It supports various voting types to cater to the needs of organizations. Creating proposals and voting on Snapshot is user-friendly and does not cost gas as the process is performed off-chain.
@@ -427,7 +431,19 @@ Since data must be collected every day and different sources must be consumed, N
 
 Finally, Google Data Studio\footnote{\url{https://datastudio.google.com/u/0/reporting/fca13118-c18d-4e68-9582-ad46d2dd5ce9/page/p_nlc90z86rc}} is used to visualize the metrics, which uses as input the information from the CSVs collected with the scripts (previously uploaded to a Google spreadsheet). This allows the community to have a simple way to visualize metrics that can be easily shared with other people.
 
-\subsection{From data to metrics}
+\section{From data to metrics}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{diagrama.png}
+  \caption{Data collection diagram}
+  \label{fig:diagram}
+\end{figure}
+
+It all starts with the services that index blockchain information such as Infura, Covalent or The Graph and those that add custom information such as Snapshot, Decentraland's catalyst nodes or even the platform's governance Dapp.
+
+In order to collect the data, certain scripts were developed and will be explained below. To check the code of these scripts and their historical changes, it can be done from the GitHub repository\footnote{\url{https://github.com/Decentraland-DAO/transparency}} and the link can be found at the bottom of this page.
+
+\subsection{Data collection scripts}
 
 \chapter{Discussion}
 \toComplete
@@ -478,8 +494,6 @@ Finally, Google Data Studio\footnote{\url{https://datastudio.google.com/u/0/repo
     \acro{PoS}{Proof-of-Stake}
     \acro{VR}{Virtual Reality}
     \acro{AR}{Augmented Reality}
-    \acro{IPFS}{InterPlanetary File System}
-    \acro{DHT}{Distributed Hash Table}
 \end{acronym}
 
 %
