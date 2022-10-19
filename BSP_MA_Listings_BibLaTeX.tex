@@ -265,6 +265,35 @@ But only between 400,000 and 600,000 addresses are currently active, meaning bet
   \label{fig:activeAddr}
 \end{figure}
 
+\section{Layer 2 solutions\label{layer2}}
+\ac{L2}\cite{l2} is a collective term to describe a specific set of Ethereum scaling solutions. \textbf{A layer 2 is a separate blockchain that extends Ethereum and inherits the security guarantees of Ethereum.}
+
+\subsection{What is a layer 1?}
+Layer 1 is the base blockchain. Ethereum and Bitcoin are both layer 1 blockchains because they are the \textbf{underlying foundation that various layer 2 networks build on top of.} Examples of layer 2 projects include "rollups" on Ethereum and the Lightning Network on top of Bitcoin. All user transaction activity on these \ac{L2} projects can ultimately settle back to the layer 1 blockchain.
+
+Ethereum also functions as a data availability layer for layer 2s. \ac{L2} projects will post their transaction data onto Ethereum, relying on it for data availability. This data can be used to get the state of the layer 2, or to dispute transactions on them. \\
+
+Ethereum as the layer 1 includes:
+
+\begin{itemize}
+  \item A network of node operators to secure and validate the network
+  \item A network of block producers
+  \item The blockchain itself and the history of transaction data
+  \item The consensus mechanism for the network
+\end{itemize}
+
+\subsection{Why is a layer 2 needed?}
+Three desirable properties of a blockchain are that it is \textbf{decentralized, secure, and scalable}. The blockchain trilemma states that a simple blockchain architecture can only achieve two out of three. Want a secure and decentralized blockchain? scalability needs to be sacrificed.
+
+Ethereum has reached the network's current capacity with 1+ million transactions per day and high demand for each of these transactions. The success of Ethereum and the demand to use it has caused gas prices to rise substantially. Therefore the need for scaling solutions has increased in demand as well. This is where layer 2 networks come in. \\
+
+The benefits of layer 2 are:
+\begin{itemize}
+  \item \textbf{Lower fees:} By combining multiple off-chain transactions into a single layer 1 transaction, transaction fees are massively reduced, making Ethereum more accessible for all
+  \item \textbf{Maintain security:} Layer 2 blockchains settle their transactions on Ethereum Mainnet, allowing users to benefit from the security of the Ethereum network
+  \item \textbf{Expand use cases:} With higher transactions per second, lower fees, and new technology, projects will expand into new applications with improved user experience
+\end{itemize}
+
 \section{\NoCaseChange{\acl{DAO}} (DAO)}
 A DAO is a collectively-owned, blockchain-governed organization working towards a shared mission.
 
@@ -444,6 +473,27 @@ It all starts with the services that index blockchain information such as Infura
 In order to collect the data, certain scripts were developed and will be explained below. To check the code of these scripts and their historical changes, it can be done from the GitHub repository\footnote{\url{https://github.com/Decentraland-DAO/transparency}} and the link can be found at the bottom of this page.
 
 \subsection{Data collection scripts}
+\subsubsection{Balances}
+The first script is very simple and it's responsible for collecting the balances of the DAO's treasury. This is done by making a Covalent API call using the DAO's wallet addresses. The result is a JSON and CSV file with the amount of the different tokens with the values also expressed in US Dollars. \\
+
+The fields included are:
+\begin{itemize}
+  \item \textbf{Timestamp}: The date on which the balance query was made
+  \item \textbf{Wallet}: The name of the wallet
+  \item \textbf{Balance}: The amount of tokens in the wallet
+  \item \textbf{Symbol}: The symbol of the token
+  \item \textbf{USD Balance}: The value of tokens expressed in US Dollars
+  \item \textbf{USD Rate}: The current exchange rate of the token
+  \item \textbf{Network}: The network on which such wallet is located (either Ethereum or Polygon)
+  \item \textbf{Address}: The wallet's address
+  \item \textbf{Token}: The smart contract's address of the token
+  
+\end{itemize}
+
+\subsubsection{Collections}
+The second script is also very simple and it's responsible for collecting the data about all wearable collections that are currently available in Decentraland. This is done by making a GraphQL\footnote{\url{https://graphql.org/}} query to the corresponding subgraph of The Graph. The result is a JSON and CSV file with the information about these collections. \\
+
+The fields included are:
 
 \chapter{Discussion}
 \toComplete
@@ -494,6 +544,7 @@ In order to collect the data, certain scripts were developed and will be explain
     \acro{PoS}{Proof-of-Stake}
     \acro{VR}{Virtual Reality}
     \acro{AR}{Augmented Reality}
+    \acro{L2}{Layer 2}
 \end{acronym}
 
 %
