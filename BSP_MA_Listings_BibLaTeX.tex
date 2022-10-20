@@ -584,6 +584,39 @@ The fields included are:
   \item \textbf{Pending Updates}: [Number] The amount of pending updates by the grant beneficiary
 \end{itemize}
 
+\subsubsection{Members}
+This script is responsible for collecting data from all members of the DAO who have voted on a proposal at least once. This is done by making a GraphQL query to the corresponding snapshot subgraph. The result is a JSON and CSV file with the information about all the members. \\
+
+The fields included are:
+\begin{itemize}
+  \item \textbf{Member}: [String] The address of the member
+  \item \textbf{Total VP}: [Number] The total amount of voting power of the member
+  \item \textbf{MANA VP}: [Number] The total amount of MANA voting power of the member
+  \item \textbf{LAND VP}: [Number] The total amount of LAND voting power of the member
+  \item \textbf{NAMES VP}: [Number] The total amount of NAMES voting power of the member
+  \item \textbf{Delegated VP}: [Number] The total amount of delegated voting power of the member
+  \item \textbf{Has Delegated}: [Boolean] Whether the member has delegated their voting power or not
+  \item \textbf{Delegate}: [String] The address of the delegate of the member (if applicable)
+  \item \textbf{Has Delegators}: [Boolean] Whether the member has delegators or not
+  \item \textbf{Delegators Amount}: [Number] The amount of delegators of the member
+  \item \textbf{Delegators}: [String] The addresses of the delegators of the member (if applicable)
+  \item \textbf{Avatar Preview}: [String] The preview url of the avatar of the member
+\end{itemize}
+
+\subsubsection{Transactions}
+This script is the most complex of all because of the logic involved in identifying each transaction with a human-readable tag. As for the transaction data, it is collected through calls to the Covalent API.
+
+The strategy used to group transactions with tags basically consists of identifying the receiver or sender address depending on whether it is an OUT or IN transaction of the DAO wallets.
+
+It is interesting to note how these addresses were identified since, on their own, it is not possible to do so. Firstly, they were ranked by the number of times they appeared in different transactions (depending on whether they were IN or OUT), thus making it possible to recognize a frequency pattern. For the most frequent ones, their information was manually checked in Etherscan\footnote{\url{https://etherscan.io/}} or Polygonscan\footnote{\url{https://polygonscan.com/}} (depending on which network the DAO wallet belongs to). In all cases they were smart contract addresses that belonged to marketplaces such as OpenSea\footnote{\url{https://opensea.io/}} or Decentraland's own\footnote{\url{https://market.decentraland.org/}}, which were responsible for paying the DAO the corresponding fee for the sale of, for example, wearables or LAND.
+
+In this way, most of the transactions were identified, but many more remained. The next step was to use the output files from the grants and curations scripts to identify grant fundings and payments to curators.
+
+Finally, by reviewing transactions with large amounts of money and without a tag so far, it was possible to identify the addresses of \ac{DEXs} smart contracts for swapping tokens.
+
+To date there are about 140,570 transactions between all DAO wallets and, discounting internal transfers between wallets, only 67 transactions remained untagged. In other words, more than 99.95\% of the transactions could be classified into categories.
+
+
 \chapter{Discussion}
 \toComplete
 
@@ -634,6 +667,7 @@ The fields included are:
     \acro{VR}{Virtual Reality}
     \acro{AR}{Augmented Reality}
     \acro{L2}{Layer 2}
+    \acro{DEXs}{Decentralized Exchanges}
 \end{acronym}
 
 %
