@@ -478,22 +478,111 @@ The first script is very simple and it's responsible for collecting the balances
 
 The fields included are:
 \begin{itemize}
-  \item \textbf{Timestamp}: The date on which the balance query was made
-  \item \textbf{Wallet}: The name of the wallet
-  \item \textbf{Balance}: The amount of tokens in the wallet
-  \item \textbf{Symbol}: The symbol of the token
-  \item \textbf{USD Balance}: The value of tokens expressed in US Dollars
-  \item \textbf{USD Rate}: The current exchange rate of the token
-  \item \textbf{Network}: The network on which such wallet is located (either Ethereum or Polygon)
-  \item \textbf{Address}: The wallet's address
-  \item \textbf{Token}: The smart contract's address of the token
-  
+  \item \textbf{Timestamp}: [ISODate] The date on which the balance query was made
+  \item \textbf{Wallet}: [String] The name of the wallet
+  \item \textbf{Balance}: [Number] The amount of tokens in the wallet
+  \item \textbf{Symbol}: [String] The symbol of the token
+  \item \textbf{USD Balance}: [Number] The value of tokens expressed in US Dollars
+  \item \textbf{USD Rate}: [Number] The current exchange rate of the token
+  \item \textbf{Network}: [String] The network on which such wallet is located (either Ethereum or Polygon)
+  \item \textbf{Address}: [String] The wallet's address
+  \item \textbf{Token}: [String] The smart contract's address of the token
 \end{itemize}
 
 \subsubsection{Collections}
 The second script is also very simple and it's responsible for collecting the data about all wearable collections that are currently available in Decentraland. This is done by making a GraphQL\footnote{\url{https://graphql.org/}} query to the corresponding subgraph of The Graph. The result is a JSON and CSV file with the information about these collections. \\
 
 The fields included are:
+\begin{itemize}
+  \item \textbf{Collection ID}: [String] The unique identifier of the collection
+  \item \textbf{Name}: [String] The name of the collection
+  \item \textbf{Symbol}: [String] The symbol of the collection
+  \item \textbf{Items}: [Number] The amount of items in the collection
+  \item \textbf{Completed}: [Boolean] Whether the collection is completed or not
+  \item \textbf{Approved}: [Boolean] Whether the collection is approved or not
+  \item \textbf{Editable}: [Boolean] Whether the collection is editable or not
+  \item \textbf{Created}: [ISODate] The date on which the collection was created
+  \item \textbf{Updated}: [ISODate] The date on which the collection was last updated
+  \item \textbf{Reviewed At}: [ISODate] The date on which the collection was last reviewed
+  \item \textbf{Creator}: [String] The address of the creator of the collection
+\end{itemize}
+
+\subsubsection{Curations}
+This script is responsible for collecting data from all wearable curations made by the curation team. This is done by making a GraphQL query to the corresponding subgraph of The Graph. The result is a JSON and CSV file with the information about these curations. \\
+
+The fields included are:
+\begin{itemize}
+  \item \textbf{Date}: [ISODate] The date on which the curation was made
+  \item \textbf{Tx Hash}: [String] The transaction hash of the curation
+  \item \textbf{Curator}: [String] The address of the curator
+  \item \textbf{Collection ID}: [String] The unique identifier of the collection curated
+  \item \textbf{Collection Name}: [String] The name of the collection curated
+  \item \textbf{Collection Items}: [Number] The amount of items in the curated collection
+  \item \textbf{Collection Approved}: [Boolean] Whether the curated collection was approved or not
+\end{itemize}
+
+
+\subsubsection{Proposals\label{proposals-script}}
+This script is responsible for collecting data from all proposals made by the community in the DAO governance platform. This is done by combining a GraphQL query to the corresponding snapshot subgraph and an API call to the DAO platform. The result is a JSON and CSV file with the information about all the proposals. \\
+
+The fields included are:
+\begin{itemize}
+  \item \textbf{Proposal ID}: [String] The unique identifier of the proposal of the DAO platform
+  \item \textbf{Snapshot ID}: [String] The unique identifier of the proposal of the snapshot platform
+  \item \textbf{Author}: [String] The address of the author of the proposal
+  \item \textbf{Type}: [String] The type of the proposal (Catalyst, Grant, POI, Name Ban, Linked Wearable or Governance)
+  \item \textbf{Title}: [String] The title of the proposal
+  \item \textbf{Started}: [ISODate] The date on which the proposal was started
+  \item \textbf{Ended}: [ISODate] The date on which the proposal ended
+  \item \textbf{Threshold}: [Number] The threshold of the proposal to be approved
+  \item \textbf{Status}: [String] The status of the proposal (Active, Enacted, Finished, Passed, Rejected)
+  \item \textbf{Forum Topic}: [String] The forum topic of the proposal
+  \item \textbf{Total VP}: [Number] The total amount of voting power in votes of the proposal
+  \item \textbf{MANA VP}: [Number] The total amount of MANA voting power in votes of the proposal
+  \item \textbf{LAND VP}: [Number] The total amount of LAND voting power in votes of the proposal
+  \item \textbf{NAMES VP}: [Number] The total amount of NAMES voting power in votes of the proposal
+  \item \textbf{DELEGATED VP}: [Number] The total amount of delegated voting power in votes of the proposal
+  \item \textbf{Votes}: [Number] The total amount of votes of the proposal
+\end{itemize}
+
+\subsubsection{Grants}
+This script is responsible for collecting data from all grants made by the DAO. This is done by combining multiple sources such as: the JSON file resulting from the proposals script (\ref{proposals-script}), the Infura API to obtain information about vesting contracts, the Covalent API to obtain information about one-time-payment grant transactions, and the DAO platform to obtain information about updates made by grant beneficiaries. The result is a JSON and CSV file with the information about all the grants. \\
+
+The fields included are:
+\begin{itemize}
+  \item \textbf{Proposal ID}: [String] The unique identifier of the proposal of the DAO platform
+  \item \textbf{Snapshot ID}: [String] The unique identifier of the proposal of the snapshot platform
+  \item \textbf{Author}: [String] The address of the author of the proposal
+  \item \textbf{Title}: [String] The title of the proposal
+  \item \textbf{Status}: [String] The status of the grant (Active, Rejected, Passed or Enacted)
+  \item \textbf{Started}: [ISODate] The date on which the grant was started
+  \item \textbf{Ended}: [ISODate] The date on which the grant ended
+  \item \textbf{Threshold}: [Number] The threshold of the grant to be approved
+  \item \textbf{Total VP}: [Number] The total amount of voting power in votes of the grant
+  \item \textbf{Category}: [String] The category of the grant (Gaming, Content Creator, Platform Contributor or Community)
+  \item \textbf{Tier}: [String] The tier of the grant (Tier 1 to Tier 6)
+  \item \textbf{Amount USD}: [Number] The amount of the grant expressed in USD Dollars
+  \item \textbf{Beneficiary}: [String] The address of the beneficiary of the grant
+  \item \textbf{Token}: [String] The token used in the grant
+  \item \textbf{Vesting Contract}: [String] The address of the vesting contract (if applicable)
+  \item \textbf{Vesting Released Amount}: [Number] The total amount that has been released from the vesting contract (if applicable)
+  \item \textbf{Vesting Releasable Amount}: [Number] The total amount that can be released from the vesting contract (if applicable)
+  \item \textbf{Vesting Contract Token Balance}: [Number] The total balance of the token in the vesting contract (if applicable)
+  \item \textbf{Vesting Total Amount}: [Number] The total amount of the vesting contract (if applicable)
+  \item \textbf{Vesting Start At}: [ISODate] The date on which the vesting starts (if applicable)
+  \item \textbf{Vesting Finish At}: [ISODate] The date on which the vesting finishes (if applicable)
+  \item \textbf{Enacting Transaction}: [String] The hash of when a one-time-payment grant was paid (if applicable)
+  \item \textbf{Transaction Date}: [ISODate] The date on which a one-time-payment grant was paid (if applicable)
+  \item \textbf{Transaction Amount}: [Number] The amount in the transaction that was paid in the one-time-payment grant (if applicable)
+  \item \textbf{Done Updates}: [Number] The amount of done updates made by the grant beneficiary
+  \item \textbf{Late Updates}: [Number] The amount of late updates made by the grant beneficiary
+  \item \textbf{Missed Updates}: [Number] The amount of missed updates by the grant beneficiary
+  \item \textbf{Update Status}: [String] The status of the current update of the grant beneficiary
+  \item \textbf{Project Health}: [String] The health status of the project that is beeing supported by the grant
+  \item \textbf{Last Update}: [ISODate] The date on which the last update by the grant beneficiary was made
+  \item \textbf{Next Update}: [ISODate] The date on which the next update by the grant beneficiary will have to be made
+  \item \textbf{Pending Updates}: [Number] The amount of pending updates by the grant beneficiary
+\end{itemize}
 
 \chapter{Discussion}
 \toComplete
