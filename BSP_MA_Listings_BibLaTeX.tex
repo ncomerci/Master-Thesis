@@ -435,9 +435,9 @@ The Graph solves this with a decentralized protocol that indexes and enables the
 
 \subsubsection{Snapshot}
 Snapshot\cite{snapshot} is a decentralized voting system. It provides flexibility on how voting power is calculated for a vote. It supports various voting types to cater to the needs of organizations. Creating proposals and voting on Snapshot is user-friendly and does not cost gas as the process is performed off-chain.
-In short, Snapshot is an off-chain gasless multi-governance client with easy to verify and hard to contest results.
+In short, Snapshot is an off-chain gasless multi-governance client with easy to verify and hard to contest results.  \\
 
-Its key features are: \\
+Its key features are:
 \begin{itemize}
   \item Free (gasless) to create proposals and vote on them
   \item Votes are signed messages easily verifiable online
@@ -614,7 +614,83 @@ In this way, most of the transactions were identified, but many more remained. T
 
 Finally, by reviewing transactions with large amounts of money and without a tag so far, it was possible to identify the addresses of \ac{DEXs} smart contracts for swapping tokens.
 
-To date there are about 140,570 transactions between all DAO wallets and, discounting internal transfers between wallets, only 67 transactions remained untagged. In other words, more than 99.95\% of the transactions could be classified into categories.
+To date there are about 140,570 transactions between all DAO wallets and, discounting internal transfers between them, only 67 transactions remained untagged. In other words, about 99.95\% of the transactions could be classified into categories. \\
+
+The result of this script is a JSON and CSV file with the information about all the transactions. The fields included are:
+\begin{itemize}
+  \item \textbf{Date}: [ISODate] The date on which the transaction was made
+  \item \textbf{Wallet}: [String] The DAO wallet involved in the transaction
+  \item \textbf{Network}: [String] The network in which the transaction was made
+  \item \textbf{Type}: [String] The type of transaction (IN, OUT or INTERNAL)
+  \item \textbf{Tag}: [String] The tag of the transaction
+  \item \textbf{Amount}: [Number] The token amount of the transaction
+  \item \textbf{Token}: [String] The token of the transaction
+  \item \textbf{USD Amount}: [Number] The value of the transaction expressed in USD Dollars
+  \item \textbf{USD Fee}: [Number] The fee of the transaction expressed in USD Dollars
+  \item \textbf{Sender}: [String] The sender address of the transaction
+  \item \textbf{Transfer To}: [String] The receiver address of the transaction
+  \item \textbf{Block}: [Number] The block number of the transaction
+  \item \textbf{Hash}: [String] The hash of the transaction
+  \item \textbf{Contract}: [String] The token contract address used in the transaction
+\end{itemize}
+
+\subsubsection{Votes}
+This script is responsible for collecting data from all votes made by members of the DAO. This is done by making a GraphQL query to the corresponding snapshot subgraph. The result is a JSON and CSV file with the information about all the votes. \\
+
+The fields included are:
+\begin{itemize}
+  \item \textbf{Member}: [String] The address of the member
+  \item \textbf{Proposal ID}: [Number] The ID of the proposal
+  \item \textbf{Created}: [ISODate] The date on which the vote was made
+  \item \textbf{Proposal Title}: [String] The title of the proposal
+  \item \textbf{Choice \#}: [Number] The choice number of the vote
+  \item \textbf{Choice}: [String] The choice of the vote
+  \item \textbf{Vote Weight}: [Number] The ratio between the voting power of the vote and the total VP received by the proposal. It is calculated as $(VOTE\_VP / TOTAL\_PROPOSAL\_VP) * 100$
+  \item \textbf{Total VP}: [Number] User's total amount of voting power at the time of the vote
+  \item \textbf{MANA VP}: [Number] User's total amount of MANA voting power at the time of the vote
+  \item \textbf{Names VP}: [Number] User's total amount of NAMES voting power at the time of the vote
+  \item \textbf{LAND VP}: [Number] User's total amount of LAND voting power at the time of the vote
+  \item \textbf{Delegated VP}: [Number] User's total amount of delegated voting power at the time of the vote
+\end{itemize}
+
+\subsubsection{Wearables}
+This script is responsible for collecting data from all circulating wearables in Decentraland. This is done by making a GraphQL query to the corresponding subgraph of The Graph. The result is a JSON and CSV file with the information about all the wearables. \\
+
+The fields included are:
+\begin{itemize}
+  \item \textbf{Item ID}: [String] The ID of the wearable
+  \item \textbf{Name}: [String] The name of the wearable
+  \item \textbf{Collection}: [String] The collection to which the wearable belongs
+  \item \textbf{Description}: [String] The description of the wearable
+  \item \textbf{Category}: [String] The category of the wearable
+  \item \textbf{Network}: [String] The network in which the wearable is located
+  \item \textbf{Type}: [String] The type of wearable, whether layer 1 or layer 2
+  \item \textbf{Total Supply}: [Number] The total supply of the wearable
+  \item \textbf{Max Supply}: [Number] The maximum supply of the wearable
+  \item \textbf{Rarity}: [String] The rarity of the wearable
+  \item \textbf{Creation Fee}: [Number] The creation fee of the wearable
+  \item \textbf{Created}: [ISODate] The date on which the wearable was created
+  \item \textbf{Updated}: [ISODate] The date on which the wearable was last updated
+  \item \textbf{Reviewed}: [ISODate] The date on which the wearable was reviewed
+  \item \textbf{Available}: [Number] The number of wearables available for sale
+  \item \textbf{Price}: [Number] The price of the wearable
+  \item \textbf{Sold}: [ISODate] The last date on which the wearable was sold
+  \item \textbf{Sales}: [Number] The number of times the wearable has been sold
+  \item \textbf{Volume}: [Number] The total volume of the wearable
+  \item \textbf{Creator}: [String] The address of the creator of the wearable
+  \item \textbf{Beneficiary}: [String] The address of the beneficiary of the wearable
+  \item \textbf{URI}: [String] The URI of the wearable
+  \item \textbf{URN}: [String] The URN of the wearable
+\end{itemize}
+
+\subsubsection{KPIs}
+This script uses all the output files from the previous scripts and generates a JSON file with general DAO KPIs. This is useful to give an overview of the status of the DAO.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{kpis.png}
+  \caption{Screenshot of some KPIs}
+  \label{fig:diagram}
+\end{figure}
 
 
 \chapter{Discussion}
