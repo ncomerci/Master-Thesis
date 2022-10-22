@@ -689,9 +689,54 @@ This script uses all the output files from the previous scripts and generates a 
   \centering
   \includegraphics[width=\textwidth]{kpis.png}
   \caption{Screenshot of some KPIs}
-  \label{fig:diagram}
+  \label{fig:kpis}
 \end{figure}
 
+\pagebreak
+
+Continuing with the explanation of the data flow in figure \ref{fig:diagram}, such scripts are periodically executed from a GitHub Action and the configuration file\footnote{\url{https://github.com/Decentraland-DAO/transparency/blob/main/.github/workflows/pull-data.yml}} is as follows: \\
+
+\begin{lstlisting}{Code snippet from the Github Action configuration file}
+name: Pull Data
+
+on:
+  schedule:
+    - cron: "0 10 * * *"
+  workflow_dispatch:
+    inputs:
+      choice:
+        type: choice
+        description: Select fetch type
+        options:
+        - reduced
+        - full
+        default: full
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install && npm link typescript
+
+      - name: Pull Proposals
+        env:
+          SHEET_ID: ${{ secrets.SHEET_ID }}
+          SHEET_CLIENT_EMAIL: ${{ secrets.SHEET_CLIENT_EMAIL }}
+          SHEET_PRIVATE_KEY: ${{ secrets.SHEET_PRIVATE_KEY }}
+        run: |
+          npx ts-node ./src/export-proposals.ts
+          npx ts-node ./src/upload.ts Proposals ./public/proposals.csv
+
+                    ************ Other Scripts ************
+\end{lstlisting}
+
+The resulting JSON and CSV files, on one hand are uploaded to another branch of the same github repository to make them available for being consumed and also for versioning. On the other hand, the CSV files are uploaded to a Google spreadsheet\footnote{\url{https://docs.google.com/spreadsheets/d/1FoV7TdMTVnqVOZoV4bvVdHWkeu4sMH5JEhp8L0Shjlo}} to offer the possibility to filter the information and to make it available for use in Google Data Studio.
+
+At this point, the data is used to extract metrics and plot them on the Data Studio dashboard, the DAO transparency page\footnote{\url{https://governance.decentraland.org/transparency/}} and other external applications.
 
 \chapter{Discussion}
 \toComplete
