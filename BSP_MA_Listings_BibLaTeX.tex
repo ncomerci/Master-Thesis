@@ -819,15 +819,21 @@ The visualizations of the metrics that resulted from the data collected will be 
 \end{center}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{metrics/votes_breakdown.png}
+  \includegraphics[width=\textwidth]{metrics/vp_distribution.png}
+  \caption{Circulating Voting Power distribution to date}
+  \label{fig:vp_distribution}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{metrics/votes_breakdown.png}
   \caption{Votes VP breakdown per month}
   \label{fig:votes_vp}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{metrics/vp_distribution.png}
+  \includegraphics[width=\textwidth]{metrics/vp_distribution_members.png}
   \caption{Voting Power distribution to date}
-  \label{fig:vp_distribution}
+  \label{fig:vp_distribution_members}
 \end{figure}
 \begin{figure}[H]
   \centering
@@ -871,9 +877,18 @@ The visualizations of the metrics that resulted from the data collected will be 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\textwidth]{metrics/category_distribution.png}
-  \caption{Grant categories distribution}
+  \caption{Grant categories distribution (*)}
   \label{fig:category_distribution}
 \end{figure}
+
+(*) Detail of grant categories\cite{grants}:
+\begin{itemize}
+  \item \textbf{Community}: Grants under this category may fund activity such as community education, outreach and event organization or moderation. Projects might also include creating documentation, tutorials, videos, or other forms of content intended to educate and support the community.
+  \item \textbf{Content Creator}: Grants in this category help to support artists to create scenes and models for Decentraland.
+  \item \textbf{Platform Contributor}: Grants within the Builder category should motivate and reward impactful contributions from developers and engineers in the form of new features, bug fixes, and other improvements to existing code.
+  \item \textbf{Gaming}: This category bridges the Creator and Platform Contributor categories by funding individuals and teams committed to building complete games for Decentraland.
+\end{itemize}
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\textwidth]{metrics/tier_distribution.png}
@@ -1003,13 +1018,17 @@ Total unique DAO members (to date): \textbf{3.226}
 \chapter{Conclussion}
 First of all, it can be noted that extracting data from the blockchain for analysis is still not a simple task. It requires technical knowledge and programming skills to be done, so it could be said about the first hypothesis raised in the introduction (see chapter \ref{intro}) about how simple it is for an average user to access such information is that not so much.
 
-The tools currently available to extract data are still not user-friendly enough, so an inexperienced person cannot easily access the information even if it is public.
+The tools currently available to extract data are still not user-friendly enough, so an inexperienced person cannot easily access the information even if it is public. \\
 
-Regarding the conclusions that can be drawn from the data obtained, in the first place it can be said that the DAO is still at an early stage of life, the launch date was 05/24/2021 which as of today is just over a year and a half. However, it can be seen that the DAO is growing and that the number of members and interactions is increasing, which is a good sign. For example, Figure \ref{fig:median_votes} shows how the median number of votes per proposal is increasing month by month.
+Regarding the conclusions that can be drawn from the data obtained, in the first place it can be said that the DAO is still at an early stage of life, the launch date was 05/24/2021 which as of today is just over a year and a half. However, it can be seen that it is growing and that the number of members and interactions is increasing, which is a good sign. For example, Figure \ref{fig:median_votes} shows how the median number of votes per proposal is increasing month by month.
 
-Although Figure \ref{fig:vote_weight} shows that the average voting weight in the outcome of the proposals has a decreasing trend, which gives signs of a distribution of voting power (more than 30\% is delegated as shown in Table \ref{table:VP}), Figure \ref{fig:vp_distribution} shows that 12 addresses concentrate more than 50\% of the voting power. While this is due to the young age of the DAO and does not necessarily represent a problem at the moment, it should not be overlooked and mechanisms should be implemented to prevent, for example, 51\% attacks\footnote{\url{https://www.coindesk.com/learn/what-is-a-51-attack/}}. 
+Although Figure \ref{fig:vote_weight} shows that the average voting weight in the outcome of the proposals has a decreasing trend, which gives signs of a distribution of voting power (more than 30\% is delegated as shown in Table \ref{table:VP}), Figure \ref{fig:vp_distribution_members} shows that 12 addresses concentrate more than 50\% of the voting power. While this is due to the young age of the DAO and does not necessarily represent a problem at the moment, it should not be overlooked and mechanisms should be implemented to prevent, for example, 51\% attacks\footnote{\url{https://www.coindesk.com/learn/what-is-a-51-attack/}}. 
 
-A possible solution to this problem could be to adopt the Quadratic voting model with Sybil attack resistance used by the Gitcoin platform\footnote{\url{https://docs.passport.gitcoin.co/}}, which reduces the voting impact of addresses with a large amount of VP and at the same time increases the cost of splitting such VP in different addresses.
+A possible solution to this problem could be to adopt the Quadratic voting model with Sybil attack resistance used by the Gitcoin platform\footnote{\url{https://docs.passport.gitcoin.co/}}, which reduces the voting impact of addresses with a large amount of VP and, at the same time, increases the cost of splitting such VP into different addresses. \\
+
+As for grants, the community's interest in continuing to add value to the platform is clear.  To date, 100 projects have been funded with a grand total of over US\$7 million (see Table \ref{table:grants}) - with US\$240,000 being the maximum amount allowed per grant. Figure \ref{fig:category_distribution} also shows that the distribution of categories is even.
+
+In terms of the DAO balance sheet, the dependence on MANA (the Decentraland token) is clearly seen. As of the date of this writing, 99\% of the DAO's treasury liquidity was denominated in that token (see Figure \ref{fig:token_distribution}). Analyzing also the inflows and outflows of the DAO's wallets (Figures \ref{fig:income} and \ref{fig:expenses}), it is clear that expenses exceed income and that the only way this works is by converting the MANA from the DAO's vesting contract into stablecoins to meet expenses, which directly impacts the price of MANA. It would be interesting to find mechanisms that would allow the DAO to receive more revenue to decrease the dependence on its own token and, therefore, to avoid affecting its price when selling it.
 
 \chapter{Summary}
 \toComplete
