@@ -390,7 +390,7 @@ Within the Decentraland platform, users can create, experience, and monetize the
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{dcl_map.png}
+  \includegraphics[width=.8\textwidth]{dcl_map.png}
   \caption{Top view of Decentraland's map \cite{genesisCity}}
   \label{fig:dcl_map}
 \end{figure}
@@ -415,7 +415,7 @@ The next was the team that maintains the DAO platform, known as DAO Squad. From 
 
 Lastly, the Data team from the Decentraland foundation. Once all the information was obtained, it is necessary to make sense of it through charts and analytics, which is why the support of this team was provided to represent all the valuable information in the best possible way.
 
-\section{Research questions}
+\section{Research questions\label{research}}
 The research questions that will be answered at the end of this work are: \\
 
 \textbf{1. How easy is it for an average user to access public information on the blockchain?}
@@ -688,7 +688,7 @@ The result of this script is a JSON and CSV file with the information about all 
   \item \textbf{Contract}: [String] The token contract address used in the transaction
 \end{itemize}
 
-\subsubsection{Votes}
+\subsubsection{Votes\label{subsec_votes}}
 This script is responsible for collecting data from all votes made by members of the DAO. This is done by making a GraphQL query to the corresponding snapshot subgraph. The result is a JSON and CSV file with the information about all the votes. \\
 
 The fields included are:
@@ -834,7 +834,7 @@ Figure \ref{fig:proposal_types} shows the number of proposals created according 
 Figure \ref{fig:proposal_status} shows the final result of the proposals once the voting period is over, where 66\% are rejected, 25\% are enacted and 8\% are approved.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.90\textwidth]{metrics/proposal_status.png}
+  \includegraphics[width=\textwidth]{metrics/proposal_status.png}
   \caption{Status of proposals after the voting period}
   \label{fig:proposal_status}
 \end{figure}
@@ -842,7 +842,7 @@ Figure \ref{fig:proposal_status} shows the final result of the proposals once th
 Figure \ref{fig:proposals_by_month} shows the proposals created per month by category. It can be observed, on the one hand, that there is a constant number of grant requests and points of interest and, on the other hand, that very few polls become draft and then governance proposals.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.90\textwidth]{metrics/proposals_by_month.png}
+  \includegraphics[width=\textwidth]{metrics/proposals_by_month.png}
   \caption{Number of proposals created per month by category}
   \label{fig:proposals_by_month}
 \end{figure}
@@ -890,7 +890,7 @@ Figure \ref{fig:vp_distribution} shows how the voting power of DAO members is di
 Figure \ref{fig:votes_vp} shows how voting power breaks down in total votes by month. A rise in delegate VP, a drop in MANA VP and a steady VP of LAND and names can be seen.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\textwidth]{metrics/votes_breakdown.png}
+  \includegraphics[width=\textwidth]{metrics/votes_breakdown.png}
   \caption{Votes VP breakdown per month}
   \label{fig:votes_vp}
 \end{figure}
@@ -903,10 +903,10 @@ Figure \ref{fig:vp_distribution_members} shows how voting power is distributed a
   \label{fig:vp_distribution_members}
 \end{figure}
 
-Figure \ref{fig:vote_weight} shows by month, the average weight of each vote in the final outcome of the proposals. The lower the percentage, the more distributed the voting power.
+Figure \ref{fig:vote_weight} shows by month, the average weight of votes in the final outcome of the proposals. The lower the percentage, the more distributed the voting power is. To know how the weight is calculated, see \ref{subsec_votes}.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\textwidth]{metrics/vote_weight.png}
+  \includegraphics[width=\textwidth]{metrics/vote_weight.png}
   \caption{Average vote weight in the final outcome of the proposal}
   \label{fig:vote_weight}
 \end{figure}
@@ -925,28 +925,36 @@ Figure \ref{fig:vote_weight} shows by month, the average weight of each vote in 
     \label{table:grants}
   \end{table}
 \end{center}
+
+Figure \ref{fig:grants_amount} shows the number of grants rejected and enacted per month, with an average of 36\% of grant submissions being approved.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/grants_amount.png}
   \caption{Enacted and rejected grants amount per month}
   \label{fig:grants_amount}
 \end{figure}
+
+Figure \ref{fig:funds_granted} shows the amount of funds allocated to grants per month. If the number o grants enacted per month from Figure \ref{fig:grants_amount} is considered, it gives a median of US\$79,400 per grant.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\textwidth]{metrics/funds_granted.png}
+  \includegraphics[width=\textwidth]{metrics/funds_granted.png}
   \caption{Funds granted per month}
   \label{fig:funds_granted}
 \end{figure}
+
+Figure \ref{fig:funds_recovered} shows the amount of funds that returned to the DAO from unfinished grants.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\textwidth]{metrics/funds_recovered.png}
+  \includegraphics[width=\textwidth]{metrics/funds_recovered.png}
   \caption{Grant funds recovered per month}
   \label{fig:funds_recovered}
 \end{figure}
+
+Figure \ref{fig:category_distribution} shows how the categories of grants enacted are distributed, indicating that they are evenly distributed.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\textwidth]{metrics/category_distribution.png}
-  \caption{Grant categories distribution (*)}
+  \includegraphics[width=\textwidth]{metrics/category_distribution.png}
+  \caption{Enacted grants category distribution (*)}
   \label{fig:category_distribution}
 \end{figure}
 
@@ -958,15 +966,18 @@ Figure \ref{fig:vote_weight} shows by month, the average weight of each vote in 
   \item \textbf{Gaming}: This category bridges the Creator and Platform Contributor categories by funding individuals and teams committed to building complete games for Decentraland.
 \end{itemize}
 
+Figure \ref{fig:tier_distribution} shows the distribution of grant tiers requested, with Tier 4 (between US\$5,000 and US\$60,000) being the most requested.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\textwidth]{metrics/tier_distribution.png}
+  \includegraphics[width=\textwidth]{metrics/tier_distribution.png}
   \caption{Grant tiers distribution}
   \label{fig:tier_distribution}
 \end{figure}
 (*) Tier 1: up to \$1.500 USD - Tier 2: up to \$3.000 USD - Tier 3: up to \$5.000 USD - Tier 4: up to \$60.000 USD - Tier 5: up to \$120.000 USD - Tier 6: up to \$240.000 USD
 
 \section{DAO Balances}
+
+Figure \ref{fig:dao_balance} and \ref{fig:token_distribution} shows how the tokens in the different DAO wallets are allocated, with MANA being the main one as of the date of this writing. Said token represents 99\% of the holdings.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/dao_balance.png}
@@ -979,6 +990,8 @@ Figure \ref{fig:vote_weight} shows by month, the average weight of each vote in 
   \caption{Distribution of tokens in DAO wallets to date}
   \label{fig:token_distribution}
 \end{figure}
+
+Figure \ref{fig:income} shows the DAO revenue sources by month and by category, highlighting cells based on their values.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/income.png}
@@ -986,12 +999,16 @@ Figure \ref{fig:vote_weight} shows by month, the average weight of each vote in 
   \label{fig:income}
 \end{figure}
 (*) Excluding DAO vesting contract\footnote{\url{https://vesting.decentraland.org/\#/0x7a3abf8897f31b56f09c6f69d074a393a905c1ac}}
+
+Figure \ref{fig:expenses} shows the DAO expenses by month and by category, highlighting cells based on their values.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/expenses.png}
   \caption{DAO expenses sources per month}
   \label{fig:expenses}
 \end{figure}
+
+Table \ref{table:fees} shows to date, the number of transactions made by the DAO wallets in different periods, how much was paid in total in gas fees (expressed in US dollars) and also the average of said values.
 \begin{center}
   \begin{table}[H]
     \begin{tabular}{ | m{8em} | m{10em} | m{6em} | m{15em} | }
@@ -1013,70 +1030,91 @@ Figure \ref{fig:vote_weight} shows by month, the average weight of each vote in 
 \end{center}
 
 \section{Wearable curations}
+
+Figure \ref{fig:curations} shows how many wearable curations each curator made per month. Each color represents the curator's wallet address.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\textwidth]{metrics/curations.png}
+  \includegraphics[width=\textwidth]{metrics/curations.png}
   \caption{Curations made by curators per month}
   \label{fig:curations}
 \end{figure}
+
+Figure \ref{fig:submission_fees} shows how much money the DAO received per month (expressed in U.S. dollars at the then current value) from users for wearable curations.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\textwidth]{metrics/submission_fees.png}
+  \includegraphics[width=\textwidth]{metrics/submission_fees.png}
   \caption{Wearable submission fees per month}
   \label{fig:submission_fees}
 \end{figure}
+
+Figure \ref{fig:curators_pay} shows the amount of money paid to the curators per month (expressed in U.S. dollars at the then current value) for curations performed.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/curators_pay.png}
   \caption{Curators pay per month}
   \label{fig:curators_pay}
 \end{figure}
+
+Figure \ref{fig:day_difference} shows by month, the average number of days difference between the submission of wearables for curation and the curation by the curators. The lower the number, the faster the curation happens.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/day_difference.png}
   \caption{Average day difference between collection submission and curator review}
   \label{fig:day_difference}
 \end{figure}
+
+Figure \ref{fig:rarity_distribution} shows how the rarity of wearables in circulation to date is distributed.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.95\textwidth]{metrics/rarity_distribution.png}
+  \includegraphics[width=\textwidth]{metrics/rarity_distribution.png}
   \caption{Distribution of the rarity of circulating wearables}
   \label{fig:rarity_distribution}
 \end{figure}
+
+Figure \ref{fig:sales_fees} shows the total fees received by the DAO per month for Decentraland assets transactions (wearables, LANDs and NAMES).
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.95\textwidth]{metrics/sales_fees.png}
+  \includegraphics[width=\textwidth]{metrics/sales_fees.png}
   \caption{Sales fees collected per month (including LAND and NAMES)}
   \label{fig:sales_fees}
 \end{figure}
 
 \section{DAO Members}
-Total unique DAO members (to date): \textbf{3.226}
+Total unique DAO members (to date): \textbf{3.226} \\
 
+Figure \ref{fig:active_members} shows the total number of active DAO members by month. This count is done by considering unique votes per month from the different addresses participating in the DAO.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.90\textwidth]{metrics/active_members.png}
+  \includegraphics[width=\textwidth]{metrics/active_members.png}
   \caption{Active DAO members per month}
   \label{fig:active_members}
 \end{figure}
+
+Figure \ref{fig:delegation_ratio} shows the distribution of members participating in the DAO who have or have not delegated their voting power to date.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.90\textwidth]{metrics/delegation_ratio.png}
+  \includegraphics[width=\textwidth]{metrics/delegation_ratio.png}
   \caption{Distribution of members who have or have not delegated their voting power}
   \label{fig:delegation_ratio}
 \end{figure}
+
+Figure \ref{fig:top_voters} shows the historical top 25 addresses that voted the most on DAO proposals.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/top_voters.png}
   \caption{Top 25 historical voters}
   \label{fig:top_voters}
 \end{figure}
+
+Figure \ref{fig:top_delegates} shows the top 25 to date of the addresses that received the most delegations of voting power.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/top_delegates.png}
   \caption{Top 25 delegation receivers (to date)}
   \label{fig:top_delegates}
 \end{figure}
+
+Figure \ref{fig:top_authors} shows the historical top 25 of the addresses that created the most proposals in the DAO
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/top_authors.png}
@@ -1085,7 +1123,7 @@ Total unique DAO members (to date): \textbf{3.226}
 \end{figure}
 
 \chapter{Conclussion\label{conclussion}}
-First of all, it can be noted that extracting data from the blockchain for analysis is still not a simple task. It requires technical knowledge and programming skills to be done, so it could be said about the first hypothesis raised in the introduction (see chapter \ref{intro}) about how simple it is for an average user to access such information is that not so much.
+First of all, it can be noted that extracting data from the blockchain for analysis is still not a simple task. It requires technical knowledge and programming skills to be done, so it could be said about the first hypothesis raised in the research questions section (see section \ref{research}) about how simple it is for an average user to access such information is that not so much.
 
 The tools currently available to extract data are still not user-friendly enough, so an inexperienced person cannot easily access the information even if it is public. \\
 
