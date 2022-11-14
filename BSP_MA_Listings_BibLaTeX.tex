@@ -489,7 +489,7 @@ The Graph solves this with a decentralized protocol that indexes and enables the
 
 \subsubsection{Snapshot}
 Snapshot\cite{snapshot} is a decentralized voting system. It provides flexibility on how voting power is calculated for a vote. It supports various voting types to cater to the needs of organizations. Creating proposals and voting on Snapshot is user-friendly and does not cost gas as the process is performed off-chain.
-In short, Snapshot is an off-chain gasless multi-governance client with easy to verify and hard to contest results.  \\
+In short, Snapshot is an off-chain gasless multi-governance client with easy to verify and hard to contest results. \\
 
 Its key features are:
 \begin{itemize}
@@ -1181,28 +1181,91 @@ Decentraland is a decentralized virtual reality platform, better known as a meta
 
 The Decentraland DAO is the decision-making tool for digital assets holders in Decentraland's virtual world. Through votes in the DAO, the community can issue grants and make changes to the lists of banned names, POIs, and catalyst nodes.
 
+\section{Methodology}
+\subsubsection{Problem}
+Decentraland is an open source and community driven project. Based on this, where many actors are involved in decision making, it is vital to have as much information as possible about the status of the project. Until now there was no tool or solution that could publicly provide information to everyone about the status of the DAO treasury and the different assets of the community, that is why it was essential to develop such a tool.
+
+\subsubsection{Research Questions}
+1. How easy is it for an average user to access public information on the blockchain? \\
+2. What kind of analysis and conclusions can be drawn with the data obtained from the Blockchain?
+
+\subsubsection{Data collection sources}
+\textbf{Decentraland's Catalyst Nodes:} A Catalyst is a Server that bundles different Services required by the Decentraland World. Each Catalyst node exposes a set of services that work as the backbone for the platform and also exposes a public API. \\
+
+\textbf{Infura:} Is a blockchain development suite that provides application programming interfaces and developer tools. It provides fast and reliable access to the Ethereum network to enable developers to build software and Web3 applications that scale to meet user demand. \\
+
+\textbf{The Graph:} Is a decentralized protocol for indexing and querying data from blockchains, starting with Ethereum. It makes it possible to query data that is difficult to query directly. These APIs can then be queried with a standard GraphQL API. \\
+
+\textbf{Snapshot:} Is an off-chain gasless multi-governance client with easy to verify and hard to contest results. \\
+
+\textbf{Covalent:} Is an indexing querying solution for blockchains that offers a diverse range of actionable insights, enabling developers to optimize the allocation of resources, bringing greater utility to decentralized applications using a single, unified API.
+
+\section{Solution}
+
+First, a public repository was created within the Decentraland DAO organization where the code of the scripts with their respective version history is stored. Since data must be collected every day and different sources must be consumed, Node.js was chosen for the backend of the project as it is easily configurable to run periodically in a GitHub Action. As for the programming language chosen, Typescript was used due to the versatility it offers and, naturally, for the typing - since it is very useful when working with data.
+
+Finally, Google Data Studio is used to visualize the metrics, which uses as input the information from the CSVs collected with the scripts.
+
+\subsubsection{Data collection scripts}
+
+\begin{itemize}
+  \item \textbf{Balances:} It's responsible for collecting the balances of the DAO's treasury. This is done by making a Covalent API call using the DAO's wallet addresses.
+  \item \textbf{Collections:} It's responsible for collecting the data about all wearable collections that are currently available in Decentraland. This is done by making a GraphQL query to the corresponding subgraph of The Graph.
+  \item \textbf{Curations:} It's responsible for collecting data from all wearable curations made by the curation team. This is done by making a GraphQL query to the corresponding subgraph of The Graph.
+  \item \textbf{Proposals:} It's responsible for collecting data from all proposals made by the community in the DAO governance platform. This is done by combining a GraphQL query to the corresponding snapshot subgraph and an API call to the DAO platform.
+  \item \textbf{Grants:} It's responsible for collecting data from all grants made by the DAO. This is done by combining multiple sources such as: the JSON file resulting from the proposals script, the Infura API to obtain information about vesting contracts, the Covalent API to obtain information about one-time-payment grant transactions, and the DAO platform to obtain information about updates made by grant beneficiaries.
+  \item \textbf{Members:} It's responsible for collecting data from all members of the DAO who have voted on a proposal at least once. This is done by making a GraphQL query to the corresponding snapshot subgraph.
+  \item \textbf{Transactions:} This script is the most complex of all because of the logic involved in identifying each transaction with a human-readable tag. As for the transaction data, it is collected through calls to the Covalent API.
+
+  The strategy used to group transactions with tags basically consists of identifying the receiver or sender address depending on whether it is an OUT or IN transaction of the DAO wallets.
+  
+  Firstly, they were ranked by the number of times they appeared in different transactions , thus making it possible to recognize a frequency pattern. In this way, most of the transactions were identified, but many more remained. The next step was to use the output files from the grants and curations scripts to identify grant fundings and payments to curators. Finally, by reviewing transactions with large amounts of money and without a tag so far, it was possible to identify the addresses of \ac{DEXs} smart contracts for swapping tokens.
+  
+  About 99.95\% of the transactions could be classified into categories.
+  \item \textbf{Votes:} It's responsible for collecting data from all votes made by members of the DAO. This is done by making a GraphQL query to the corresponding snapshot subgraph.
+  \item \textbf{Wearables:} It's responsible for collecting data from all circulating wearables in Decentraland. This is done by making a GraphQL query to the corresponding subgraph of The Graph.
+  \item \textbf{KPIs:} This script uses all the output files from the previous scripts and generates a JSON file with general DAO KPIs. This is useful to give an overview of the status of the DAO.
+\end{itemize}
+
+\subsubsection{Data visualization}
+Data visualization is the representation of data through use of common graphics, such as charts, plots, infographics, and even animations. It can be utilized for a variety of purposes, and it's important to note that is not only reserved for use by data teams. Some of the types of data visualization are:
+
+\begin{multicols}{2}
+  \begin{itemize}
+    \item Tables
+    \item Pie charts and stacked bar charts
+    \item Line charts and area charts
+    \item Histograms
+    \item Scatter plots
+    \item Heat maps
+    \item Tree maps
+  \end{itemize}
+\end{multicols}
+
+\section{Conclusion}
+First of all, it can be noted that extracting data from the blockchain for analysis is still not a simple task. The tools currently available to extract data are still not user-friendly enough, so an inexperienced person cannot easily access the information even if it is public.
+
+Regarding the conclusions that can be drawn from the data obtained, in the first place it can be said that the DAO is still at an early stage of life, the launch date was 05/24/2021 which as of today is just over a year and a half. However, it can be seen that it is growing and that the number of members and interactions is increasing, which is a good sign.
+
+As for grants, the community's interest in continuing to add value to the platform is clear. To date, 100 projects have been funded with a grand total of over US\$7 million - with US\$240,000 being the maximum amount allowed per grant.
+
+In terms of the DAO balance sheet, the dependence on MANA is clearly seen. Analyzing the inflows and outflows of the DAO's wallets, it is clear that expenses exceed income and that the only way this works is by converting the MANA from the DAO's vesting contract into stablecoins to meet expenses, which directly impacts the price of MANA.
+
+As for the distribution of voting power, of the total number of DAO participants only 4.5\% delegated their voting power.
+
 \chapter{Glossary}
-% \glossarysection
 \printnoidxglossaries
-
-\chapter{Appendix (optional)}
-\toComplete
-
-%
-% Hier beginnen die Verzeichnisse.
-%
 \clearpage
+
 \printbibliography
 \clearpage
-% Das Abbildungsverzeichnis
+
 \listoffigures
 \clearpage
 
-% Das Tabellenverzeichnis
 \listoftables
 \clearpage
 
-% Das Quellcodeverzeichnis
 \listofcode
 \clearpage
 
@@ -1222,9 +1285,6 @@ The Decentraland DAO is the decision-making tool for digital assets holders in D
     \acro{DEXs}{Decentralized Exchanges}
 \end{acronym}
 
-%
-% Hier beginnt der Anhang.
-%
 \clearpage
 \appendix
 \end{document}
