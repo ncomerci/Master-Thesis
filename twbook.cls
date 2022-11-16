@@ -560,8 +560,12 @@ urlcolor=TWblue, urlbordercolor=white}
 \newcommand{\schlagworte}[1]{\gdef\@schlagworte{#1}}
 \newcommand*{\@outline}{}
 \newcommand{\outline}[1]{\gdef\@outline{#1}}
+\newcommand*{\@outlineEng}{}
+\newcommand{\outlineEng}[1]{\gdef\@outlineEng{#1}}
 \newcommand*{\@keywords}{}
 \newcommand{\keywords}[1]{\gdef\@keywords{#1}}
+\newcommand*{\@keywordsEng}{}
+\newcommand{\keywordsEng}[1]{\gdef\@keywordsEng{#1}}
 \newcommand*{\@acknowledgements}{}
 \newcommand{\acknowledgements}[1]{\gdef\@acknowledgements{#1}}
 
@@ -945,16 +949,25 @@ urlcolor=TWblue, urlbordercolor=white}
 
 \ifx\@outline\@empty
   \ifx\@keywords\@empty
-  \else\clearpage\null\vfill\paragraph*{Keywords:}\@keywords
+  \else\clearpage\null\vfill\paragraph*{Schlagworte:}\@keywords
+  \fi
+\else\clearpage
+  \chapter*{Kurzfassung}
+  \@outline
+  \ifx\@keywords\@empty
+  \else\vfill\paragraph*{Schlagworte:}\@keywords
+  \fi
+\fi
+
+\ifx\@outlineEng\@empty
+  \ifx\@keywordsEng\@empty
+  \else\clearpage\null\vfill\paragraph*{Keywords:}\@keywordsEng
   \fi
 \else\clearpage
   \chapter*{Abstract}
-  \@outline
-  \clearpage
-  \chapter*{German Abstract}
-  \@outline
-  \ifx\@keywords\@empty
-  \else\vfill\paragraph*{Keywords:}\@keywords
+  \@outlineEng
+  \ifx\@keywordsEng\@empty
+  \else\vfill\paragraph*{Keywords:}\@keywordsEng
   \fi
 \fi
 
