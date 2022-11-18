@@ -99,8 +99,11 @@
 
 Thanks to this crisis of confidence and the opportunities provided by this emerging technology, new ideas have surfaced, one of them being decentralized governance. Of course, this implies a lot of challenges, many of which are not yet solved, or perhaps not in the most optimal way. One of them is access to information. In an organization where decisions are no longer made by a few and all actors start to participate in them, free access to information is of vital importance.
 
-This thesis addresses the problem of free access to information for the participants of a decentralized autonomous organization. For this...}
-\keywordsEng{Keyword1, Keyword2, Keyword3, Keyword4}
+This thesis provides an approach to solving the problem of free access to information for the participants of a Decentralized Autonomous Organization. For this, the starting point was the fact that blockchain data is public and available to anyone, and the sources from which this information could be extracted were identified. Then, a series of scripts were developed to extract the data automatically and make it available in more user-friendly formats such as JSON and CSV. Finally, a metrics dashboard was created that uses these files as a source and allows for drawing conclusions about the DAO status in a very simple visual way.
+
+
+It is also worth pointing out that these files are available for third-party applications to consume and build on top of them.}
+\keywordsEng{Blockchain, Decentralized Autonomous Organization, Data Analytics, Web 3.0}
 
 
 \acknowledgements{\toComplete}
@@ -137,23 +140,23 @@ This thesis addresses the problem of free access to information for the particip
 % .. und hier beginnt die eigentliche Arbeit. Viel Erfolg beim Verfassen!
 %
 \chapter{Introduction\label{intro}}
-Since the launch of Bitcoin on January 3, 2009 people's interest in Blockchain technology has been growing progressively and increased exponentially from 2020 onwards. 
+Since the launch of Bitcoin on January 3, 2009 people's interest in blockchain technology has been growing progressively and increased exponentially from 2020 onwards. 
 
-There are a large number of projects that rely on this technology to date, one of them is Decentraland: a 3D digital world that will be discussed in the next section and that uses Ethereum to execute its transactions. \\
+There are a large number of projects that rely on this technology to date; one of them is Decentraland, a 3D digital world that will be discussed in the next section and that uses Ethereum to execute its transactions. \\
 
-One of the great advantages of Blockchain is transparency: anyone can verify all transactions made, from the first to the last. But how easy is it for an average user to access this information? What kind of analysis and conclusions can be drawn once obtained? This paper will seek to answer these questions, specifically using Decentraland's DAO as the object of study. \\
+One of the great advantages of blockchain is transparency: anyone can verify all transactions, from the first to the last. But how easy is it for an average user to access this information? What kind of analysis and conclusions can be drawn once they are obtained? This paper will seek to answer these questions, specifically using Decentraland's DAO as the object of study. \\
 
-To begin with, the chapter \ref{basics} called Basics introduces all the concepts necessary to have a solid foundation and to have a better understanding of the problem addressed by this work. The topics covered are: Blockchain, digital assets, smart contracts, Ethereum, layer 2 solutions, decentralized autonomous organizations and metaverse.
+To begin with, the chapter \ref{basics} Basics introduces all the concepts necessary to have a solid foundation and a better understanding of the problem addressed by this work. The topics covered are: blockchain, digital assets, smart contracts, Ethereum, layer 2 solutions, decentralized autonomous organizations and metaverse.
 
 Continuing with chapter \ref{method}, entitled Methodology, firstly explains the problem to be solved, the scope of the solution and how it was designed, its requirements and, second, the sources from which the data are collected and analyzed.
 
-Chapter \ref{solution} (Solution) provides a technical explanation of the solution development step-by-step from start to finish, including a data flow diagram. Also, each developed script that collects specific data is individually explained in detail, with emphasis on the transactions script which was the most labor intensive.
+Chapter \ref{solution} (Solution) provides a technical explanation of the solution development step-by-step from start to finish, including a data flow diagram. Also, each developed script that collects specific data is individually explained in detail, with an emphasis on the transactions script, which was the most labor-intensive.
 
-Chapter \ref{discussion} presents all the metrics that could be extracted from the data collected in graphical form. The categories addressed are: proposals, voting power, grants, DAO balances, wearable curations and DAO members.
+Chapter \ref{discussion} presents all the metrics that could be extracted from the collected data in graphical form. The categories addressed are: proposals, voting power, grants, DAO balances, wearable curations and DAO members.
 
-Finally, in chapter \ref{conclussion}, the conclusions are drawn based on the charts shown in the previous section and in chapter \ref{summary} a chapter-by-chapter summary of the present work is presented. \\
+Finally, in chapter \ref{conclussion}, the conclusions are drawn based on the charts shown in the previous section, and in chapter \ref{summary} a chapter-by-chapter summary of the present work is presented. \\
 
-At the end of the document can be found the glossary, bibliography, list of figures, list of tables, list of code and list of abbreviations.
+At the end of the document can be found the glossary, bibliography, list of figures, list of tables, list of codes, and list of abbreviations.
 \clearpage
 
 \chapter{Basics\label{basics}}
@@ -162,13 +165,13 @@ Today there are different types of blockchain, but based on the original concept
 
 This database can be shared by a large number of users on a \emph{peer-to-peer} basis and allows information to be stored in an immutable and orderly manner. The information added to the blockchain is public, can be accessed at any time by any user of the network and can only be added to the blockchain if there is an agreement between the majority of the parties. After a certain period of time, it can be assumed that the information added to a block can no longer be modified (immutability).
 
-By design, this system intrinsically provides tolerance to node failures, robustness against manipulation and transparency, since it is public. \\
+By design, this system intrinsically provides tolerance to node failures, robustness against manipulation, and transparency since it is public. \\
 
 Some examples of blockchains are \cite{blockchainDummies}:
 
 \begin{itemize}
   \item \textbf{Public blockchains}: Public blockchains, such as Bitcoin, are large distributed networks that are run through a native token. They're open for anyone to participate at any level and have open-source code that their community maintains.
-  \item \textbf{Permissioned blockchains}: Permissioned blockchains, such as Ripple, control roles that individuals can play within the network. They're still large and distributed systems that use a native token. Their core code may or may not be open source.
+  \item \textbf{Permissioned blockchains}: Permissioned blockchains, such as Ripple, control the roles that individuals can play within the network. They're still large and distributed systems that use a native token. Their core code may or may not be open source.
   \item \textbf{Private blockchains}: Private blockchains tend to be smaller and do not utilize a token. Their membership is closely controlled. These types of blockchains are favored by consortiums that have trusted members and trade confidential information.
 \end{itemize}
 
@@ -186,7 +189,7 @@ Blockchains can create trust in digital data. When information has been written 
 
 When data is permanent and reliable in a digital format, you can transact business online in ways that, in the past, were only possible offline. Everything that has stayed analog, including property rights and identity, can now be created and maintained online. Slow business and banking processes, such as money wires and fund settlements, can now be done nearly instantaneously. The implications for secure digital records are enormous for the global economy. 
 
-The first applications created were designed to piggyback on the secure digital value transfer that blockchains enable through the trading of their native tokens. These included things like the movement of money and assets. But the possibilities of the blockchain networks go far beyond the movement of value.
+The first applications created were designed to piggyback on the secure digital value transfer that blockchains enable through the trading of their native tokens. These included things like the movement of money and assets. But the possibilities of blockchain networks go far beyond the movement of value.
 
 \subsection{Current blockchain uses}
 
@@ -197,13 +200,13 @@ Blockchains are also now being used as part of a software security stack. The U.
 \ac{DAO} is another interesting blockchain innovation. This type of blockchain application represents a new way to organize and incorporate companies online. DAOs have been used to organize and invest funds via the Ethereum network.
 
 \section{Digital Assets}
-A digital asset\cite{digAssets} is generally anything that is created and stored digitally, is identifiable and discoverable, and has or provides value. Digital assets have become more popular and valuable as technological advances become integrated into our personal and professional lives. Data, images, video, written content, and more have long been considered digital assets with ownership rights.
+A "digital asset"\cite{digAssets} is generally anything that is created and stored digitally, is identifiable and discoverable, and has or provides value. Digital assets have become more popular and valuable as technological advances become integrated into our personal and professional lives. Data, images, video, written content, and more have long been considered digital assets with ownership rights.
 
-Most digital items, like a company's brand, can be assigned a value, monetary or intangible. Some digital items might only be valuable to the creator or one person, such as a family picture on your phone taken at a gathering. Others could be valuable to a much wider audience.
+Most digital items, like a company's brand, can be assigned a value, whether monetary or intangible. Some digital items might only be valuable to the creator or one person, such as a family picture on your phone taken at a gathering. Others could be valuable to a much wider audience.
 
 In the past, digital assets such as data or scanned documents were owned and used by organizations to realize value. However, when blockchain and cryptocurrency were introduced in 2009, digital assets were again redefined. Anything in digital form became something that could be used to create value via tokenization on a blockchain. \\
 
-\ac{Crypto} is essentially a digital currency that use blockchain technology and cryptography to facilitate secure and anonymous transactions. The crypto market is worth over USD 500 billion.\cite{crypto}
+\ac{Crypto} is essentially a digital currency that uses blockchain technology and cryptography to facilitate secure and anonymous transactions. The crypto market is worth over USD 500 billion.\cite{crypto}
 
 \begin{figure}[H]
   \centering
@@ -212,7 +215,7 @@ In the past, digital assets such as data or scanned documents were owned and use
   \label{fig:ranking}
 \end{figure}
 
-What made it different from normal bank transfers or other financial services like Paypal is that there was no middle man for the first time. A middle-man is a central authority like a bank or government that intervenes in a transaction between the sender and recipient. They have the power to surveill, censor or revert transactions and they can share the sensitive data they collect with third parties. They also often dictate which financial services people have access to.\cite{ethereum} \\
+What made it different from normal bank transfers or other financial services like Paypal is that there was no middle man for the first time. A middleman is a central authority like a bank or government that intervenes in a transaction between the sender and recipient. They have the power to surveil, censor, or revert transactions and they can share the sensitive data they collect with third parties. They also often dictate which financial services people have access to.\cite{ethereum} \\
 
 There are many different types of digital assets.\cite{digAssets} Here is a list of many of the familiar ones:
 \begin{multicols}{2}
@@ -409,9 +412,9 @@ These proposals, the votes submitted, and final results are all stored in IPFS v
 
 \chapter{Methodology\label{method}}
 \section{Problem}
-As already mentioned in section \ref{dcl}, Decentraland is open source and community driven. Based on this, where many actors are involved in decision making, it is essential to have as much information as possible about the status of the project in order to make informed decisions.
+As already mentioned in section \ref{dcl}, Decentraland is open source and community driven. Based on this, where many actors are involved in decision-making, it is essential to have as much information as possible about the status of the project in order to make informed decisions.
 
-So far there was no tool or solution that could publicly provide information to everyone about the state of the DAO treasury and the different assets of the community. Of course the information was and still is available since the blockchain is public, but not everyone has the time or knowledge to collect such data and analyze it.
+So far, there was no tool or solution that could publicly provide information to everyone about the state of the DAO treasury and the different assets of the community. Of course, the information was and still is available since the blockchain is public, but not everyone has the time or knowledge to collect and analyze such data.
 
 Therefore, in summary, there was a need to develop a tool that would provide information publicly on the state of the DAO's treasury and the different assets of the community to enable informed decision making. \\
 
@@ -419,9 +422,9 @@ To begin designing the solution, three main sources were considered: \\
 
 First, the Decentraland community. It is necessary to understand the current needs to be able to propose a solution to the problem, that is why it was taken as main input the requests of the users through conversations and interviews. \\
 
-The next was the team that maintains the DAO platform, known as DAO Squad. From them were obtained the technical requirements needed to carry out the design of the tool and the implementation path. \\
+The next was the team that maintains the DAO platform, known as the DAO Squad. From them were obtained the technical requirements needed to carry out the design of the tool and the implementation path. \\
 
-Lastly, the Data team from the Decentraland foundation. Once all the information was obtained, it is necessary to make sense of it through charts and analytics, which is why the support of this team was provided to represent all the valuable information in the best possible way.
+Lastly, the data team from the Decentraland Foundation. Once all the information was obtained, it is necessary to make sense of it through charts and analytics, which is why the support of this team was provided to represent all the valuable information in the best possible way.
 
 \section{Research questions\label{research}}
 The research questions that will be answered at the end of this work are: \\
@@ -430,7 +433,7 @@ The research questions that will be answered at the end of this work are: \\
 
 It is clear that most users do not have much technical knowledge and, for blockchain technology to be increasingly adopted, interacting with it must be simple enough for anyone to do so. \\
 
-\textbf{2. What kind of analysis and conclusions can be drawn with the data obtained from the Blockchain?}
+\textbf{2. What kind of analysis and conclusions can be drawn with the data obtained from the blockchain?}
 
 Data by itself is just that, data. Meaning must be given to that information so that conclusions can be drawn and informed decisions can be made.
 
@@ -516,9 +519,9 @@ Covalent collates millions of data points from different organizations. Rather t
 This is made possible by aggregating various data feeds from nodes on different blockchains. The Covalent API then facilitates the distribution of customized data feeds to suit the individual needs of users. This data can be broad or specific, depending on the application. For example, the API can provide both the historical and current performance of digital assets. This could be for a small handful of assets or to analyze the entire crypto market. Plus, when data is requested, it is returned quickly in a uniform, consistent manner. Regardless of how many blockchains are queried, all relevant data is presented in a single API.
 
 \chapter{Solution\label{solution}}
-For the implementation of such tool that meets the requirements mentioned in section \ref{methods} it was decided, first of all, to create a public repository\footnote{\url{https://github.com/Decentraland-DAO/transparency}} within the Decentraland DAO organization where the code of the scripts with their respective version history will be stored. In this way, the tool is auditable by anyone who is willing to do so.
+To begin the implementation of such a tool that meets the requirements outlined in section \ref{methods}, it was decided to first establish a public repository\footnote{\url{https://github.com/Decentraland-DAO/transparency}} within the Decentraland DAO organization where the scripts code and version histories would be stored. In this way, the tool is auditable by anyone who is willing to do so.
 
-Since data must be collected every day and different sources must be consumed, Node.js was chosen for the backend of the project as it is easily configurable to run periodically in a GitHub Action\footnote{\url{https://github.com/actions/setup-node}}. As for the programming language chosen, Typescript was used due to the versatility it offers and, naturally, for the typing - since it is very useful when working with data. The collected information is available in two widely used formats: \textbf{CSV} \& \textbf{JSON}. The first one is very useful for data analysis and the second one to be consumed by other applications.
+Since data must be collected every day and different sources must be consumed, Node.js was chosen for the backend of the project as it is easily configurable to run periodically in a GitHub Action\footnote{\url{https://github.com/actions/setup-node}}. As for the programming language chosen, Typescript was used due to the versatility it offers and, naturally, for the typing, since it is very useful when working with data. The collected information is available in two widely used formats: \textbf{CSV} \& \textbf{JSON}. The first one is very useful for data analysis and the second one can be consumed by other applications.
 
 Finally, Google Data Studio\footnote{\url{https://datastudio.google.com/u/0/reporting/fca13118-c18d-4e68-9582-ad46d2dd5ce9/page/p_nlc90z86rc}} is used to visualize the metrics, which uses as input the information from the CSVs collected with the scripts (previously uploaded to a Google spreadsheet). This allows the community to have a simple way to visualize metrics that can be easily shared with other people.
 
@@ -1195,7 +1198,7 @@ Decentraland is an open source and community driven project. Based on this, wher
 
 \subsubsection{Research Questions}
 1. How easy is it for an average user to access public information on the blockchain? \\
-2. What kind of analysis and conclusions can be drawn with the data obtained from the Blockchain?
+2. What kind of analysis and conclusions can be drawn with the data obtained from the blockchain?
 
 \subsubsection{Data collection sources}
 \textbf{Decentraland's Catalyst Nodes:} A Catalyst is a Server that bundles different Services required by the Decentraland World. Each Catalyst node exposes a set of services that work as the backbone for the platform and also exposes a public API. \\
