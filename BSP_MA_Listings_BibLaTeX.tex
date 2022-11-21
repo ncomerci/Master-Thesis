@@ -110,7 +110,7 @@ As per the ethos of blockchain, the extracted data and visualizations are publis
 
 First of all to my parents who have always supported me and did everything in their power to provide me with the best education possible. \\
 
-Secondly to my team at Decentraland DAO for trusting me, giving me the possibility to grow professionally and allowing me to demonstrate my ability to face the different challenges that arise on a daily basis. \\
+Secondly to my team at Decentraland's DAO for trusting me, giving me the possibility to grow professionally and allowing me to demonstrate my ability to face the different challenges that arise on a daily basis. \\
 
 Finally I would also like to thank to my tutor Gerhard for guiding and mentoring me in the last stage of my degree, I could not have asked for a more suitable person.
 }
@@ -161,7 +161,7 @@ Chapter \ref{solution} (Solution) provides a technical explanation of the soluti
 
 Chapter \ref{discussion} presents all the metrics that could be extracted from the collected data in graphical form. The categories addressed are: proposals, voting power, grants, DAO balances, wearable curations and DAO members.
 
-Finally, in chapter \ref{conclussion}, the conclusions are drawn based on the charts shown in the previous section, and in chapter \ref{summary} a chapter-by-chapter summary of the present work is presented. \\
+Finally, in chapter \ref{conclussion}, the conclusions are drawn based on the charts shown in the previous section, and in chapter \ref{summary} a chapter-by-chapter summary is presented. \\
 
 At the end of the document can be found the glossary, bibliography, list of figures, list of tables, list of codes, and list of abbreviations.
 \clearpage
@@ -213,13 +213,29 @@ Most digital items, like a company's brand, can be assigned a value, whether mon
 
 In the past, digital assets such as data or scanned documents were owned and used by organizations to realize value. However, when blockchain and cryptocurrency were introduced in 2009, digital assets were again redefined. Anything in digital form became something that could be used to create value via tokenization on a blockchain. \\
 
-\ac{Crypto} is essentially a digital currency that uses blockchain technology and cryptography to facilitate secure and anonymous transactions. The crypto market is worth over USD 500 billion.\cite{crypto}
+Based on blockchain technology, \textbf{\ac{Crypto}} is a decentralized medium of exchange or store of value designed to enable online transactions without the need for a trusted third-party intermediary. Instead, it uses cryptography to secure and verify transactions, as well as to control the creation of new units of a particular digital currency.\cite{crypto}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{crypto_ranking.png}
-  \caption{Top 10 cryptocurrencies by market capitalization \cite{coinmarketcap}}
-  \label{fig:ranking}
+  \includegraphics[width=\textwidth]{digital_assets_future.png}
+  \caption{The future of digital assets (*) \cite{blockchainSurvey}}
+  \label{fig:digital_assets_future}
+\end{figure}
+
+(*) FSI = Financial Services Industry. FSI Pioneers are respondents whose organizations have already deployed blockchain solutions into production and/or integrated digital assets into their core business activities. \\
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{fsi_digital_assets.png}
+  \caption{How do financial executives view blockchain and digital assets? \cite{blockchainSurvey}}
+  \label{fig:fsi_digital_assets}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{digital_assets_role.png}
+  \caption{The role of digital assets in future \cite{blockchainSurvey}}
+  \label{fig:digital_assets_role}
 \end{figure}
 
 What made it different from normal bank transfers or other financial services like Paypal is that there was no middle man for the first time. A middleman is a central authority like a bank or government that intervenes in a transaction between the sender and recipient. They have the power to surveil, censor, or revert transactions and they can share the sensitive data they collect with third parties. They also often dictate which financial services people have access to.\cite{ethereum} \\
@@ -348,12 +364,20 @@ Three desirable properties of a blockchain are that it is \textbf{decentralized,
 
 Ethereum has reached the network's current capacity with 1+ million transactions per day and high demand for each of these transactions. The success of Ethereum and the demand to use it has caused gas prices to rise substantially. Therefore the need for scaling solutions has increased in demand as well. This is where layer 2 networks come in. \\
 
-The benefits of layer 2 are:
+The benefits of layer 2s are:
 \begin{itemize}
   \item \textbf{Lower fees:} By combining multiple off-chain transactions into a single layer 1 transaction, transaction fees are massively reduced, making Ethereum more accessible for all
   \item \textbf{Maintain security:} Layer 2 blockchains settle their transactions on Ethereum Mainnet, allowing users to benefit from the security of the Ethereum network
   \item \textbf{Expand use cases:} With higher transactions per second, lower fees, and new technology, projects will expand into new applications with improved user experience
 \end{itemize}
+
+As for the drawbacks of layer 2 solutions, it can be said that: \\
+
+To begin with, L2 can degrade the underlying chain's liquidity.\cite{l2Drawbacks} Ethereum, for example, requires a liquid market to provide adequate support for all of its goods and tokens. However, once an additional layer is added, the blockchain's liquidity is likely to suffer.
+
+Aside from that, users may encounter unnecessary onboarding issues. Once an extra layer is added, the L1 chain and its dApps will need to create new accounts. As a result, if funds are sent to multiple L2 protocols, the user may struggle to keep track of them all.
+
+Finally, in certain cases, there may be security and privacy vulnerabilities.
 
 \section{\NoCaseChange{\acl{DAO}} (DAO)}
 A DAO is a collectively-owned, blockchain-governed organization working towards a shared mission.
@@ -362,7 +386,7 @@ DAOs allow people to work with like-minded individuals around the globe without 
 
 They have built-in treasuries that no one has the authority to access without the approval of the group. Decisions are governed by proposals and voting to ensure everyone in the organization has a voice, and everything happens transparently on-chain.\cite{DAO} \\
 
-Table \ref{table:DAOComparison} on page \pageref{table:DAOComparison} compares a DAO with a traditional organization:
+Table \ref{table:DAOComparison} compares a DAO with a traditional organization:
 \begin{center}
   \begin{table}[H]
     \begin{tabular}{ | m{20em} | m{20em} | }
@@ -1270,6 +1294,13 @@ As for grants, the community's interest in continuing to add value to the platfo
 In terms of the DAO balance sheet, the dependence on MANA is clearly seen. Analyzing the inflows and outflows of the DAO's wallets, it is clear that expenses exceed income and that the only way this works is by converting the MANA from the DAO's vesting contract into stablecoins to meet expenses, which directly impacts the price of MANA.
 
 As for the distribution of voting power, of the total number of DAO participants only 4.5\% delegated their voting power.
+
+\section{What's next?}
+The next steps of this project are to continue collecting data and analyzing it to obtain more insights, given that there is still just over a year's worth of data. In addition, it is planned to add new charts that will continue to add details on the status of the DAO. 
+
+It is also intended to be able to collect this information in real time, since at the moment these scripts run once a day.
+
+\toComplete
 
 \chapter{Glossary}
 \printnoidxglossaries
