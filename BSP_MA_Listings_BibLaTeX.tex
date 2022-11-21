@@ -1,3 +1,4 @@
+% !TeX root = BSP_MA_Listings_BibLaTeX.tex
 %
 % FH Technikum Vienna
 % !TEX encoding = UTF-8 Unicode
@@ -36,7 +37,7 @@
 \emergencystretch=\maxdimen
 \hyphenpenalty=10000
 \hbadness=10000
-
+ 
 %
 % Hier biblatex & Biber konfigurieren; Vergessen Sie nicht, dass Sie biber verwenden müssen um eine Bibliothek zu erzeugen
 %
@@ -95,14 +96,13 @@
 \place{Vienna}
 \outline{Testing}
 \keywords{aa, bb, cc, dd}
-\outlineEng{The Internet is going through a transition stage thanks to blockchain technology, where users will no longer be mere consumers and creators of content but will become owners of their information. This is due to multiple demonstrations of abuse of trust by centralized entities towards people. The trigger for this was the collapse of the US housing market in 2008; a year later, blockchain was introduced, with Bitcoin as the first use case.
+\outlineEng{The Internet is going through a transition stage with the rise of distributed ledger technology (DLT), commonly referred to as blockchain technology, where users will no longer be mere consumers and creators of content but will become owners of their data. This is due to multiple incidents in recent times, when consumer trust has been abused by centralized organizations. One case that triggered the "Great Recession" in 2008 was the collapse of the US housing market. In the same year, the concept of blockchain was introduced, with Bitcoin as the first use case.
 
-Thanks to this crisis of confidence and the opportunities provided by this emerging technology, new ideas have surfaced, one of them being decentralized governance. Of course, this implies a lot of challenges, many of which are not yet solved, or perhaps not in the most optimal way. One of them is access to information. In an organization where decisions are no longer made by a few and all actors start to participate in them, free access to information is of vital importance.
+Following this crisis of confidence and the opportunities provided by the emerging technology of blockchain, innovative ideas have surfaced: one of many being "decentralized governance". Its current infant state implies a lot of challenges, many of which have not been solved at all yet, or perhaps not in the most optimal way possible. One of them is access to data in a distributed ecosystem: In an organization where decisions are no longer made by a centralized decision makers, but by the community, open access to relevant data, to base joint decisions on, is of vital importance.
 
-This thesis provides an approach to solving the problem of free access to information for the participants of a Decentralized Autonomous Organization. For this, the starting point was the fact that blockchain data is public and available to anyone, and the sources from which this information could be extracted were identified. Then, a series of scripts were developed to extract the data automatically and make it available in more user-friendly formats such as JSON and CSV. Finally, a metrics dashboard was created that uses these files as a source and allows for drawing conclusions about the DAO status in a very simple visual way.
+This thesis provides an approach to solving the problem of open access to information for the participants of a Decentralized Autonomous Organization (DAO). By definition, data kept in a blockchain system is public and available to anyone. Additionally, sources from which the information was extracted must be identifiable. A series of scripts were developed to process and transform given blockchain data automatically and making it available in machine-readable formats, such as JSON and CSV. Finally, a user-friendly dashboard was created to visualize the transformed data, allowing humans to draw conclusions on the status of the DAO.
 
-
-It is also worth pointing out that these files are available for third-party applications to consume and build on top of them.}
+As per the ethos of blockchain, the extracted data and visualizations are published as "Open Data" and are available for third-party applications to consume and build on top of.}
 \keywordsEng{Blockchain, Decentralized Autonomous Organization, Data Analytics, Web 3.0}
 
 
@@ -166,7 +166,7 @@ Finally, in chapter \ref{conclussion}, the conclusions are drawn based on the ch
 At the end of the document can be found the glossary, bibliography, list of figures, list of tables, list of codes, and list of abbreviations.
 \clearpage
 
-\chapter{Basics\label{basics}}
+\chapter{Fundaments\label{basics}}
 \section{Blockchain}
 Today there are different types of blockchain, but based on the original concept and taking as a reference the article \emph{"La blockchain: fundamentos, aplicaciones y relaci{\'o}n con otras tecnolog{\'\i}as disruptivas"}\cite{blockchain}, it was created to store the transaction history of Bitcoin, but with the course of time it has seen great potential to be applied in other areas due to the properties it offers. The blockchain provides an immutable distributed database based on a growing sequence of blocks. These blocks, being public, form an open system that enhances trust based on the transparency and robustness of the blockchain construction technique. The system, although open, is also semi-anonymous: users identify themselves with public keys (pseudonyms), not with their real identities.
 
@@ -419,7 +419,7 @@ These proposals, the votes submitted, and final results are all stored in IPFS v
 
 \chapter{Methodology\label{method}}
 \section{Problem}
-As already mentioned in section \ref{dcl}, Decentraland is open source and community driven. Based on this, where many actors are involved in decision-making, it is essential to have as much information as possible about the status of the project in order to make informed decisions.
+Decentraland is open source and community driven. As a consequence, many stakeholders are involved in decision-making. It is essential to have as much information as possible about the status of the project available, in order to make informed decisions.
 
 So far, there was no tool or solution that could publicly provide information to everyone about the state of the DAO treasury and the different assets of the community. Of course, the information was and still is available since the blockchain is public, but not everyone has the time or knowledge to collect and analyze such data.
 
@@ -427,22 +427,22 @@ Therefore, in summary, there was a need to develop a tool that would provide inf
 
 To begin designing the solution, three main sources were considered: \\
 
-First, the Decentraland community. It is necessary to understand the current needs to be able to propose a solution to the problem, that is why it was taken as main input the requests of the users through conversations and interviews. \\
+1. First, the Decentraland community. It is necessary to understand the current needs to be able to propose a solution to the problem, that is why it was taken as main input the requests of the users through conversations and interviews. \\
 
-The next was the team that maintains the DAO platform, known as the DAO Squad. From them were obtained the technical requirements needed to carry out the design of the tool and the implementation path. \\
+2. The next was the team that maintains the DAO platform, known as the DAO Squad. From them were obtained the technical requirements needed to carry out the design of the tool and the implementation path.\\
 
-Lastly, the data team from the Decentraland Foundation. Once all the information was obtained, it is necessary to make sense of it through charts and analytics, which is why the support of this team was provided to represent all the valuable information in the best possible way.
+3. Lastly, the data team from the Decentraland Foundation. Once all the information was obtained, it is necessary to make sense of it through charts and analytics, which is why the support of this team was provided to represent all the valuable information in the best possible way.\\
 
 \section{Research questions\label{research}}
 The research questions that will be answered at the end of this work are: \\
 
-\textbf{1. How easy is it for an average user to access public information on the blockchain?}
+\textbf{Q1. How easy is it for an average user to access public information on the blockchain?}
 
 It is clear that most users do not have much technical knowledge and, for blockchain technology to be increasingly adopted, interacting with it must be simple enough for anyone to do so. \\
 
-\textbf{2. What kind of analysis and conclusions can be drawn with the data obtained from the blockchain?}
+\textbf{Q2. What kind of analysis and conclusions can be drawn with the data obtained from the blockchain?}
 
-Data by itself is just that, data. Meaning must be given to that information so that conclusions can be drawn and informed decisions can be made.
+Data by itself is just that: Data. Meaning must be given to that information so that conclusions can be drawn and informed decisions can be made.
 
 \section{Methods\label{methods}}
 After reviewing the community's requests, it was determined that the goal of this project must be about collecting and processing Decentraland's public data and making it available to stakeholders in a consumable format. The scope includes:
