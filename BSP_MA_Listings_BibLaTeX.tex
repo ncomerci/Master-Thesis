@@ -360,9 +360,9 @@ Ethereum as the layer 1 includes:
 \end{itemize}
 
 \subsection{Why is a layer 2 needed?}
-Three desirable properties of a blockchain are that it is \textbf{decentralized, secure, and scalable}. The blockchain trilemma states that a simple blockchain architecture can only achieve two out of three. Want a secure and decentralized blockchain? scalability needs to be sacrificed.
+A blockchain's three desirable properties are that it is \textbf{decentralized, secure, and scalable}. According to the blockchain trilemma, a simple blockchain architecture can only achieve two out of three. For example, scalability must be sacrificed in order for a blockchain to be both secure and decentralized.
 
-Ethereum has reached the network's current capacity with 1+ million transactions per day and high demand for each of these transactions. The success of Ethereum and the demand to use it has caused gas prices to rise substantially. Therefore the need for scaling solutions has increased in demand as well. This is where layer 2 networks come in. \\
+With 1+ million transactions per day and high demand for each of these transactions, Ethereum has reached the network's current capacity. Because of Ethereum's success and increased demand, gas prices have skyrocketed. As a result, the demand for scaling solutions has increased. Layer 2 networks come into play here. \\
 
 The benefits of layer 2s are:
 \begin{itemize}
@@ -380,9 +380,9 @@ Aside from that, users may encounter unnecessary onboarding issues. Once an extr
 Finally, in certain cases, there may be security and privacy vulnerabilities.
 
 \section{\NoCaseChange{\acl{DAO}} (DAO)}
-A DAO is a collectively-owned, blockchain-governed organization working towards a shared mission.
+A DAO\cite{DAO} is a collectively-owned, blockchain-governed organization working towards a shared mission.
 
-DAOs allow people to work with like-minded individuals around the globe without trusting a benevolent leader to manage the funds or operations. There is no CEO who can spend funds on a whim or CFO who can manipulate the books. Instead, blockchain-based rules baked into the code define how the organization works and how funds are spent.
+DAOs allow people to work with like-minded individuals around the globe\cite{DAO} without trusting a benevolent leader to manage the funds or operations. There is no CEO who can spend funds on a whim or CFO who can manipulate the books. Instead, blockchain-based rules baked into the code define how the organization works and how funds are spent.
 
 They have built-in treasuries that no one has the authority to access without the approval of the group. Decisions are governed by proposals and voting to ensure everyone in the organization has a voice, and everything happens transparently on-chain.\cite{DAO} \\
 
@@ -409,7 +409,7 @@ Table \ref{table:DAOComparison} compares a DAO with a traditional organization:
   \end{table}
 \end{center}
 
-\section{Metaverse\label{dcl}}
+\section{Metaverse}
 \emph{"The Metaverse is the post-reality universe, a perpetual and persistent multiuser environment merging physical reality with digital virtuality. It is based on the convergence of technologies that enable multisensory interactions with virtual environments, digital objects and people such as \ac{VR} and \ac{AR}. Hence, the Metaverse is an interconnected web of social, networked immersive environments in persistent multiuser platforms. It enables seamless embodied user communication in real-time and dynamic interactions with digital artifacts. Its first iteration was a web of virtual worlds where avatars were able to teleport among them. The contemporary iteration of the Metaverse features social, immersive VR platforms compatible with massive multiplayer online video games, open game worlds and AR collaborative spaces."} Stylianos Mystakidis, 2022. \cite{metaverse} \\
 
 \begin{figure}[H]
@@ -419,9 +419,20 @@ Table \ref{table:DAOComparison} compares a DAO with a traditional organization:
   \label{fig:metaverse}
 \end{figure}
 
-Decentraland\cite{DCL} is a decentralized virtual reality platform, better known as a metaverse, powered by the Ethereum blockchain. It is an open source project, maintained by the Decentraland Foundation and driven by its community. 
+\section{Decentraland}
+Decentraland\cite{DCLWhitepaper} is a virtual reality platform powered by the Ethereum blockchain. Users can create, experience, and monetize content and applications. \textbf{\gls{LAND}} in Decentraland is permanently owned by the community, giving them full control over their creations. Users claim ownership of virtual land on a blockchain-based ledger of parcels. Landowners control what content is published to their portion of land, which is identified by a set of cartesian coordinates (x,y). Contents can range from static 3D scenes to interactive systems such as games. 
 
-Within the Decentraland platform, users can create, experience, and monetize their content and applications. The finite, traversable, 3D virtual space within Decentraland is called \textbf{\gls{LAND}}, a non-fungible digital asset or more commonly known as a \ac{NFT}, maintained in an Ethereum smart contract. Land is divided into parcels that are identified by cartesian coordinates (x,y). These parcels are permanently owned by members of the community and are purchased using \textbf{\gls{MANA}}, Decentraland's cryptocurrency token. This gives users full control over the environments and applications that they create, which can range from anything like static 3D scenes to more interactive applications or games.
+LAND\cite{DCLWhitepaper} is a \ac{NFT}, transferrable, scarce digital asset stored in an Ethereum smart contract. It can be acquired by spending an ERC20 token called \textbf{\gls{MANA}}. MANA can also be used to make in-world purchases of digital goods and services. \\
+
+Apart from LAND and MANA, other NFT digital assets that currently exist in Decentraland are:
+
+\begin{itemize}
+  \item \textbf{NAMES}: Users can own as many names as they like and all of them are unique, there cannot be more than one user owning the same name.
+  \item \textbf{WEARABLES}: Digital objects created by the community that allow users to customize their avatar within the virtual world. The first versions of these were launched on the Ethereum mainnet, but quickly migrated to Polygon (Ethereum's L2) to reduce the costs of transacting with them.
+  \item \textbf{EMOTES}: They represent avatar animations to express emotions within the virtual environment.
+\end{itemize}
+
+Unlike other virtual worlds and social networks, Decentraland is not controlled by a centralized organization\cite{DCLWhitepaper}. There is no single agent with the power to modify the rules of the software, contents of land, economics of the currency, or prevent others from accessing the world.
 
 \begin{figure}[H]
   \centering
@@ -449,7 +460,7 @@ So far, there was no tool or solution that could publicly provide information to
 
 Therefore, in summary, there was a need to develop a tool that would provide information publicly on the state of the DAO's treasury and the different assets of the community to enable informed decision making. \\
 
-To begin designing the solution, three main sources were considered: \\
+The following academic approach was considered: \\
 
 1. First, the Decentraland community. It is necessary to understand the current needs to be able to propose a solution to the problem, that is why it was taken as main input the requests of the users through conversations and interviews. \\
 
@@ -468,7 +479,8 @@ It is clear that most users do not have much technical knowledge and, for blockc
 
 Data by itself is just that: Data. Meaning must be given to that information so that conclusions can be drawn and informed decisions can be made.
 
-\section{Methods\label{methods}}
+\chapter{Solution\label{solution}}
+\section{Approach\label{approach}}
 After reviewing the community's requests, it was determined that the goal of this project must be about collecting and processing Decentraland's public data and making it available to stakeholders in a consumable format. The scope includes:
 
 \begin{itemize}
@@ -506,14 +518,14 @@ For the solution of this problem, the following requirements were mandatory:
 
 \subsection{Data collection sources}
 \subsubsection{Decentraland's Catalyst Nodes}
-A Catalyst\cite{catalyst} is a Server that bundles different Services required by the Decentraland World. Some of the main responsibilities of the server are the management of the decentralized storage for most of the content needed by the client and the orchestration of communications between peers. Each Catalyst node exposes a set of services that work as the backbone for the platform and also exposes a public API.
+A Catalyst\cite{catalyst} is a Server that bundles different Services required by the Decentraland World. Some of the main responsibilities of the server are the management of the decentralized storage for most of the content needed by the client and the orchestration of communications between peers. Each Catalyst node exposes a set of services that work as the backbone for the platform and also exposes a public API.\cite{catalyst2}
 
 
 \subsubsection{Infura}
 Infura\cite{infura} is a blockchain development suite that provides application programming interfaces (APIs) and developer tools. It provides fast and reliable access to the Ethereum network to enable developers to build software and Web3 applications that scale to meet user demand.
-As an Infrastructure-as-a-Service (IaaS) and Web3 backend infrastructure provider, it offers documentation and resources to help developers build decentralized applications (dApps) quickly. This is achieved by reducing the time spent building infrastructure from scratch. Infura offers enterprise-ready infrastructure using a distributed cloud-hosted network of nodes. This removes much of the friction associated with the development and ownership of proprietary computing and storage facilities. 
+As an Infrastructure-as-a-Service (IaaS) and Web3 backend infrastructure provider, it offers documentation and resources to help developers build decentralized applications (dApps) quickly. This is achieved by reducing the time spent building infrastructure from scratch. Infura offers enterprise-ready infrastructure using a distributed cloud-hosted network of nodes. This removes much of the friction associated with the development and ownership of proprietary computing and storage facilities.\cite{infura}
 
-The Infura Ethereum API provides developers with easy-to-access Ethereum-based infrastructure to build decentralized applications. Using it, builders can connect applications in just a few seconds using a single line of code. This makes it simple to take advantage of fast, highly available Ethereum infrastructure. 
+The Infura Ethereum API provides developers with easy-to-access Ethereum-based infrastructure to build decentralized applications. Using it, builders can connect applications in just a few seconds using a single line of code. This makes it simple to take advantage of fast, highly available Ethereum infrastructure.\cite{infura}
 
 \begin{figure}[H]
   \centering
@@ -522,12 +534,16 @@ The Infura Ethereum API provides developers with easy-to-access Ethereum-based i
   \label{fig:infura}
 \end{figure}
 
+The most significant concern\cite{infuraCons} with regards to Infura is its centralizing impact on the Ethereum network. If Infura closes its access to the Ethereum blockchain, it will impact 350,000 dApps and developers.\cite{infuraUsers}
+
+In other words, the dependence on infura services is so great today that it could represent a single-point-of-failure and goes against the decentralization proposed by Ethereum.
+
 \subsubsection{The Graph}
 The Graph\cite{thegraph} is a decentralized protocol for indexing and querying data from blockchains, starting with Ethereum. It makes it possible to query data that is difficult to query directly.
 
-To get this data, every single transfer event issued would have to be processed, read the IPFS\footnote{\url{https://docs.ipfs.tech/concepts/what-is-ipfs/}} metadata using the token ID and IPFS hash, and then aggregated. Even for such relatively simple queries, a \ac{Dapp} running in a browser would take hours or even days to get an answer.
+To get this data, every single transfer event issued would have to be processed, read the \ac{IPFS}\cite{ipfs} metadata using the token ID and \ac{IPFS} hash, and then aggregated. Even for such relatively simple queries, a \ac{Dapp} running in a browser would take hours or even days to get an answer.\cite{thegraph}
 
-The Graph solves this with a decentralized protocol that indexes and enables the performant and efficient querying of blockchain data. These APIs (indexed "subgraphs") can then be queried with a standard GraphQL API. Today, there is a hosted service as well as a decentralized protocol with the same capabilities. Both are backed by the open source implementation of Graph Node.
+The Graph solves this with a decentralized protocol that indexes and enables the performant and efficient querying of blockchain data. These APIs (indexed "subgraphs") can then be queried with a standard GraphQL API. Today, there is a hosted service as well as a decentralized protocol with the same capabilities. Both are backed by the open source implementation of Graph Node.\cite{thegraph}
 
 \subsubsection{Snapshot}
 Snapshot\cite{snapshot} is a decentralized voting system. It provides flexibility on how voting power is calculated for a vote. It supports various voting types to cater to the needs of organizations. Creating proposals and voting on Snapshot is user-friendly and does not cost gas as the process is performed off-chain.
@@ -545,18 +561,18 @@ Its key features are:
 \subsubsection{Covalent}
 Covalent\cite{covalent} is a multi-chain unified application programming interface that brings visibility to billions of data points for multiple blockchains. As an indexing querying solution for blockchains, the platform offers a diverse range of actionable insights that enable developers to optimize the allocation of resources, bringing greater utility to decentralized applications using a single, unified API.
 
-Covalent collates millions of data points from different organizations. Rather than searching for data from multiple locations on multiple blockchains, the network provides a one-stop-shop for high-quality multi-chain data.
+Covalent collates millions of data points from different organizations. Rather than searching for data from multiple locations on multiple blockchains, the network provides a one-stop-shop for high-quality multi-chain data.\cite{covalent}
 
-This is made possible by aggregating various data feeds from nodes on different blockchains. The Covalent API then facilitates the distribution of customized data feeds to suit the individual needs of users. This data can be broad or specific, depending on the application. For example, the API can provide both the historical and current performance of digital assets. This could be for a small handful of assets or to analyze the entire crypto market. Plus, when data is requested, it is returned quickly in a uniform, consistent manner. Regardless of how many blockchains are queried, all relevant data is presented in a single API.
+This is made possible by aggregating various data feeds from nodes on different blockchains. The Covalent API then facilitates the distribution of customized data feeds to suit the individual needs of users. This data can be broad or specific, depending on the application. For example, the API can provide both the historical and current performance of digital assets. This could be for a small handful of assets or to analyze the entire crypto market. Plus, when data is requested, it is returned quickly in a uniform, consistent manner. Regardless of how many blockchains are queried, all relevant data is presented in a single API.\cite{covalent}
 
-\chapter{Solution\label{solution}}
-To begin the implementation of such a tool that meets the requirements outlined in section \ref{methods}, it was decided to first establish a public repository\footnote{\url{https://github.com/Decentraland-DAO/transparency}} within the Decentraland DAO organization where the scripts code and version histories would be stored. In this way, the tool is auditable by anyone who is willing to do so.
+\section{Implementation}
+To begin the implementation of such a tool that meets the requirements outlined in section \ref{approach}, it was decided to first establish a public repository\cite{transparencyRepo} within the Decentraland DAO organization where the scripts code and version histories would be stored. In this way, the tool is auditable by anyone who is willing to do so.
 
-Since data must be collected every day and different sources must be consumed, Node.js was chosen for the backend of the project as it is easily configurable to run periodically in a GitHub Action\footnote{\url{https://github.com/actions/setup-node}}. As for the programming language chosen, Typescript was used due to the versatility it offers and, naturally, for the typing, since it is very useful when working with data. The collected information is available in two widely used formats: \textbf{CSV} \& \textbf{JSON}. The first one is very useful for data analysis and the second one can be consumed by other applications.
+Since data must be collected every day and different sources must be consumed, Node.js was chosen for the backend of the project as it is easily configurable to run periodically in a GitHub Action\cite{ghAction}. As for the programming language chosen, Typescript was used due to the versatility it offers and, naturally, for the typing, since it is very useful when working with data. The collected information is available in two widely used formats: \textbf{CSV} \& \textbf{JSON}. The first one is very useful for data analysis and the second one can be consumed by other applications.
 
-Finally, Google Data Studio\footnote{\url{https://datastudio.google.com/u/0/reporting/fca13118-c18d-4e68-9582-ad46d2dd5ce9/page/p_nlc90z86rc}} is used to visualize the metrics, which uses as input the information from the CSVs collected with the scripts (previously uploaded to a Google spreadsheet). This allows the community to have a simple way to visualize metrics that can be easily shared with other people.
+Finally, Google Data Studio\cite{transparencyDashboard} is used to visualize the metrics, which uses as input the information from the CSVs collected with the scripts (previously uploaded to a Google spreadsheet). This allows the community to have a simple way to visualize metrics that can be easily shared with other people.
 
-\section{From data to metrics}
+\subsection{From data to metrics}
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{diagrama.png}
@@ -566,9 +582,9 @@ Finally, Google Data Studio\footnote{\url{https://datastudio.google.com/u/0/repo
 
 It all starts with the services that index blockchain information such as Infura, Covalent or The Graph and those that add custom information such as Snapshot, Decentraland's catalyst nodes or even the platform's governance Dapp.
 
-In order to collect the data, certain scripts were developed and will be explained below. To check the code of these scripts and their historical changes, it can be done from the GitHub repository\footnote{\url{https://github.com/Decentraland-DAO/transparency}} and the link can be found at the bottom of this page.
+In order to collect the data, certain scripts were developed and will be explained below. To check the code of these scripts and their historical changes, it can be done from the GitHub repository (see \cite{transparencyRepo}). \\
 
-\subsection{Data collection scripts}
+Each implemented data collection script will be detailed below:
 \subsubsection{Balances}
 The first script is very simple and it's responsible for collecting the balances of the DAO's treasury. This is done by making a Covalent API call using the DAO's wallet addresses. The result is a JSON and CSV file with the amount of the different tokens with the values also expressed in US Dollars. \\
 
@@ -586,7 +602,7 @@ The fields included are:
 \end{itemize}
 
 \subsubsection{Collections}
-The second script is also very simple and it's responsible for collecting the data about all wearable collections that are currently available in Decentraland. This is done by making a GraphQL\footnote{\url{https://graphql.org/}} query to the corresponding subgraph of The Graph. The result is a JSON and CSV file with the information about these collections. \\
+The second script is also very simple and it's responsible for collecting the data about all wearable collections that are currently available in Decentraland. This is done by making a GraphQL\cite{graphql} query to the corresponding subgraph of The Graph. The result is a JSON and CSV file with the information about these collections. \\
 
 The fields included are:
 \begin{itemize}
@@ -790,7 +806,7 @@ This script uses all the output files from the previous scripts and generates a 
 
 \pagebreak
 
-Continuing with the explanation of the data flow in figure \ref{fig:diagram}, such scripts are periodically executed from a GitHub Action and the configuration file\footnote{\url{https://github.com/Decentraland-DAO/transparency/blob/main/.github/workflows/pull-data.yml}} is as follows: \\
+Continuing with the explanation of the data flow in figure \ref{fig:diagram}, such scripts are periodically executed from a GitHub Action and the configuration file\cite{configFile} is as follows: \\
 
 \begin{lstlisting}{Code snippet from the Github Action configuration file}
 name: Pull Data
@@ -830,9 +846,9 @@ jobs:
                     ************ Other Scripts ************
 \end{lstlisting}
 
-The resulting JSON and CSV files, on one hand are uploaded to another branch of the same github repository to make them available for being consumed and also for versioning. On the other hand, the CSV files are uploaded to a Google spreadsheet\footnote{\url{https://docs.google.com/spreadsheets/d/1FoV7TdMTVnqVOZoV4bvVdHWkeu4sMH5JEhp8L0Shjlo}} to offer the possibility to filter the information and to make it available for use in Google Data Studio.
+The resulting JSON and CSV files, on one hand are uploaded to another branch of the same github repository to make them available for being consumed and also for versioning. On the other hand, the CSV files are uploaded to a Google spreadsheet\cite{transparencySheet} to offer the possibility to filter the information and to make it available for use in Google Data Studio.
 
-At this point, the data is used to extract metrics and plot them on the Data Studio dashboard, the DAO transparency page\footnote{\url{https://governance.decentraland.org/transparency/}} and other external applications.
+At this point, the data is used to extract metrics and plot them on the Data Studio dashboard, the DAO transparency page\cite{transparencyPage} and other external applications.
 
 \section{Data visualization}
 Data visualization\cite{dataviz} is the representation of data through use of common graphics, such as charts, plots, infographics, and even animations. These visual displays of information communicate complex data relationships and data-driven insights in a way that is easy to understand.
@@ -848,7 +864,7 @@ Data visualization for idea illustration assists in conveying an idea, such as a
 \subsubsection{Visual discovery}
 Visual discovery and every day data viz are more closely aligned with data teams. While visual discovery helps data analysts, data scientists, and other data professionals identify patterns and trends within a dataset, every day data viz supports the subsequent storytelling after a new insight has been found.
 
-\section{Types of data visualizations}
+\subsection{Types of data visualizations}
 The earliest form of data visualization can be traced back the Egyptians in the pre-17th century\cite{dataviz}, largely used to assist in navigation. As time progressed, people leveraged data visualizations for broader applications, such as in economic, social, health disciplines. Perhaps most notably, Edward Tufte published The Visual Display of Quantitative Information\cite{tufte1985visual}, which illustrated that individuals could utilize data visualization to present data in a more effective manner. Dashboards are effective data visualization tools for tracking and visualizing data from multiple data sources, providing visibility into the effects of specific behaviors by a team or an adjacent one on performance. Dashboards include common visualization techniques, such as:
 
 \begin{itemize}
@@ -1171,9 +1187,9 @@ The tools currently available to extract data are still not user-friendly enough
 
 Regarding the conclusions that can be drawn from the data obtained, in the first place it can be said that the DAO is still at an early stage of life, the launch date was 05/24/2021 which as of today is just over a year and a half. However, it can be seen that it is growing and that the number of members and interactions is increasing, which is a good sign. For example, Figure \ref{fig:median_votes} shows how the median number of votes per proposal is increasing month by month.
 
-Although Figure \ref{fig:vote_weight} shows that the average voting weight in the outcome of the proposals has a decreasing trend, which gives signs of a distribution of voting power (more than 30\% is delegated as shown in Table \ref{table:VP}), Figure \ref{fig:vp_distribution_members} shows that 12 addresses concentrate more than 50\% of the voting power. While this is due to the young age of the DAO and does not necessarily represent a problem at the moment, it should not be overlooked and mechanisms should be implemented to prevent, for example, 51\% attacks\footnote{\url{https://www.coindesk.com/learn/what-is-a-51-attack/}}. 
+Although Figure \ref{fig:vote_weight} shows that the average voting weight in the outcome of the proposals has a decreasing trend, which gives signs of a distribution of voting power (more than 30\% is delegated as shown in Table \ref{table:VP}), Figure \ref{fig:vp_distribution_members} shows that 12 addresses concentrate more than 50\% of the voting power. While this is due to the young age of the DAO and does not necessarily represent a problem at the moment, it should not be overlooked and mechanisms should be implemented to prevent, for example, 51\% attacks\cite{51PercentAttack}. 
 
-A possible solution to this problem could be to adopt the Quadratic voting model with Sybil attack resistance used by the Gitcoin platform\footnote{\url{https://docs.passport.gitcoin.co/}}, which reduces the voting impact of addresses with a large amount of VP and, at the same time, increases the cost of splitting such VP into different addresses. \\
+A possible solution to this problem could be to adopt the Quadratic voting model with Sybil attack resistance used by the Gitcoin platform\cite{gitcoin}, which reduces the voting impact of addresses with a large amount of VP and, at the same time, increases the cost of splitting such VP into different addresses. \\
 
 As for grants, the community's interest in continuing to add value to the platform is clear.  To date, 100 projects have been funded with a grand total of over US\$7 million (see Table \ref{table:grants}) - with US\$240,000 being the maximum amount allowed per grant. Figure \ref{fig:category_distribution} also shows that the distribution of categories is even.
 
@@ -1332,6 +1348,7 @@ It is also intended to be able to collect this information in real time, since a
     \acro{AR}{Augmented Reality}
     \acro{L2}{Layer 2}
     \acro{DEXs}{Decentralized Exchanges}
+    \acro{IPFS}{InterPlanetary File System}
 \end{acronym}
 
 \clearpage
