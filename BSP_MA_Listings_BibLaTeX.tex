@@ -30,6 +30,7 @@
 \usepackage{float}
 \usepackage{csquotes}
 \usepackage{multicol}
+\usepackage{tabularx}
 \usepackage{graphicx}
 \graphicspath{ {./PICs/} }
 
@@ -589,131 +590,175 @@ Each implemented data collection script will be detailed below:
 The first script is very simple and it's responsible for collecting the balances of the DAO's treasury. This is done by making a Covalent API call using the DAO's wallet addresses. The result is a JSON and CSV file with the amount of the different tokens with the values also expressed in US Dollars. \\
 
 The fields included are:
-\begin{itemize}
-  \item \textbf{Timestamp}: [ISODate] The date on which the balance query was made
-  \item \textbf{Wallet}: [String] The name of the wallet
-  \item \textbf{Balance}: [Number] The amount of tokens in the wallet
-  \item \textbf{Symbol}: [String] The symbol of the token
-  \item \textbf{USD Balance}: [Number] The value of tokens expressed in US Dollars
-  \item \textbf{USD Rate}: [Number] The current exchange rate of the token
-  \item \textbf{Network}: [String] The network on which such wallet is located (either Ethereum or Polygon)
-  \item \textbf{Address}: [String] The wallet's address
-  \item \textbf{Token}: [String] The smart contract's address of the token
-\end{itemize}
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|l|l|X|}
+  \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                         \\ \hline
+  Timestamp     & ISODate       & The date on which the balance query was made \\ \hline
+  Wallet        & String        & The name of the wallet                       \\ \hline
+  Balance       & Number        & The amount of tokens in the wallet           \\ \hline
+  Symbol        & String        & The symbol of the token                      \\ \hline
+  USD Balance   & Number        & The value of tokens expressed in US Dollars  \\ \hline
+  USD Rate      & Number        & The current exchange rate of the token       \\ \hline
+  Network & String & The network on which such wallet is located (either Ethereum or Polygon) \\ \hline
+  Address       & String        & The wallet's address                         \\ \hline
+  Token         & String        & The smart contract's address of the token    \\ \hline
+  \end{tabularx}
+  \caption{The fields in the balance script's output file in detail}
+  \label{table:balace}
+\end{table}
 
 \subsubsection{Collections}
 The second script is also very simple and it's responsible for collecting the data about all wearable collections that are currently available in Decentraland. This is done by making a GraphQL\cite{graphql} query to the corresponding subgraph of The Graph. The result is a JSON and CSV file with the information about these collections. \\
 
 The fields included are:
-\begin{itemize}
-  \item \textbf{Collection ID}: [String] The unique identifier of the collection
-  \item \textbf{Name}: [String] The name of the collection
-  \item \textbf{Symbol}: [String] The symbol of the collection
-  \item \textbf{Items}: [Number] The amount of items in the collection
-  \item \textbf{Completed}: [Boolean] Whether the collection is completed or not
-  \item \textbf{Approved}: [Boolean] Whether the collection is approved or not
-  \item \textbf{Editable}: [Boolean] Whether the collection is editable or not
-  \item \textbf{Created}: [ISODate] The date on which the collection was created
-  \item \textbf{Updated}: [ISODate] The date on which the collection was last updated
-  \item \textbf{Reviewed At}: [ISODate] The date on which the collection was last reviewed
-  \item \textbf{Creator}: [String] The address of the creator of the collection
-\end{itemize}
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|l|l|X|}
+  \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                               \\ \hline
+  Collection ID & String        & The unique identifier of the collection            \\ \hline
+  Name          & String        & The name of the collection                         \\ \hline
+  Symbol        & String        & The symbol of the collection                       \\ \hline
+  Items         & Number        & The amount of items in the collection              \\ \hline
+  Completed     & Boolean       & Whether the collection is completed or not         \\ \hline
+  Approved      & Boolean       & Whether the collection is approved or not          \\ \hline
+  Editable      & Boolean       & Whether the collection is editable or not          \\ \hline
+  Created       & ISODate       & The date on which the collection was created       \\ \hline
+  Updated       & ISODate       & The date on which the collection was last updated  \\ \hline
+  Reviewed At   & ISODate       & The date on which the collection was last reviewed \\ \hline
+  Creator       & String        & The address of the creator of the collection       \\ \hline
+  \end{tabularx}
+  \caption{The fields in the collections script's output file in detail}
+  \label{table:collections}
+  \end{table}
 
 \subsubsection{Curations}
 This script is responsible for collecting data from all wearable curations made by the curation team. This is done by making a GraphQL query to the corresponding subgraph of The Graph. The result is a JSON and CSV file with the information about these curations. \\
 
 The fields included are:
-\begin{itemize}
-  \item \textbf{Date}: [ISODate] The date on which the curation was made
-  \item \textbf{Tx Hash}: [String] The transaction hash of the curation
-  \item \textbf{Curator}: [String] The address of the curator
-  \item \textbf{Collection ID}: [String] The unique identifier of the collection curated
-  \item \textbf{Collection Name}: [String] The name of the collection curated
-  \item \textbf{Collection Items}: [Number] The amount of items in the curated collection
-  \item \textbf{Collection Approved}: [Boolean] Whether the curated collection was approved or not
-\end{itemize}
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|l|l|X|}
+  \hline
+  \textbf{Name}       & \textbf{Type} & \textbf{Description}                               \\ \hline
+  Date                & ISODate       & The date on which the curation was made            \\ \hline
+  Tx Hash             & String        & The transaction hash of the curation               \\ \hline
+  Curator             & String        & The address of the curator                         \\ \hline
+  Collection ID       & String        & The unique identifier of the collection curated    \\ \hline
+  Collection Name     & String        & The name of the collection curated                 \\ \hline
+  Collection Items    & Number        & The amount of items in the curated collection      \\ \hline
+  Collection Approved & Boolean       & Whether the curated collection was approved or not \\ \hline
+  \end{tabularx}
+  \caption{The fields in the curations script's output file in detail}
+  \label{table:curations}
+  \end{table}
 
 
 \subsubsection{Proposals\label{proposals-script}}
 This script is responsible for collecting data from all proposals made by the community in the DAO governance platform. This is done by combining a GraphQL query to the corresponding snapshot subgraph and an API call to the DAO platform. The result is a JSON and CSV file with the information about all the proposals. \\
 
 The fields included are:
-\begin{itemize}
-  \item \textbf{Proposal ID}: [String] The unique identifier of the proposal of the DAO platform
-  \item \textbf{Snapshot ID}: [String] The unique identifier of the proposal of the snapshot platform
-  \item \textbf{Author}: [String] The address of the author of the proposal
-  \item \textbf{Type}: [String] The type of the proposal (Catalyst, Grant, POI, Name Ban, Linked Wearable or Governance)
-  \item \textbf{Title}: [String] The title of the proposal
-  \item \textbf{Started}: [ISODate] The date on which the proposal was started
-  \item \textbf{Ended}: [ISODate] The date on which the proposal ended
-  \item \textbf{Threshold}: [Number] The threshold of the proposal to be approved
-  \item \textbf{Status}: [String] The status of the proposal (Active, Enacted, Finished, Passed, Rejected)
-  \item \textbf{Forum Topic}: [String] The forum topic of the proposal
-  \item \textbf{Total VP}: [Number] The total amount of voting power in votes of the proposal
-  \item \textbf{MANA VP}: [Number] The total amount of MANA voting power in votes of the proposal
-  \item \textbf{LAND VP}: [Number] The total amount of LAND voting power in votes of the proposal
-  \item \textbf{NAMES VP}: [Number] The total amount of NAMES voting power in votes of the proposal
-  \item \textbf{DELEGATED VP}: [Number] The total amount of delegated voting power in votes of the proposal
-  \item \textbf{Votes}: [Number] The total amount of votes of the proposal
-\end{itemize}
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|l|l|X|}
+  \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                                            \\ \hline
+  Proposal ID   & String        & The unique identifier of the proposal of the DAO platform       \\ \hline
+  Snapshot ID  & String & The unique identifier of the proposal of the snapshot platform                           \\ \hline
+  Author        & String        & The address of the author of the proposal                       \\ \hline
+  Type         & String & The type of the proposal (Catalyst, Grant, POI, Name Ban, Linked Wearable or Governance) \\ \hline
+  Title         & String        & The title of the proposal                                       \\ \hline
+  Started       & ISODate       & The date on which the proposal was started                      \\ \hline
+  Ended         & ISODate       & The date on which the proposal ended                            \\ \hline
+  Threshold     & Number        & The threshold of the proposal to be approved                    \\ \hline
+  Status       & String & The status of the proposal (Active, Enacted, Finished, Passed, Rejected)                 \\ \hline
+  Forum Topic   & String        & The forum topic of the proposal                                 \\ \hline
+  Total VP      & Number        & The total amount of voting power in votes of the proposal       \\ \hline
+  MANA VP       & Number        & The total amount of MANA voting power in votes of the proposal  \\ \hline
+  LAND VP       & Number        & The total amount of LAND voting power in votes of the proposal  \\ \hline
+  NAMES VP      & Number        & The total amount of NAMES voting power in votes of the proposal \\ \hline
+  DELEGATED VP & Number & The total amount of delegated voting power in votes of the proposal                      \\ \hline
+  Votes         & Number        & The total amount of votes of the proposal                       \\ \hline
+  \end{tabularx}
+  \caption{The fields in the proposals script's output file in detail}
+  \label{table:proposals}
+\end{table}
 
 \subsubsection{Grants}
 This script is responsible for collecting data from all grants made by the DAO. This is done by combining multiple sources such as: the JSON file resulting from the proposals script (\ref{proposals-script}), the Infura API to obtain information about vesting contracts, the Covalent API to obtain information about one-time-payment grant transactions, and the DAO platform to obtain information about updates made by grant beneficiaries. The result is a JSON and CSV file with the information about all the grants. \\
 
 The fields included are:
-\begin{itemize}
-  \item \textbf{Proposal ID}: [String] The unique identifier of the proposal of the DAO platform
-  \item \textbf{Snapshot ID}: [String] The unique identifier of the proposal of the snapshot platform
-  \item \textbf{Author}: [String] The address of the author of the proposal
-  \item \textbf{Title}: [String] The title of the proposal
-  \item \textbf{Status}: [String] The status of the grant (Active, Rejected, Passed or Enacted)
-  \item \textbf{Started}: [ISODate] The date on which the grant was started
-  \item \textbf{Ended}: [ISODate] The date on which the grant ended
-  \item \textbf{Threshold}: [Number] The threshold of the grant to be approved
-  \item \textbf{Total VP}: [Number] The total amount of voting power in votes of the grant
-  \item \textbf{Category}: [String] The category of the grant (Gaming, Content Creator, Platform Contributor or Community)
-  \item \textbf{Tier}: [String] The tier of the grant (Tier 1 to Tier 6)
-  \item \textbf{Amount USD}: [Number] The amount of the grant expressed in USD Dollars
-  \item \textbf{Beneficiary}: [String] The address of the beneficiary of the grant
-  \item \textbf{Token}: [String] The token used in the grant
-  \item \textbf{Vesting Contract}: [String] The address of the vesting contract (if applicable)
-  \item \textbf{Vesting Released Amount}: [Number] The total amount that has been released from the vesting contract (if applicable)
-  \item \textbf{Vesting Releasable Amount}: [Number] The total amount that can be released from the vesting contract (if applicable)
-  \item \textbf{Vesting Contract Token Balance}: [Number] The total balance of the token in the vesting contract (if applicable)
-  \item \textbf{Vesting Total Amount}: [Number] The total amount of the vesting contract (if applicable)
-  \item \textbf{Vesting Start At}: [ISODate] The date on which the vesting starts (if applicable)
-  \item \textbf{Vesting Finish At}: [ISODate] The date on which the vesting finishes (if applicable)
-  \item \textbf{Enacting Transaction}: [String] The hash of when a one-time-payment grant was paid (if applicable)
-  \item \textbf{Transaction Date}: [ISODate] The date on which a one-time-payment grant was paid (if applicable)
-  \item \textbf{Transaction Amount}: [Number] The amount in the transaction that was paid in the one-time-payment grant (if applicable)
-  \item \textbf{Done Updates}: [Number] The amount of done updates made by the grant beneficiary
-  \item \textbf{Late Updates}: [Number] The amount of late updates made by the grant beneficiary
-  \item \textbf{Missed Updates}: [Number] The amount of missed updates by the grant beneficiary
-  \item \textbf{Update Status}: [String] The status of the current update of the grant beneficiary
-  \item \textbf{Project Health}: [String] The health status of the project that is beeing supported by the grant
-  \item \textbf{Last Update}: [ISODate] The date on which the last update by the grant beneficiary was made
-  \item \textbf{Next Update}: [ISODate] The date on which the next update by the grant beneficiary will have to be made
-  \item \textbf{Pending Updates}: [Number] The amount of pending updates by the grant beneficiary
-\end{itemize}
+\begin{table}[H]
+  \centering
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{|l|l|l|}
+  \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                                            \\ \hline
+  Proposal ID                    & String  & The unique identifier of the proposal of the DAO platform                              \\ \hline
+  Snapshot ID                    & String  & The unique identifier of the proposal of the snapshot platform                         \\ \hline
+  Author                         & String  & The address of the author of the proposal                                              \\ \hline
+  Title                          & String  & The title of the proposal                                                              \\ \hline
+  Status                         & String  & The status of the grant (Active, Rejected, Passed or Enacted)                          \\ \hline
+  Started                        & ISODate & The date on which the grant was started                                                \\ \hline
+  Ended                          & ISODate & The date on which the grant ended                                                      \\ \hline
+  Threshold                      & Number  & The threshold of the grant to be approved                                              \\ \hline
+  Total VP                       & Number  & The total amount of voting power in votes of the grant                                 \\ \hline
+  Category                       & String  & The category of the grant (Gaming, Content Creator, Platform Contributor or Community) \\ \hline
+  Tier                           & String  & The tier of the grant (Tier 1 to Tier 6)                                               \\ \hline
+  Amount USD                     & Number  & The amount of the grant expressed in USD Dollars                                       \\ \hline
+  Beneficiary                    & String  & The address of the beneficiary of the grant                                            \\ \hline
+  Token                          & String  & The token used in the grant                                                            \\ \hline
+  Vesting Contract               & String  & The address of the vesting contract (if applicable)                                    \\ \hline
+  Vesting Released Amount        & Number  & The total amount that has been released from the vesting contract (if applicable)      \\ \hline
+  Vesting Releasable Amount      & Number  & The total amount that can be released from the vesting contract (if applicable)        \\ \hline
+  Vesting Contract Token Balance & Number  & The total balance of the token in the vesting contract (if applicable)                 \\ \hline
+  Vesting Total Amount           & Number  & The total amount of the vesting contract (if applicable)                               \\ \hline
+  Vesting Start At               & ISODate & The date on which the vesting starts (if applicable)                                   \\ \hline
+  Vesting Finish At              & ISODate & The date on which the vesting finishes (if applicable)                                 \\ \hline
+  Enacting Transaction           & String  & The hash of when a one-time-payment grant was paid (if applicable)                     \\ \hline
+  Transaction Date               & ISODate & The date on which a one-time-payment grant was paid (if applicable)                    \\ \hline
+  Transaction Amount & Number & The amount in the transaction that was paid in the one-time-payment grant (if applicable) \\ \hline
+  Done Updates                   & Number  & The amount of done updates made by the grant beneficiary                               \\ \hline
+  Late Updates                   & Number  & The amount of late updates made by the grant beneficiary                               \\ \hline
+  Missed Updates                 & Number  & The amount of missed updates by the grant beneficiary                                  \\ \hline
+  Update Status                  & String  & The status of the current update of the grant beneficiary                              \\ \hline
+  Project Health                 & String  & The health status of the project that is beeing supported by the grant                 \\ \hline
+  Last Update                    & ISODate & The date on which the last update by the grant beneficiary was made                    \\ \hline
+  Next Update                    & ISODate & The date on which the next update by the grant beneficiary will have to be made        \\ \hline
+  Pending Updates                & Number  & The amount of pending updates by the grant beneficiary                                 \\ \hline
+  \end{tabular}%
+  }
+  \caption{The fields in the grants script's output file in detail}
+  \label{table:grants}
+\end{table}
 
 \subsubsection{Members}
 This script is responsible for collecting data from all members of the DAO who have voted on a proposal at least once. This is done by making a GraphQL query to the corresponding snapshot subgraph. The result is a JSON and CSV file with the information about all the members. \\
 
 The fields included are:
-\begin{itemize}
-  \item \textbf{Member}: [String] The address of the member
-  \item \textbf{Total VP}: [Number] The total amount of voting power of the member
-  \item \textbf{MANA VP}: [Number] The total amount of MANA voting power of the member
-  \item \textbf{LAND VP}: [Number] The total amount of LAND voting power of the member
-  \item \textbf{NAMES VP}: [Number] The total amount of NAMES voting power of the member
-  \item \textbf{Delegated VP}: [Number] The total amount of delegated voting power of the member
-  \item \textbf{Has Delegated}: [Boolean] Whether the member has delegated their voting power or not
-  \item \textbf{Delegate}: [String] The address of the delegate of the member (if applicable)
-  \item \textbf{Has Delegators}: [Boolean] Whether the member has delegators or not
-  \item \textbf{Delegators Amount}: [Number] The amount of delegators of the member
-  \item \textbf{Delegators}: [String] The addresses of the delegators of the member (if applicable)
-  \item \textbf{Avatar Preview}: [String] The preview url of the avatar of the member
-\end{itemize}
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|l|l|X|}
+  \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                                            \\ \hline
+  Member            & String  & The address of the member                                     \\ \hline
+  Total VP          & Number  & The total amount of voting power of the member                \\ \hline
+  MANA VP           & Number  & The total amount of MANA voting power of the member           \\ \hline
+  LAND VP           & Number  & The total amount of LAND voting power of the member           \\ \hline
+  NAMES VP          & Number  & The total amount of NAMES voting power of the member          \\ \hline
+  Delegated VP      & Number  & The total amount of delegated voting power of the member      \\ \hline
+  Has Delegated     & Boolean & Whether the member has delegated their voting power or not    \\ \hline
+  Delegate          & String  & The address of the delegate of the member (if applicable)     \\ \hline
+  Has Delegators    & Boolean & Whether the member has delegators or not                      \\ \hline
+  Delegators Amount & Number  & The amount of delegators of the member                        \\ \hline
+  Delegators        & String  & The addresses of the delegators of the member (if applicable) \\ \hline
+  Avatar Preview    & String  & The preview url of the avatar of the member                   \\ \hline
+  \end{tabularx}
+  \caption{The fields in the members script's output file in detail}
+  \label{table:members}
+\end{table}
 
 \subsubsection{Transactions}
 This script is the most complex of all because of the logic involved in identifying each transaction with a human-readable tag. As for the transaction data, it is collected through calls to the Covalent API.
@@ -729,71 +774,95 @@ Finally, by reviewing transactions with large amounts of money and without a tag
 To date there are about 140,570 transactions between all DAO wallets and, discounting internal transfers between them, only 67 transactions remained untagged. In other words, about 99.95\% of the transactions could be classified into categories. \\
 
 The result of this script is a JSON and CSV file with the information about all the transactions. The fields included are:
-\begin{itemize}
-  \item \textbf{Date}: [ISODate] The date on which the transaction was made
-  \item \textbf{Wallet}: [String] The DAO wallet involved in the transaction
-  \item \textbf{Network}: [String] The network in which the transaction was made
-  \item \textbf{Type}: [String] The type of transaction (IN, OUT or INTERNAL)
-  \item \textbf{Tag}: [String] The tag of the transaction
-  \item \textbf{Amount}: [Number] The token amount of the transaction
-  \item \textbf{Token}: [String] The token of the transaction
-  \item \textbf{USD Amount}: [Number] The value of the transaction expressed in USD Dollars
-  \item \textbf{USD Fee}: [Number] The fee of the transaction expressed in USD Dollars
-  \item \textbf{Sender}: [String] The sender address of the transaction
-  \item \textbf{Transfer To}: [String] The receiver address of the transaction
-  \item \textbf{Block}: [Number] The block number of the transaction
-  \item \textbf{Hash}: [String] The hash of the transaction
-  \item \textbf{Contract}: [String] The token contract address used in the transaction
-\end{itemize}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|l|l|X|}
+  \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                                            \\ \hline
+  Date        & ISODate & The date on which the transaction was made            \\ \hline
+  Wallet      & String  & The DAO wallet involved in the transaction            \\ \hline
+  Network     & String  & The network in which the transaction was made         \\ \hline
+  Type        & String  & The type of transaction (IN, OUT or INTERNAL)         \\ \hline
+  Tag         & String  & The tag of the transaction                            \\ \hline
+  Amount      & Number  & The token amount of the transaction                   \\ \hline
+  Token       & String  & The token of the transaction                          \\ \hline
+  USD Amount  & Number  & The value of the transaction expressed in USD Dollars \\ \hline
+  USD Fee     & Number  & The fee of the transaction expressed in USD Dollars   \\ \hline
+  Sender      & String  & The sender address of the transaction                 \\ \hline
+  Transfer To & String  & The receiver address of the transaction               \\ \hline
+  Block       & Number  & The block number of the transaction                   \\ \hline
+  Hash        & String  & The hash of the transaction                           \\ \hline
+  Contract    & String  & The token contract address used in the transaction    \\ \hline
+  \end{tabularx}
+  \caption{The fields in the transactions script's output file in detail}
+  \label{table:transactions}
+\end{table}
 
 \subsubsection{Votes\label{subsec_votes}}
 This script is responsible for collecting data from all votes made by members of the DAO. This is done by making a GraphQL query to the corresponding snapshot subgraph. The result is a JSON and CSV file with the information about all the votes. \\
 
 The fields included are:
-\begin{itemize}
-  \item \textbf{Member}: [String] The address of the member
-  \item \textbf{Proposal ID}: [Number] The ID of the proposal
-  \item \textbf{Created}: [ISODate] The date on which the vote was made
-  \item \textbf{Proposal Title}: [String] The title of the proposal
-  \item \textbf{Choice \#}: [Number] The choice number of the vote
-  \item \textbf{Choice}: [String] The choice of the vote
-  \item \textbf{Vote Weight}: [Number] The ratio between the voting power of the vote and the total VP received by the proposal. It is calculated as $(VOTE\_VP / TOTAL\_PROPOSAL\_VP) * 100$
-  \item \textbf{Total VP}: [Number] User's total amount of voting power at the time of the vote
-  \item \textbf{MANA VP}: [Number] User's total amount of MANA voting power at the time of the vote
-  \item \textbf{Names VP}: [Number] User's total amount of NAMES voting power at the time of the vote
-  \item \textbf{LAND VP}: [Number] User's total amount of LAND voting power at the time of the vote
-  \item \textbf{Delegated VP}: [Number] User's total amount of delegated voting power at the time of the vote
-\end{itemize}
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|l|l|X|}
+  \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                                            \\ \hline
+  Member         & String  & The address of the member                                             \\ \hline
+  Proposal ID    & Number  & The ID of the proposal                                                \\ \hline
+  Created        & ISODate & The date on which the vote was made                                   \\ \hline
+  Proposal Title & String  & The title of the proposal                                             \\ \hline
+  Choice \#      & Number  & The choice number of the vote                                         \\ \hline
+  Choice         & String  & The choice of the vote                                                \\ \hline
+  Vote Weight &
+    Number &
+    The ratio between the voting power of the vote and the total VP received by the proposal. It is calculated as $(VOTE\_VP / TOTAL\_PROPOSAL\_VP) * 100$ \\ \hline
+  Total VP       & Number  & User's total amount of voting power at the time of the vote           \\ \hline
+  MANA VP        & Number  & User's total amount of MANA voting power at the time of the vote      \\ \hline
+  Names VP       & Number  & User's total amount of NAMES voting power at the time of the vote     \\ \hline
+  LAND VP        & Number  & User's total amount of LAND voting power at the time of the vote      \\ \hline
+  Delegated VP   & Number  & User's total amount of delegated voting power at the time of the vote \\ \hline
+  \end{tabularx}
+  \caption{The fields in the votes script's output file in detail}
+  \label{table:votes}
+\end{table}
 
 \subsubsection{Wearables}
 This script is responsible for collecting data from all circulating wearables in Decentraland. This is done by making a GraphQL query to the corresponding subgraph of The Graph. The result is a JSON and CSV file with the information about all the wearables. \\
 
 The fields included are:
-\begin{itemize}
-  \item \textbf{Item ID}: [String] The ID of the wearable
-  \item \textbf{Name}: [String] The name of the wearable
-  \item \textbf{Collection}: [String] The collection to which the wearable belongs
-  \item \textbf{Description}: [String] The description of the wearable
-  \item \textbf{Category}: [String] The category of the wearable
-  \item \textbf{Network}: [String] The network in which the wearable is located
-  \item \textbf{Type}: [String] The type of wearable, whether layer 1 or layer 2
-  \item \textbf{Total Supply}: [Number] The total supply of the wearable
-  \item \textbf{Max Supply}: [Number] The maximum supply of the wearable
-  \item \textbf{Rarity}: [String] The rarity of the wearable
-  \item \textbf{Creation Fee}: [Number] The creation fee of the wearable
-  \item \textbf{Created}: [ISODate] The date on which the wearable was created
-  \item \textbf{Updated}: [ISODate] The date on which the wearable was last updated
-  \item \textbf{Reviewed}: [ISODate] The date on which the wearable was reviewed
-  \item \textbf{Available}: [Number] The number of wearables available for sale
-  \item \textbf{Price}: [Number] The price of the wearable
-  \item \textbf{Sold}: [ISODate] The last date on which the wearable was sold
-  \item \textbf{Sales}: [Number] The number of times the wearable has been sold
-  \item \textbf{Volume}: [Number] The total volume of the wearable
-  \item \textbf{Creator}: [String] The address of the creator of the wearable
-  \item \textbf{Beneficiary}: [String] The address of the beneficiary of the wearable
-  \item \textbf{URI}: [String] The URI of the wearable
-  \item \textbf{URN}: [String] The URN of the wearable
-\end{itemize}
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|l|l|X|}
+  \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                                            \\ \hline
+  Item ID      & String  & The ID of the wearable                           \\ \hline
+  Name         & String  & The name of the wearable                         \\ \hline
+  Collection   & String  & The collection to which the wearable belongs     \\ \hline
+  Description  & String  & The description of the wearable                  \\ \hline
+  Category     & String  & The category of the wearable                     \\ \hline
+  Network      & String  & The network in which the wearable is located     \\ \hline
+  Type         & String  & The type of wearable, whether layer 1 or layer 2 \\ \hline
+  Total Supply & Number  & The total supply of the wearable                 \\ \hline
+  Max Supply   & Number  & The maximum supply of the wearable               \\ \hline
+  Rarity       & String  & The rarity of the wearable                       \\ \hline
+  Creation Fee & Number  & The creation fee of the wearable                 \\ \hline
+  Created      & ISODate & The date on which the wearable was created       \\ \hline
+  Updated      & ISODate & The date on which the wearable was last updated  \\ \hline
+  Reviewed     & ISODate & The date on which the wearable was reviewed      \\ \hline
+  Available    & Number  & The number of wearables available for sale       \\ \hline
+  Price        & Number  & The price of the wearable                        \\ \hline
+  Sold         & ISODate & The last date on which the wearable was sold     \\ \hline
+  Sales        & Number  & The number of times the wearable has been sold   \\ \hline
+  Volume       & Number  & The total volume of the wearable                 \\ \hline
+  Creator      & String  & The address of the creator of the wearable       \\ \hline
+  Beneficiary  & String  & The address of the beneficiary of the wearable   \\ \hline
+  URI          & String  & The URI of the wearable                          \\ \hline
+  URN          & String  & The URN of the wearable                          \\ \hline
+  \end{tabularx}
+  \caption{The fields in the wearables script's output file in detail}
+  \label{table:wearables}
+\end{table}
 
 \subsubsection{KPIs}
 This script uses all the output files from the previous scripts and generates a JSON file with general DAO KPIs. This is useful to give an overview of the status of the DAO.
@@ -961,7 +1030,7 @@ Figure \ref{fig:vp_distribution_members} shows how voting power is distributed a
   \label{fig:vp_distribution_members}
 \end{figure}
 
-Figure \ref{fig:vote_weight} shows by month, the average weight of votes in the final outcome of the proposals. The lower the percentage, the more distributed the voting power is. To know how the weight is calculated, see \ref{subsec_votes}.
+Figure \ref{fig:vote_weight} shows by month, the average weight of votes in the final outcome of the proposals. The lower the percentage, the more distributed the voting power is. To know how the weight is calculated, see Table \ref{table:votes}.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/vote_weight.png}
@@ -980,7 +1049,7 @@ Figure \ref{fig:vote_weight} shows by month, the average weight of votes in the 
       \hline
     \end{tabular}
     \caption{Total approved grants and funds}
-    \label{table:grants}
+    \label{table:grants_info}
   \end{table}
 \end{center}
 
@@ -1191,7 +1260,7 @@ Although Figure \ref{fig:vote_weight} shows that the average voting weight in th
 
 A possible solution to this problem could be to adopt the Quadratic voting model with Sybil attack resistance used by the Gitcoin platform\cite{gitcoin}, which reduces the voting impact of addresses with a large amount of VP and, at the same time, increases the cost of splitting such VP into different addresses. \\
 
-As for grants, the community's interest in continuing to add value to the platform is clear.  To date, 100 projects have been funded with a grand total of over US\$7 million (see Table \ref{table:grants}) - with US\$240,000 being the maximum amount allowed per grant. Figure \ref{fig:category_distribution} also shows that the distribution of categories is even.
+As for grants, the community's interest in continuing to add value to the platform is clear.  To date, 100 projects have been funded with a grand total of over US\$7 million (see Table \ref{table:grants_info}) - with US\$240,000 being the maximum amount allowed per grant. Figure \ref{fig:category_distribution} also shows that the distribution of categories is even.
 
 In terms of the DAO balance sheet, the dependence on MANA (the Decentraland token) is clearly seen. As of the date of this writing, 99\% of the DAO's treasury liquidity was denominated in that token (see Figure \ref{fig:token_distribution}). Analyzing also the inflows and outflows of the DAO's wallets (Figures \ref{fig:income} and \ref{fig:expenses}), it is clear that expenses exceed income and that the only way this works is by converting the MANA from the DAO's vesting contract into stablecoins to meet expenses, which directly impacts the price of MANA. It would be interesting to find mechanisms that would allow the DAO to receive more revenue to decrease the dependence on its own token and, therefore, to avoid affecting its price when selling it. \\
 
