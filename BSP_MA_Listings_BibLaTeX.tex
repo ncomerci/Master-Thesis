@@ -323,7 +323,7 @@ In the figure \ref{fig:dailyTxs} can be observed that the daily amount of transa
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{daily_txs.png}
-  \caption{Daily Ethereum transactions \cite{etherscan}}
+  \caption{Daily Ethereum transactions \cite{etherscanStats}}
   \label{fig:dailyTxs}
 \end{figure}
 
@@ -331,7 +331,7 @@ There are more than 200 million unique addresses in Ethereum as shown in the fig
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{unique_addresses.png}
-  \caption{Unique Ethereum addresses \cite{etherscan}}
+  \caption{Unique Ethereum addresses \cite{etherscanStats}}
   \label{fig:uniqueAddr}
 \end{figure}
 
@@ -339,7 +339,7 @@ But only between 400,000 and 600,000 addresses are currently active, meaning bet
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{active_addresses.png}
-  \caption{Active Ethereum addresses \cite{etherscan}}
+  \caption{Active Ethereum addresses \cite{etherscanStats}}
   \label{fig:activeAddr}
 \end{figure}
 
@@ -576,14 +576,21 @@ Finally, Google Data Studio\cite{transparencyDashboard} is used to visualize the
 \subsection{From data to metrics}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{diagrama.png}
-  \caption{Data collection diagram}
+  \includegraphics[width=\textwidth]{diagram.png}
+  \caption{Data collection and transformation diagram}
   \label{fig:diagram}
 \end{figure}
 
 It all starts with the services that index blockchain information such as Infura, Covalent or The Graph and those that add custom information such as Snapshot, Decentraland's catalyst nodes or even the platform's governance Dapp.
 
 In order to collect the data, certain scripts were developed and will be explained below. To check the code of these scripts and their historical changes, it can be done from the GitHub repository (see \cite{transparencyRepo}). \\
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{scripts_diagram.png}
+  \caption{Data scripts diagram}
+  \label{fig:scripts_diagram}
+\end{figure}
 
 Each implemented data collection script will be detailed below:
 \subsubsection{Balances}
@@ -664,23 +671,23 @@ The fields included are:
   \centering
   \begin{tabularx}{\textwidth}{|l|l|X|}
   \hline
-  \textbf{Name} & \textbf{Type} & \textbf{Description}                                            \\ \hline
-  Proposal ID   & String        & The unique identifier of the proposal of the DAO platform       \\ \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                                                             \\ \hline
+  Proposal ID   & String        & The unique identifier of the proposal of the DAO platform                        \\ \hline
   Snapshot ID  & String & The unique identifier of the proposal of the snapshot platform                           \\ \hline
-  Author        & String        & The address of the author of the proposal                       \\ \hline
+  Author        & String        & The address of the author of the proposal                                        \\ \hline
   Type         & String & The type of the proposal (Catalyst, Grant, POI, Name Ban, Linked Wearable or Governance) \\ \hline
-  Title         & String        & The title of the proposal                                       \\ \hline
-  Started       & ISODate       & The date on which the proposal was started                      \\ \hline
-  Ended         & ISODate       & The date on which the proposal ended                            \\ \hline
-  Threshold     & Number        & The threshold of the proposal to be approved                    \\ \hline
+  Title         & String        & The title of the proposal                                                        \\ \hline
+  Started       & ISODate       & The date on which the proposal was started                                       \\ \hline
+  Ended         & ISODate       & The date on which the proposal ended                                             \\ \hline
+  Threshold     & Number        & The threshold of the proposal to be approved                                     \\ \hline
   Status       & String & The status of the proposal (Active, Enacted, Finished, Passed, Rejected)                 \\ \hline
-  Forum Topic   & String        & The forum topic of the proposal                                 \\ \hline
-  Total VP      & Number        & The total amount of voting power in votes of the proposal       \\ \hline
-  MANA VP       & Number        & The total amount of MANA voting power in votes of the proposal  \\ \hline
-  LAND VP       & Number        & The total amount of LAND voting power in votes of the proposal  \\ \hline
-  NAMES VP      & Number        & The total amount of NAMES voting power in votes of the proposal \\ \hline
+  Forum Topic   & String        & The forum topic of the proposal                                                  \\ \hline
+  Total VP      & Number        & The total amount of voting power in votes of the proposal                        \\ \hline
+  MANA VP       & Number        & The total amount of MANA voting power in votes of the proposal                   \\ \hline
+  LAND VP       & Number        & The total amount of LAND voting power in votes of the proposal                   \\ \hline
+  NAMES VP      & Number        & The total amount of NAMES voting power in votes of the proposal                  \\ \hline
   DELEGATED VP & Number & The total amount of delegated voting power in votes of the proposal                      \\ \hline
-  Votes         & Number        & The total amount of votes of the proposal                       \\ \hline
+  Votes         & Number        & The total amount of votes of the proposal                                        \\ \hline
   \end{tabularx}
   \caption{The fields in the proposals script's output file in detail}
   \label{table:proposals}
@@ -695,7 +702,7 @@ The fields included are:
   \resizebox{\textwidth}{!}{%
   \begin{tabular}{|l|l|l|}
   \hline
-  \textbf{Name} & \textbf{Type} & \textbf{Description}                                            \\ \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                                                                              \\ \hline
   Proposal ID                    & String  & The unique identifier of the proposal of the DAO platform                              \\ \hline
   Snapshot ID                    & String  & The unique identifier of the proposal of the snapshot platform                         \\ \hline
   Author                         & String  & The address of the author of the proposal                                              \\ \hline
@@ -719,7 +726,7 @@ The fields included are:
   Vesting Finish At              & ISODate & The date on which the vesting finishes (if applicable)                                 \\ \hline
   Enacting Transaction           & String  & The hash of when a one-time-payment grant was paid (if applicable)                     \\ \hline
   Transaction Date               & ISODate & The date on which a one-time-payment grant was paid (if applicable)                    \\ \hline
-  Transaction Amount & Number & The amount in the transaction that was paid in the one-time-payment grant (if applicable) \\ \hline
+  Transaction Amount & Number & The amount in the transaction that was paid in the one-time-payment grant (if applicable)           \\ \hline
   Done Updates                   & Number  & The amount of done updates made by the grant beneficiary                               \\ \hline
   Late Updates                   & Number  & The amount of late updates made by the grant beneficiary                               \\ \hline
   Missed Updates                 & Number  & The amount of missed updates by the grant beneficiary                                  \\ \hline
@@ -742,7 +749,7 @@ The fields included are:
   \centering
   \begin{tabularx}{\textwidth}{|l|l|X|}
   \hline
-  \textbf{Name} & \textbf{Type} & \textbf{Description}                                            \\ \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                                        \\ \hline
   Member            & String  & The address of the member                                     \\ \hline
   Total VP          & Number  & The total amount of voting power of the member                \\ \hline
   MANA VP           & Number  & The total amount of MANA voting power of the member           \\ \hline
@@ -765,13 +772,13 @@ This script is the most complex of all because of the logic involved in identify
 
 The strategy used to group transactions with tags basically consists of identifying the receiver or sender address depending on whether it is an OUT or IN transaction of the DAO wallets.
 
-It is interesting to note how these addresses were identified since, on their own, it is not possible to do so. Firstly, they were ranked by the number of times they appeared in different transactions (depending on whether they were IN or OUT), thus making it possible to recognize a frequency pattern. For the most frequent ones, their information was manually checked in Etherscan\footnote{\url{https://etherscan.io/}} or Polygonscan\footnote{\url{https://polygonscan.com/}} (depending on which network the DAO wallet belongs to). In all cases they were smart contract addresses that belonged to marketplaces such as OpenSea\footnote{\url{https://opensea.io/}} or Decentraland's own\footnote{\url{https://market.decentraland.org/}}, which were responsible for paying the DAO the corresponding fee for the sale of, for example, wearables or LAND.
+It is interesting to note how these addresses were identified since, on their own, it is not possible to do so. Firstly, they were ranked by the number of times they appeared in different transactions (depending on whether they were IN or OUT), thus making it possible to recognize a frequency pattern. For the most frequent ones, their information was manually checked in Etherscan\cite{etherscan} or Polygonscan\cite{polygonscan} (depending on which network the DAO wallet belongs to). In all cases they were smart contract addresses that belonged to marketplaces such as OpenSea\cite{opensea} or Decentraland's own\cite{DCLMarket}, which were responsible for paying the DAO the corresponding fee for the sale of, for example, wearables or LAND.
 
 In this way, most of the transactions were identified, but many more remained. The next step was to use the output files from the grants and curations scripts to identify grant fundings and payments to curators.
 
 Finally, by reviewing transactions with large amounts of money and without a tag so far, it was possible to identify the addresses of \ac{DEXs} smart contracts for swapping tokens.
 
-To date there are about 140,570 transactions between all DAO wallets and, discounting internal transfers between them, only 67 transactions remained untagged. In other words, about 99.95\% of the transactions could be classified into categories. \\
+Between all DAO wallets, there are 140,570 transactions as of October 21, 2022. Discounting internal transfers between them, only 67 transactions remained untagged. In other words, about 99.95\% of the transactions could be classified into categories. \\
 
 The result of this script is a JSON and CSV file with the information about all the transactions. The fields included are:
 
@@ -779,7 +786,7 @@ The result of this script is a JSON and CSV file with the information about all 
   \centering
   \begin{tabularx}{\textwidth}{|l|l|X|}
   \hline
-  \textbf{Name} & \textbf{Type} & \textbf{Description}                                            \\ \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                          \\ \hline
   Date        & ISODate & The date on which the transaction was made            \\ \hline
   Wallet      & String  & The DAO wallet involved in the transaction            \\ \hline
   Network     & String  & The network in which the transaction was made         \\ \hline
@@ -807,7 +814,7 @@ The fields included are:
   \centering
   \begin{tabularx}{\textwidth}{|l|l|X|}
   \hline
-  \textbf{Name} & \textbf{Type} & \textbf{Description}                                            \\ \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                                             \\ \hline
   Member         & String  & The address of the member                                             \\ \hline
   Proposal ID    & Number  & The ID of the proposal                                                \\ \hline
   Created        & ISODate & The date on which the vote was made                                   \\ \hline
@@ -835,7 +842,7 @@ The fields included are:
   \centering
   \begin{tabularx}{\textwidth}{|l|l|X|}
   \hline
-  \textbf{Name} & \textbf{Type} & \textbf{Description}                                            \\ \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                      \\ \hline
   Item ID      & String  & The ID of the wearable                           \\ \hline
   Name         & String  & The name of the wearable                         \\ \hline
   Collection   & String  & The collection to which the wearable belongs     \\ \hline
