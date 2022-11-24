@@ -77,6 +77,7 @@
 }
 \makeatother
 \newcommand{\listofcode}{\phantomsection\lstlistoflistings}
+\newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 
 % Die nachfolgenden Pakete stellen sonst nicht benötigte Features zur Verfügung
 \usepackage{blindtext}
@@ -581,18 +582,18 @@ Finally, Google Data Studio\cite{transparencyDashboard} is used to visualize the
   \label{fig:diagram}
 \end{figure}
 
-It all starts with the services that index blockchain information such as Infura, Covalent or The Graph and those that add custom information such as Snapshot, Decentraland's catalyst nodes or even the platform's governance Dapp.
+It all starts with the services that index blockchain information (see section \rom{1} of Figure \ref{fig:diagram}) such as Infura, Covalent or The Graph and those that add custom information such as Snapshot, Decentraland's catalyst nodes or even the platform's governance Dapp.
 
 In order to collect the data, certain scripts were developed and will be explained below. To check the code of these scripts and their historical changes, it can be done from the GitHub repository (see \cite{transparencyRepo}). \\
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{scripts_diagram.png}
-  \caption{Data scripts diagram}
+  \caption{Data scripts diagram (expansion of section \rom{2} of Figure \ref{fig:diagram})}
   \label{fig:scripts_diagram}
 \end{figure}
 
-Each implemented data collection script will be detailed below:
+Each of the data collection scripts, upon completion, generates a JSON and CSV file (see section \rom{3} of Figure \ref{fig:diagram}) and the implementation of these is detailed below:
 \subsubsection{Balances}
 The first script is very simple and it's responsible for collecting the balances of the DAO's treasury. This is done by making a Covalent API call using the DAO's wallet addresses. The result is a JSON and CSV file with the amount of the different tokens with the values also expressed in US Dollars. \\
 
@@ -884,7 +885,7 @@ This script uses all the output files from the previous scripts and generates a 
 
 Continuing with the explanation of the data flow in figure \ref{fig:diagram}, such scripts are periodically executed from a GitHub Action and the configuration file\cite{configFile} is as follows: \\
 
-\begin{lstlisting}{Code snippet from the Github Action configuration file}
+\begin{lstlisting}[caption={Code snippet from the Github Action configuration file}, label={code:ghAction}]
 name: Pull Data
 
 on:
@@ -922,7 +923,11 @@ jobs:
                     ************ Other Scripts ************
 \end{lstlisting}
 
-The resulting JSON and CSV files, on one hand are uploaded to another branch of the same github repository to make them available for being consumed and also for versioning. On the other hand, the CSV files are uploaded to a Google spreadsheet\cite{transparencySheet} to offer the possibility to filter the information and to make it available for use in Google Data Studio.
+Looking at the Code \ref{code:ghAction} in greater detail, we can see that the periodic execution is established in line 5. The environment required for the scripts to be executed is then established from lines 18 to 24. This environment consists of Node.js version 14 running on the most recent Ubuntu distribution available, as well as all of the project's dependencies.
+
+Finally, the execution of the data collection of proposals script is defined with the environment variables it requires from lines 26 to 33. The definitions of the other scripts that are similar to the one just explained are omitted from line 35 onwards. \\
+
+The resulting JSON and CSV files, on one hand are uploaded to another branch of the same github repository to make them available for being consumed and also for versioning. On the other hand, the CSV files are uploaded to a Google spreadsheet\cite{transparencySheet} to offer the possibility to filter the information and to make it available for use in Google Data Studio (see section \rom{4} of Figure \ref{fig:diagram}).
 
 At this point, the data is used to extract metrics and plot them on the Data Studio dashboard, the DAO transparency page\cite{transparencyPage} and other external applications.
 
@@ -945,12 +950,54 @@ The earliest form of data visualization can be traced back the Egyptians in the 
 
 \begin{itemize}
   \item \textbf{Tables}: This consists of rows and columns used to compare variables. Tables can show a great deal of information in a structured way, but they can also overwhelm users that are simply looking for high-level trends.
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{examples/table.png}
+    \caption{Example of data visualization with a table}
+    \label{fig:table_example}
+  \end{figure}
   \item \textbf{Pie charts and stacked bar charts}: These graphs are divided into sections that represent parts of a whole. They provide a simple way to organize data and compare the size of each component to one other.
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{examples/pie_bar.png}
+    \caption{Example of data visualization with a pie chart and stacked bar chart}
+    \label{fig:pie_bar_example}
+  \end{figure}
   \item \textbf{Line charts and area charts}: These visuals show change in one or more quantities by plotting a series of data points over time and are frequently used within predictive analytics. Line graphs utilize lines to demonstrate these changes while area charts connect data points with line segments, stacking variables on top of one another and using color to distinguish between variables.
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{examples/line_area.png}
+    \caption{Example of data visualization with a line chart and area chart}
+    \label{fig:line_area_example}
+  \end{figure}
   \item \textbf{Histograms}: This graph plots a distribution of numbers using a bar chart (with no spaces between the bars), representing the quantity of data that falls within a particular range. This visual makes it easy for an end user to identify outliers within a given dataset.
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{examples/histogram.png}
+    \caption{Example of data visualization with a histogram}
+    \label{fig:histogram_example}
+  \end{figure}
   \item \textbf{Scatter plots}: These visuals are beneficial in reveling the relationship between two variables, and they are commonly used within regression data analysis. However, these can sometimes be confused with bubble charts, which are used to visualize three variables via the x-axis, the y-axis, and the size of the bubble.
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{examples/scatter.png}
+    \caption{Example of data visualization with a scatter plot and linear regression}
+    \label{fig:scatter_example}
+  \end{figure}
   \item \textbf{Heat maps}: These graphical representation displays are helpful in visualizing behavioral data by location. This can be a location on a map, or even a webpage.
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{examples/heatmap.png}
+    \caption{Example of data visualization with a heatmap}
+    \label{fig:heatmap_example}
+  \end{figure}
   \item \textbf{Tree maps}: They display hierarchical data as a set of nested shapes, typically rectangles. Treemaps are great for comparing the proportions between categories via their area size.
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{examples/treemap.png}
+    \caption{Example of data visualization with a treemap}
+    \label{fig:treemap_example}
+  \end{figure}
 \end{itemize}
 
 \chapter{Discussion\label{discussion}}
@@ -1132,7 +1179,7 @@ Figure \ref{fig:income} shows the DAO revenue sources by month and by category, 
   \caption{DAO revenue sources per month (*)}
   \label{fig:income}
 \end{figure}
-(*) Excluding DAO vesting contract\footnote{\url{https://vesting.decentraland.org/\#/0x7a3abf8897f31b56f09c6f69d074a393a905c1ac}}
+(*) Excluding DAO vesting contract\cite{DAOVesting}
 
 Figure \ref{fig:expenses} shows the DAO expenses by month and by category, highlighting cells based on their values.
 \begin{figure}[H]
