@@ -96,8 +96,15 @@
 %\secondsupervisor[Begutachter]{Titel Vorname Name, Titel}
 %\secondsupervisor[Begutachterinnen]{Titel Vorname Name, Titel}
 \place{Vienna}
-\outline{Testing}
-\keywords{aa, bb, cc, dd}
+\outline{Mit dem Aufkommen der Distributed-Ledger-Technologie (DLT), die üblicherweise als Blockchain-Technologie bezeichnet wird, befindet sich das Internet in einer Übergangsphase, in der die Nutzer nicht mehr nur Verbraucher und Ersteller von Inhalten sind, sondern Eigentümer ihrer Daten werden. Dies ist auf mehrere Vorfälle in jüngster Zeit zurückzuführen, bei denen das Vertrauen der Verbraucher von zentralisierten Organisationen missbraucht wurde. Ein Fall, der die "Große Rezession" im Jahr 2008 auslöste, war der Zusammenbruch des US-Immobilienmarktes. Im selben Jahr wurde das Konzept der Blockchain eingeführt, wobei Bitcoin der erste Anwendungsfall war.
+
+Nach dieser Vertrauenskrise und den Möglichkeiten, die die aufkommende Blockchain-Technologie bietet, sind innovative Ideen aufgetaucht: eine von vielen ist die "dezentrale Verwaltung". Das derzeitige Anfangsstadium bringt viele Herausforderungen mit sich, von denen viele noch gar nicht oder vielleicht nicht optimal gelöst wurden. Eine davon ist der Zugang zu Daten in einem verteilten Ökosystem: In einer Organisation, in der Entscheidungen nicht mehr von einem zentralisierten Entscheidungsträger, sondern von der Gemeinschaft getroffen wird, ist ein offener Zugang zu relevanten Daten, auf denen gemeinsame Entscheidungen beruhen, von entscheidender Bedeutung.
+
+Diese Arbeit bietet einen Ansatz zur Lösung des Problems des offenen Zugangs zu Informationen für die Teilnehmer einer Dezentralen Autonomen Organisation (DAO). Per Definition sind die in einem Blockchain-System gespeicherten Daten öffentlich und für jedermann zugänglich. Außerdem müssen die Quellen, aus denen die Informationen stammen, identifizierbar sein. Es wurde eine Reihe von Skripten entwickelt, um die gegebenen Blockchain-Daten automatisch zu verarbeiten und umzuwandeln und sie in maschinenlesbaren Formaten wie JSON und CSV zur Verfügung zu stellen. Schließlich wurde ein benutzerfreundliches Dashboard erstellt, um die umgewandelten Daten zu visualisieren, so dass Menschen Rückschlüsse auf den Status der DAO ziehen können.
+
+Gemäß dem Ethos der Blockchain werden die extrahierten Daten und Visualisierungen als "Open Data" veröffentlicht und sind für Anwendungen von Drittanbietern verfügbar, die sie nutzen und darauf aufbauen können.}
+\keywords{Blockchain, Dezentralisierte Autonome Organisation, Datenanalyse, Web 3.0}
+
 \outlineEng{The Internet is going through a transition stage with the rise of distributed ledger technology (DLT), commonly referred to as blockchain technology, where users will no longer be mere consumers and creators of content but will become owners of their data. This is due to multiple incidents in recent times, when consumer trust has been abused by centralized organizations. One case that triggered the "Great Recession" in 2008 was the collapse of the US housing market. In the same year, the concept of blockchain was introduced, with Bitcoin as the first use case.
 
 Following this crisis of confidence and the opportunities provided by the emerging technology of blockchain, innovative ideas have surfaced: one of many being "decentralized governance". Its current infant state implies a lot of challenges, many of which have not been solved at all yet, or perhaps not in the most optimal way possible. One of them is access to data in a distributed ecosystem: In an organization where decisions are no longer made by a centralized decision makers, but by the community, open access to relevant data, to base joint decisions on, is of vital importance.
@@ -1058,7 +1065,7 @@ Finally in this section is Figure \ref{fig:median_votes} which shows the median 
   \end{table}
 \end{center}
 
-Figure \ref{fig:vp_distribution} shows how the voting power of DAO members is distributed to date, with MANA, delegated voting power and LAND being the dominant ones.
+Figure \ref{fig:vp_distribution} shows how DAO members' voting power is distributed as of October 24, 2022, with MANA, delegated voting power and LAND being the dominant ones.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/vp_distribution.png}
@@ -1078,7 +1085,7 @@ Figure \ref{fig:vp_distribution_members} shows how voting power is distributed a
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/vp_distribution_members.png}
-  \caption{Voting Power distribution to date}
+  \caption{Voting Power distribution as of October 24, 2022}
   \label{fig:vp_distribution_members}
 \end{figure}
 
@@ -1166,7 +1173,7 @@ Figure \ref{fig:dao_balance} and \ref{fig:token_distribution} shows how the toke
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/token_distribution.png}
-  \caption{Distribution of tokens in DAO wallets to date}
+  \caption{Distribution of tokens in DAO wallets as of October 24, 2022}
   \label{fig:token_distribution}
 \end{figure}
 
@@ -1187,7 +1194,7 @@ Figure \ref{fig:expenses} shows the DAO expenses by month and by category, highl
   \label{fig:expenses}
 \end{figure}
 
-Table \ref{table:fees} shows to date, the number of transactions made by the DAO wallets in different periods, how much was paid in total in gas fees (expressed in US dollars) and also the average of said values.
+Table \ref{table:fees} shows as of October 24, 2022, the number of transactions made by the DAO wallets in different periods, how much was paid in total in gas fees (expressed in US dollars) and also the average of said values.
 \begin{center}
   \begin{table}[H]
     \begin{tabular}{ | m{8em} | m{10em} | m{6em} | m{15em} | }
@@ -1242,7 +1249,7 @@ Figure \ref{fig:day_difference} shows by month, the average number of days diffe
   \label{fig:day_difference}
 \end{figure}
 
-Figure \ref{fig:rarity_distribution} shows how the rarity of wearables in circulation to date is distributed.
+Figure \ref{fig:rarity_distribution} shows how the rarity of wearables in circulation as of October 24, 2022 is distributed.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/rarity_distribution.png}
@@ -1259,7 +1266,7 @@ Figure \ref{fig:sales_fees} shows the total fees received by the DAO per month f
 \end{figure}
 
 \section{DAO Members}
-Total unique DAO members (to date): \textbf{3.226} \\
+Total unique DAO members as of October 24, 2022: \textbf{3.226} \\
 
 Figure \ref{fig:active_members} shows the total number of active DAO members by month. This count is done by considering unique votes per month from the different addresses participating in the DAO.
 \begin{figure}[H]
@@ -1269,7 +1276,7 @@ Figure \ref{fig:active_members} shows the total number of active DAO members by 
   \label{fig:active_members}
 \end{figure}
 
-Figure \ref{fig:delegation_ratio} shows the distribution of members participating in the DAO who have or have not delegated their voting power to date.
+Figure \ref{fig:delegation_ratio} shows the distribution of members participating in the DAO who have or have not delegated their voting power as of October 24, 2022.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/delegation_ratio.png}
@@ -1285,11 +1292,11 @@ Figure \ref{fig:top_voters} shows the historical top 25 addresses that voted the
   \label{fig:top_voters}
 \end{figure}
 
-Figure \ref{fig:top_delegates} shows the top 25 to date of the addresses that received the most delegations of voting power.
+Figure \ref{fig:top_delegates} shows the top 25 addresses that have received the most delegations of voting power as of October 24, 2022.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/top_delegates.png}
-  \caption{Top 25 delegation receivers (to date)}
+  \caption{Top 25 delegation receivers as of October 24, 2022}
   \label{fig:top_delegates}
 \end{figure}
 
@@ -1297,7 +1304,7 @@ Figure \ref{fig:top_authors} shows the historical top 25 of the addresses that c
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/top_authors.png}
-  \caption{Top 25 proposal authors (to date)}
+  \caption{Top 25 proposal authors as of October 24, 2022}
   \label{fig:top_authors}
 \end{figure}
 
@@ -1312,7 +1319,7 @@ Although Figure \ref{fig:vote_weight} shows that the average voting weight in th
 
 A possible solution to this problem could be to adopt the Quadratic voting model with Sybil attack resistance used by the Gitcoin platform\cite{gitcoin}, which reduces the voting impact of addresses with a large amount of VP and, at the same time, increases the cost of splitting such VP into different addresses. \\
 
-As for grants, the community's interest in continuing to add value to the platform is clear.  To date, 100 projects have been funded with a grand total of over US\$7 million (see Table \ref{table:grants_info}) - with US\$240,000 being the maximum amount allowed per grant. Figure \ref{fig:category_distribution} also shows that the distribution of categories is even.
+As for grants, the community's interest in continuing to add value to the platform is clear. As of October 24, 2022, 100 projects have been funded with a grand total of over US\$7 million (see Table \ref{table:grants_info}) - with US\$240,000 being the maximum amount allowed per grant. Figure \ref{fig:category_distribution} also shows that the distribution of categories is even.
 
 In terms of the DAO balance sheet, the dependence on MANA (the Decentraland token) is clearly seen. As of the date of this writing, 99\% of the DAO's treasury liquidity was denominated in that token (see Figure \ref{fig:token_distribution}). Analyzing also the inflows and outflows of the DAO's wallets (Figures \ref{fig:income} and \ref{fig:expenses}), it is clear that expenses exceed income and that the only way this works is by converting the MANA from the DAO's vesting contract into stablecoins to meet expenses, which directly impacts the price of MANA. It would be interesting to find mechanisms that would allow the DAO to receive more revenue to decrease the dependence on its own token and, therefore, to avoid affecting its price when selling it. \\
 
