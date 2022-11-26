@@ -1021,6 +1021,10 @@ Figure \ref{fig:proposal_types} shows the number of proposals created according 
   \label{fig:proposal_types}
 \end{figure}
 
+\begin{itemize}
+  \item \textbf{Surveys}: These are proposals that are used to collect information from the community.
+\end{itemize}
+
 Figure \ref{fig:proposal_status} shows the final result of the proposals once the voting period is over, where 66\% are rejected, 25\% are enacted and 8\% are approved.
 \begin{figure}[H]
   \centering
@@ -1114,7 +1118,7 @@ Figure \ref{fig:vote_weight} shows by month, the average weight of votes in the 
   \end{table}
 \end{center}
 
-Figure \ref{fig:grants_amount} shows the number of grants rejected and enacted per month, with an average of 36\% of grant submissions being approved.
+Figure \ref{fig:grants_amount} shows the number of grants rejected and enacted per month, with an average of 36\% of grant submissions being approved. Since November 2021 there has been an increase in the number of submissions due to the boom in Decentraland after the company Meta announced that it was developing its own metaverse. As of March 2022, the level of participation stabilized.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/grants_amount.png}
@@ -1130,7 +1134,7 @@ Figure \ref{fig:funds_granted} shows the amount of funds allocated to grants per
   \label{fig:funds_granted}
 \end{figure}
 
-Figure \ref{fig:funds_recovered} shows the amount of funds that returned to the DAO from unfinished grants.
+Figure \ref{fig:funds_recovered} shows the amount of funds that returned to the DAO from unfinished grants. Since May 2022, a team known as the "Grant Support Squad" has been in charge, among other things, of following up on grantees and, if they do not comply with the agreed-upon work, their grant is revoked.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/funds_recovered.png}
@@ -1154,7 +1158,7 @@ Figure \ref{fig:category_distribution} shows how the categories of grants enacte
   \item \textbf{Gaming}: This category bridges the Creator and Platform Contributor categories by funding individuals and teams committed to building complete games for Decentraland.
 \end{itemize}
 
-Figure \ref{fig:tier_distribution} shows the distribution of grant tiers requested, with Tier 4 (between US\$5,000 and US\$60,000) being the most requested.
+Figure \ref{fig:tier_distribution} shows the distribution of grant tiers requested, with Tier 4 (between US\$5,000 and US\$60,000) being the most requested. Tier 1 and 2 are one-time payments, Tier 3 is a 3-month vesting with a 1-month cliff and Tier 4 to 6 are 6-month vestings with a 1-month cliff.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/tier_distribution.png}
@@ -1165,7 +1169,7 @@ Figure \ref{fig:tier_distribution} shows the distribution of grant tiers request
 
 \section{DAO Balances}
 
-Figure \ref{fig:dao_balance} and \ref{fig:token_distribution} shows how the tokens in the different DAO wallets are allocated, with MANA being the main one as of the date of this writing. Said token represents 99\% of the holdings.
+Figure \ref{fig:dao_balance}, \ref{fig:token_distribution} and \ref{fig:token_distribution_log} shows how the tokens in the different DAO wallets are allocated. The reliance on MANA, Decentraland's native token, is evident given that it accounts for 99\% of wallet holdings as of Oct. 24, 2022.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/dao_balance.png}
@@ -1177,6 +1181,12 @@ Figure \ref{fig:dao_balance} and \ref{fig:token_distribution} shows how the toke
   \includegraphics[width=\textwidth]{metrics/token_distribution.png}
   \caption{Distribution of tokens in DAO wallets as of October 24, 2022}
   \label{fig:token_distribution}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{metrics/token_distribution_log.png}
+  \caption{Distribution of tokens in DAO wallets in logarithmic scale as of October 24, 2022}
+  \label{fig:token_distribution_log}
 \end{figure}
 
 Figure \ref{fig:income} shows the DAO revenue sources by month and by category, highlighting cells based on their values.
@@ -1196,7 +1206,11 @@ Figure \ref{fig:expenses} shows the DAO expenses by month and by category, highl
   \label{fig:expenses}
 \end{figure}
 
-Table \ref{table:fees} shows as of October 24, 2022, the number of transactions made by the DAO wallets in different periods, how much was paid in total in gas fees (expressed in US dollars) and also the average of said values.
+Table \ref{table:fees} shows as of October 24, 2022, the number of transactions made by the DAO wallets in different periods, how much was paid in total in gas fees (expressed in US dollars) and also the average of said values. 
+
+These values are particularly high because transacting Ethereum became very expensive at a certain point. At Polygon, for example, the cost per transaction is just a few cents on the dollar.
+
+However, a drop in the cost of these transactions can be observed due to the current downward market context and, therefore, so is the demand.
 \begin{center}
   \begin{table}[H]
     \begin{tabular}{ | m{8em} | m{10em} | m{6em} | m{15em} | }
@@ -1212,7 +1226,7 @@ Table \ref{table:fees} shows as of October 24, 2022, the number of transactions 
       Last year &	86 &	\$6,164.27 &	\$71.68 \\
       \hline
     \end{tabular}
-    \caption{Transaction fees paid by DAO wallets}
+    \caption{Transaction fees paid by DAO wallets as of October 24, 2022}
     \label{table:fees}
   \end{table}
 \end{center}
@@ -1227,7 +1241,7 @@ Figure \ref{fig:curations} shows how many wearable curations each curator made p
   \label{fig:curations}
 \end{figure}
 
-Figure \ref{fig:submission_fees} shows how much money the DAO received per month (expressed in U.S. dollars at the then current value) from users for wearable curations.
+Figure \ref{fig:submission_fees} shows how much money the DAO received per month (expressed in U.S. dollars at the then current value) from users for wearable curations. The submission fee for them is a fixed value in MANA and, given the current downward market context, the value of these expressed in U.S. dollars has been decreasing in the last few months.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/submission_fees.png}
@@ -1235,7 +1249,7 @@ Figure \ref{fig:submission_fees} shows how much money the DAO received per month
   \label{fig:submission_fees}
 \end{figure}
 
-Figure \ref{fig:curators_pay} shows the amount of money paid to the curators per month (expressed in U.S. dollars at the then current value) for curations performed.
+Figure \ref{fig:curators_pay} shows the amount of money paid to the curators per month (expressed in U.S. dollars at the then current value) for curations performed. They are also paid with MANA and that explains why the values in US dollars are lower in the last months.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/curators_pay.png}
@@ -1251,7 +1265,7 @@ Figure \ref{fig:day_difference} shows by month, the average number of days diffe
   \label{fig:day_difference}
 \end{figure}
 
-Figure \ref{fig:rarity_distribution} shows how the rarity of wearables in circulation as of October 24, 2022 is distributed.
+Figure \ref{fig:rarity_distribution} shows how the rarity of wearables in circulation as of October 24, 2022 is distributed. It is interesting to see how there are more rare objects in circulation than uncommon ones. Although the maximum supply of rare objects is lower than that of uncommon ones, it is possible that people demand more rare objects, which is why their circulation is higher than that of uncommon ones.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/rarity_distribution.png}
@@ -1259,7 +1273,7 @@ Figure \ref{fig:rarity_distribution} shows how the rarity of wearables in circul
   \label{fig:rarity_distribution}
 \end{figure}
 
-Figure \ref{fig:sales_fees} shows the total fees received by the DAO per month for Decentraland assets transactions (wearables, LANDs and NAMES).
+Figure \ref{fig:sales_fees} shows the total fees received by the DAO per month for Decentraland assets transactions (wearables, LANDs and NAMES). These fees represent 2.5\% of the total value of the sales.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/sales_fees.png}
@@ -1286,27 +1300,27 @@ Figure \ref{fig:delegation_ratio} shows the distribution of members participatin
   \label{fig:delegation_ratio}
 \end{figure}
 
-Figure \ref{fig:top_voters} shows the historical top 25 addresses that voted the most on DAO proposals.
+Figure \ref{fig:top_voters} shows the historical top 10 addresses that voted the most on DAO proposals.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/top_voters.png}
-  \caption{Top 25 historical voters}
+  \caption{Top 10 historical voters as of October 24, 2022}
   \label{fig:top_voters}
 \end{figure}
 
-Figure \ref{fig:top_delegates} shows the top 25 addresses that have received the most delegations of voting power as of October 24, 2022.
+Figure \ref{fig:top_delegates} shows the top 10 addresses that have received the most delegations of voting power.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/top_delegates.png}
-  \caption{Top 25 delegation receivers as of October 24, 2022}
+  \caption{Top 10 delegation receivers as of October 24, 2022}
   \label{fig:top_delegates}
 \end{figure}
 
-Figure \ref{fig:top_authors} shows the historical top 25 of the addresses that created the most proposals in the DAO
+Figure \ref{fig:top_authors} shows the historical top 10 of the addresses that created the most proposals in the DAO
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/top_authors.png}
-  \caption{Top 25 proposal authors as of October 24, 2022}
+  \caption{Top 10 proposal authors as of October 24, 2022}
   \label{fig:top_authors}
 \end{figure}
 
