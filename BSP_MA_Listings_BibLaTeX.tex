@@ -1292,7 +1292,10 @@ Figure \ref{fig:active_members} shows the total number of active DAO members by 
   \label{fig:active_members}
 \end{figure}
 
-Figure \ref{fig:delegation_ratio} shows the distribution of members participating in the DAO who have or have not delegated their voting power as of October 24, 2022.
+Figure \ref{fig:delegation_ratio} shows the distribution of members participating in the DAO who have or have not delegated their voting power as of October 24, 2022. 
+
+Delegating does not mean giving 100\% control of voting power to another person, since if that person votes something that the delegator does not agree with, the delegator may overwrite his/her own vote. Delegating is simply a tool to allow suitable members of the community to have more leverage in their votes.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/delegation_ratio.png}
@@ -1300,7 +1303,7 @@ Figure \ref{fig:delegation_ratio} shows the distribution of members participatin
   \label{fig:delegation_ratio}
 \end{figure}
 
-Figure \ref{fig:top_voters} shows the historical top 10 addresses that voted the most on DAO proposals.
+Figure \ref{fig:top_voters} shows the historical top 10 addresses that voted the most on DAO proposals. These addresses represent the most active members of the Decentraland DAO.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/top_voters.png}
@@ -1309,6 +1312,8 @@ Figure \ref{fig:top_voters} shows the historical top 10 addresses that voted the
 \end{figure}
 
 Figure \ref{fig:top_delegates} shows the top 10 addresses that have received the most delegations of voting power.
+
+Regarding the obvious difference between the number of delegations between 1st and 2nd place, most of the addresses that delegated their VP to this member have exactly 100 VP. Most likely, in practice, all that VP belongs to a single person that decided to split it into multiple addresses and then delegate it to himself/herself.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/top_delegates.png}
@@ -1316,7 +1321,9 @@ Figure \ref{fig:top_delegates} shows the top 10 addresses that have received the
   \label{fig:top_delegates}
 \end{figure}
 
-Figure \ref{fig:top_authors} shows the historical top 10 of the addresses that created the most proposals in the DAO
+Figure \ref{fig:top_authors} shows the historical top 10 of the addresses that created the most proposals in the DAO.
+
+Given that 17 months have passed between the start date of this DAO (May 24, 2021) and today (October 24, 2022), the most active member in terms of proposal creation has created nearly two proposals on average per month.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/top_authors.png}
@@ -1325,142 +1332,46 @@ Figure \ref{fig:top_authors} shows the historical top 10 of the addresses that c
 \end{figure}
 
 \chapter{Conclussion\label{conclussion}}
-First of all, it can be noted that extracting data from the blockchain for analysis is still not a simple task. It requires technical knowledge and programming skills to be done, so it could be said about the first research question section (see section \ref{research}) about how simple it is for an average user to access such information is that not so much.
 
-The tools currently available to extract data are still not user-friendly enough, so an inexperienced person cannot easily access the information even if it is public. \\
+To begin with, it should be clear at this point that extracting data from the blockchain for analysis is still a difficult task. It requires technical knowledge and programming skills to complete, so the first research question section \textbf{Q1} (see section \ref{research}) about how simple it is for an average user to access such information could be answered as "not so much".
 
-Regarding the conclusions that can be drawn from the data obtained, in the first place it can be said that the DAO is still at an early stage of life, the launch date was 05/24/2021 which as of today is just over a year and a half. However, it can be seen that it is growing and that the number of members and interactions is increasing, which is a good sign. For example, Figure \ref{fig:median_votes} shows how the median number of votes per proposal is increasing month by month.
+Although the tools are improving and will most likely become much easier in the near future, the data extraction tools currently available are not user-friendly enough, so even if the information is public, an inexperienced person cannot easily access it. \\
 
-Although Figure \ref{fig:vote_weight} shows that the average voting weight in the outcome of the proposals has a decreasing trend, which gives signs of a distribution of voting power (more than 30\% is delegated as shown in Table \ref{table:VP}), Figure \ref{fig:vp_distribution_members} shows that 12 addresses concentrate more than 50\% of the voting power. While this is due to the young age of the DAO and does not necessarily represent a problem at the moment, it should not be overlooked and mechanisms should be implemented to prevent, for example, 51\% attacks\cite{51PercentAttack}. 
+Regarding the conclusions that can be drawn from the data obtained to answer the \textbf{Q2} of the research questions, in the first place it can be said that the DAO is still at an early stage of life, the launch date was 05/24/2021 which as of today is just over a year and a half. However, it can be seen that it is growing and that the number of members and interactions is increasing, which is a good sign. For example, Figure \ref{fig:median_votes} shows how the median number of votes per proposal is increasing month by month.
 
-A possible solution to this problem could be to adopt the Quadratic voting model with Sybil attack resistance used by the Gitcoin platform\cite{gitcoin}, which reduces the voting impact of addresses with a large amount of VP and, at the same time, increases the cost of splitting such VP into different addresses. \\
+Although Figure \ref{fig:vote_weight} shows that the average voting weight in the outcome of the proposals has a decreasing trend, which gives signs of a distribution of voting power (more than 30\% is delegated as shown in Figure \ref{fig:vp_distribution}), Figure \ref{fig:vp_distribution_members} shows that 12 addresses concentrate more than 50\% of the voting power. While this is due to the young age of the DAO and does not necessarily represent a problem at the moment, it should not be overlooked and mechanisms should be implemented to prevent, for example, 51\% attacks\cite{51PercentAttack}. 
+
+A possible solution to this problem could be to adopt the Quadratic voting model with Sybil attack resistance used by the Gitcoin platform\cite{gitcoin}, which reduces the voting impact of addresses with a large amount of VP and, at the same time, increases the cost of splitting such VP into different addresses (An example of this VP split is probably the one observed in the 1st place of Fig. \ref{fig:top_delegates}). \\
 
 As for grants, the community's interest in continuing to add value to the platform is clear. As of October 24, 2022, 100 projects have been funded with a grand total of over US\$7 million (see Table \ref{table:grants_info}) - with US\$240,000 being the maximum amount allowed per grant. Figure \ref{fig:category_distribution} also shows that the distribution of categories is even.
 
-In terms of the DAO balance sheet, the dependence on MANA (the Decentraland token) is clearly seen. As of the date of this writing, 99\% of the DAO's treasury liquidity was denominated in that token (see Figure \ref{fig:token_distribution}). Analyzing also the inflows and outflows of the DAO's wallets (Figures \ref{fig:income} and \ref{fig:expenses}), it is clear that expenses exceed income and that the only way this works is by converting the MANA from the DAO's vesting contract into stablecoins to meet expenses, which directly impacts the price of MANA. It would be interesting to find mechanisms that would allow the DAO to receive more revenue to decrease the dependence on its own token and, therefore, to avoid affecting its price when selling it. \\
+In terms of the DAO balance sheet, the dependence on MANA (the Decentraland token) is clearly seen. 99\% of the DAO's treasury liquidity was denominated in that token (see Figure \ref{fig:token_distribution} and \ref{fig:token_distribution_log}). Analyzing also the inflows and outflows of the DAO's wallets (Figures \ref{fig:income} and \ref{fig:expenses}), it is clear that expenses exceed income and that the only way this works is by converting the MANA from the DAO's vesting contract into stablecoins to meet expenses, which directly impacts the price of MANA. It would be interesting to find mechanisms that would allow the DAO to receive more revenue to decrease the dependence on its own token and, therefore, to avoid affecting its price when selling it. \\
 
-Finally, a mention about the members participating in the DAO. While all the addresses that voted on at least one proposal are more than 3000, Figure \ref{fig:active_members} indicates the number of unique votes from the different addresses and shows that, on average, there are approximately 500 participants per month. This is another clear sign of the DAO's early age. As for the distribution of voting power, of the total number of DAO participants only 4.5\% delegated their voting power (see Figure \ref{fig:delegation_ratio}).
+Finally, a mention about the members participating in the DAO. While all the addresses that voted on at least one proposal are more than 3000, Figure \ref{fig:active_members} indicates the number of unique votes from the different addresses and shows that, on average, there are approximately 500 participants per month. This is another clear sign of the DAO's early age. As for the distribution of voting power, of the total number of DAO participants only 4.5\% delegated their voting power (see Figure \ref{fig:delegation_ratio}). \\
 
-\chapter{Summary\label{summary}}
-This final chapter presents a section-by-section summary of the present work.
+To summarize in three simple sentences what has been learned after having done this work:
 
-\section{Basics}
-\subsubsection{Blockchain}
-The blockchain provides an immutable distributed database based on a growing sequence of blocks. These blocks, being public, form an open system that enhances trust based on the transparency and robustness of the blockchain construction technique. This database can be shared by a large number of users on a peer-to-peer basis and allows information to be stored in an immutable and orderly manner. The information added to the blockchain is public, can be accessed at any time by any user of the network and a block can only be added to the blockchain if there is an agreement between the majority of the parties.
-
-After a certain period of time, it can be assumed that the information added to a block can no longer be modified. By design, this system intrinsically provides tolerance to node failures and robustness against manipulation and transparency, since it is public.
-
-The removal of central authority from database structure is one of the most important and powerful aspects of blockchains. The permanence of the record is based on the permanence of the network. In the context of blockchains, this means that a large portion of a blockchain community would all have to agree to change the information and they are incentivized not to change the data.
-
-\subsubsection{Digital Assets}
-A digital asset is generally anything that is created and stored digitally, is identifiable and discoverable, and has or provides value. Digital assets have become more popular and valuable as technological advances become integrated into our personal and professional lives. Data, images, video, written content, and more have long been considered digital assets with ownership rights. Most digital items, like a company's brand, can be assigned a value, monetary or intangible.
-
-Some digital items might only be valuable to the creator or one person, such as a family picture on your phone taken at a gathering. In the past, digital assets such as data or scanned documents were owned and used by organizations to realize value. However, when blockchain and cryptocurrency were introduced in 2009, digital assets were again redefined. Anything in digital form became something that could be used to create value via tokenization on a blockchain.
-
-Crypto is essentially a digital currency that use blockchain technology and cryptography to facilitate secure and anonymous transactions.
-
-\subsubsection{Smart Contracts}
-A smart contract is a computerized transaction protocol that executes the terms of a contract. The general objectives of smart contract design are to satisfy common contractual conditions, minimize exceptions both malicious and accidental, and minimize the need for trusted intermediaries.
-
-Smart contracts live on the Ethereum blockchain. They only execute when triggered by a transaction from a user. Once a smart contract is published to Ethereum, it will be online and operational for as long as Ethereum exists.
-
-\subsubsection{Ethereum}
-Ethereum is a technology for building apps and organizations, holding assets, transacting and communicating without being controlled by a central authority. There is no need to hand over personal details to use it - the user remains in control of their own data and what is being shared. Ethereum has its own cryptocurrency, Ether, which is used to pay for certain activities on the Ethereum network.
-
-Also it is programmable using smart contracts, so that means that people can build apps that use the blockchain to store data or control what apps can do. This results in a general purpose blockchain that can be programmed to do anything.
-
-It uses proof-of-stake, where validators explicitly stake capital in the form of ETH into a smart contract on Ethereum. This staked ETH then acts as collateral that can be destroyed if the validator behaves dishonestly or lazily. The validator is then responsible for checking that new blocks propagated over the network are valid and occasionally creating and propagating new blocks themselves.
-
-\subsubsection{Decentralized Autonomous Organization (DAO)}
-A DAO is a collectively-owned, blockchain-governed organization working towards a shared mission. It allows people to work with like-minded individuals around the globe without trusting a benevolent leader to manage the funds or operations.
-
-Decisions are governed by proposals and voting to ensure everyone in the organization has a voice, and everything happens transparently on-chain.
-
-\subsubsection{Metaverse}
-The Metaverse is the post-reality universe, a perpetual and persistent multiuser environment merging physical reality with digital virtuality. It is based on the convergence of technologies that enable multisensory interactions with virtual environments, digital objects and people such as VR and AR. Hence, the Metaverse is an interconnected web of social, networked immersive environments in persistent multiuser platforms. It enables seamless embodied user communication in real-time and dynamic interactions with digital artifacts.
-
-Decentraland is a decentralized virtual reality platform, better known as a metaverse, powered by the Ethereum blockchain. The finite, traversable, 3D virtual space within Decentraland is called LAND, a non-fungible digital asset or more commonly known as a NFT, maintained in an Ethereum smart contract. These parcels are permanently owned by members of the community and are purchased using MANA, Decentraland's cryptocurrency token.
-
-The Decentraland DAO is the decision-making tool for digital assets holders in Decentraland's virtual world. Through votes in the DAO, the community can issue grants and make changes to the lists of banned names, POIs, and catalyst nodes.
-
-\section{Methodology}
-\subsubsection{Problem}
-Decentraland is an open source and community driven project. Based on this, where many actors are involved in decision making, it is vital to have as much information as possible about the status of the project. Until now there was no tool or solution that could publicly provide information to everyone about the status of the DAO treasury and the different assets of the community, that is why it was essential to develop such a tool.
-
-\subsubsection{Research Questions}
-1. How easy is it for an average user to access public information on the blockchain? \\
-2. What kind of analysis and conclusions can be drawn with the data obtained from the blockchain?
-
-\subsubsection{Data collection sources}
-\textbf{Decentraland's Catalyst Nodes:} A Catalyst is a Server that bundles different Services required by the Decentraland World. Each Catalyst node exposes a set of services that work as the backbone for the platform and also exposes a public API. \\
-
-\textbf{Infura:} Is a blockchain development suite that provides application programming interfaces and developer tools. It provides fast and reliable access to the Ethereum network to enable developers to build software and Web3 applications that scale to meet user demand. \\
-
-\textbf{The Graph:} Is a decentralized protocol for indexing and querying data from blockchains, starting with Ethereum. It makes it possible to query data that is difficult to query directly. These APIs can then be queried with a standard GraphQL API. \\
-
-\textbf{Snapshot:} Is an off-chain gasless multi-governance client with easy to verify and hard to contest results. \\
-
-\textbf{Covalent:} Is an indexing querying solution for blockchains that offers a diverse range of actionable insights, enabling developers to optimize the allocation of resources, bringing greater utility to decentralized applications using a single, unified API.
-
-\section{Solution}
-
-First, a public repository was created within the Decentraland DAO organization where the code of the scripts with their respective version history is stored. Since data must be collected every day and different sources must be consumed, Node.js was chosen for the backend of the project as it is easily configurable to run periodically in a GitHub Action. As for the programming language chosen, Typescript was used due to the versatility it offers and, naturally, for the typing - since it is very useful when working with data.
-
-Finally, Google Data Studio is used to visualize the metrics, which uses as input the information from the CSVs collected with the scripts.
-
-\subsubsection{Data collection scripts}
-
-\begin{itemize}
-  \item \textbf{Balances:} It's responsible for collecting the balances of the DAO's treasury. This is done by making a Covalent API call using the DAO's wallet addresses.
-  \item \textbf{Collections:} It's responsible for collecting the data about all wearable collections that are currently available in Decentraland. This is done by making a GraphQL query to the corresponding subgraph of The Graph.
-  \item \textbf{Curations:} It's responsible for collecting data from all wearable curations made by the curation team. This is done by making a GraphQL query to the corresponding subgraph of The Graph.
-  \item \textbf{Proposals:} It's responsible for collecting data from all proposals made by the community in the DAO governance platform. This is done by combining a GraphQL query to the corresponding snapshot subgraph and an API call to the DAO platform.
-  \item \textbf{Grants:} It's responsible for collecting data from all grants made by the DAO. This is done by combining multiple sources such as: the JSON file resulting from the proposals script, the Infura API to obtain information about vesting contracts, the Covalent API to obtain information about one-time-payment grant transactions, and the DAO platform to obtain information about updates made by grant beneficiaries.
-  \item \textbf{Members:} It's responsible for collecting data from all members of the DAO who have voted on a proposal at least once. This is done by making a GraphQL query to the corresponding snapshot subgraph.
-  \item \textbf{Transactions:} This script is the most complex of all because of the logic involved in identifying each transaction with a human-readable tag. As for the transaction data, it is collected through calls to the Covalent API.
-
-  The strategy used to group transactions with tags basically consists of identifying the receiver or sender address depending on whether it is an OUT or IN transaction of the DAO wallets.
-  
-  Firstly, they were ranked by the number of times they appeared in different transactions , thus making it possible to recognize a frequency pattern. In this way, most of the transactions were identified, but many more remained. The next step was to use the output files from the grants and curations scripts to identify grant fundings and payments to curators. Finally, by reviewing transactions with large amounts of money and without a tag so far, it was possible to identify the addresses of \ac{DEXs} smart contracts for swapping tokens.
-  
-  About 99.95\% of the transactions could be classified into categories.
-  \item \textbf{Votes:} It's responsible for collecting data from all votes made by members of the DAO. This is done by making a GraphQL query to the corresponding snapshot subgraph.
-  \item \textbf{Wearables:} It's responsible for collecting data from all circulating wearables in Decentraland. This is done by making a GraphQL query to the corresponding subgraph of The Graph.
-  \item \textbf{KPIs:} This script uses all the output files from the previous scripts and generates a JSON file with general DAO KPIs. This is useful to give an overview of the status of the DAO.
-\end{itemize}
-
-\subsubsection{Data visualization}
-Data visualization is the representation of data through use of common graphics, such as charts, plots, infographics, and even animations. It can be utilized for a variety of purposes, and it's important to note that is not only reserved for use by data teams. Some of the types of data visualization are:
-
-\begin{multicols}{2}
-  \begin{itemize}
-    \item Tables
-    \item Pie charts and stacked bar charts
-    \item Line charts and area charts
-    \item Histograms
-    \item Scatter plots
-    \item Heat maps
-    \item Tree maps
-  \end{itemize}
-\end{multicols}
-
-\section{Conclusion}
-First of all, it can be noted that extracting data from the blockchain for analysis is still not a simple task. The tools currently available to extract data are still not user-friendly enough, so an inexperienced person cannot easily access the information even if it is public.
-
-Regarding the conclusions that can be drawn from the data obtained, in the first place it can be said that the DAO is still at an early stage of life, the launch date was 05/24/2021 which as of today is just over a year and a half. However, it can be seen that it is growing and that the number of members and interactions is increasing, which is a good sign.
-
-As for grants, the community's interest in continuing to add value to the platform is clear. To date, 100 projects have been funded with a grand total of over US\$7 million - with US\$240,000 being the maximum amount allowed per grant.
-
-In terms of the DAO balance sheet, the dependence on MANA is clearly seen. Analyzing the inflows and outflows of the DAO's wallets, it is clear that expenses exceed income and that the only way this works is by converting the MANA from the DAO's vesting contract into stablecoins to meet expenses, which directly impacts the price of MANA.
-
-As for the distribution of voting power, of the total number of DAO participants only 4.5\% delegated their voting power.
+\begin{enumerate}
+  \item Both the DAO and the crypto ecosystem in general are still at an early stage of development with many challenges ahead to be solved.
+  \item The fact that anyone can conduct their own analysis based on the blockchain's real, immutable, and public information opens up a world of possibilities for changing the status quo, which is already happening.
+  \item Specifically on the Decentraland DAO, there is still much room for improvement, especially on treasury management. Hopefully this work could be the starting point for such improvements.
+\end{enumerate}
 
 \section{What's next?}
-The next steps of this project are to continue collecting data and analyzing it to obtain more insights, given that there is still just over a year's worth of data. In addition, it is planned to add new charts that will continue to add details on the status of the DAO. 
+The next steps of this project are to continue collecting data and analyzing it to obtain more insights, given that there is still just over a year's worth of data. In addition, it is planned to add new charts that will continue to add details on the status of the DAO.
 
-It is also intended to be able to collect this information in real time, since at the moment these scripts run once a day.
+Furthermore, on-chain analysis will be pursued to understand how funds are released from vesting contracts, what kind of addresses they go to and what their overall impact is.
 
-\toComplete
+To better understand how community members vote, improvements in the visualization of votes will also be pursued. The Tally platform\cite{tally} might serve as an illustration of this, as several graphic representations of voter behavior and impact are provided for each proposal.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{votes_example.png}
+  \caption{Example of voting visualization from the Tally platform}
+  \label{fig:votes_example}
+\end{figure}
+
+Finally, a "nice-to-have" but not a priority would be to have the possibility to visualize the information in real time, since so far the data collection scripts are executed only once a day.
 
 \chapter{Glossary}
 \printnoidxglossaries
