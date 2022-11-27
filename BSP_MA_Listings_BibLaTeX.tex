@@ -31,6 +31,7 @@
 \usepackage{csquotes}
 \usepackage{multicol}
 \usepackage{tabularx}
+\usepackage{xltabular}
 \usepackage{graphicx}
 \graphicspath{ {./PICs/} }
 
@@ -164,7 +165,7 @@ There are a large number of projects that rely on this technology to date; one o
 
 One of the great advantages of blockchain is transparency: anyone can verify all transactions, from the first to the last. But how easy is it for an average user to access this information? What kind of analysis and conclusions can be drawn once they are obtained? This paper will seek to answer these questions, specifically using Decentraland's DAO as the object of study. \\
 
-To begin with, the chapter \ref{basics} Fundaments introduces all the concepts necessary to have a solid foundation and a better understanding of the problem addressed by this work. The topics covered are: blockchain, digital assets, smart contracts, Ethereum, layer 2 solutions, decentralized autonomous organizations and metaverse.
+To begin with, the chapter \ref{basics} Fundaments introduces all the concepts necessary to have a solid foundation and a better understanding of the problem addressed by this work. The topics covered are: blockchain, digital assets, smart contracts, Ethereum, layer 2 solutions, decentralized autonomous organizations, metaverse and Decentraland.
 
 Continuing with the chapter \ref{method}, entitled Methodology, it explains the problem to be solved, along with the academic approach used for this work and the research questions to be answered.
 
@@ -357,7 +358,7 @@ But only between 400,000 and 600,000 addresses are currently active, meaning bet
 \ac{L2}\cite{l2} is a collective term to describe a specific set of Ethereum scaling solutions. A layer 2 is a \textbf{separate} blockchain that \textbf{extends} Ethereum and \textbf{inherits the security guarantees} of Ethereum.
 
 \subsection{What is a layer 1?}
-Layer 1 is the base blockchain. Ethereum and Bitcoin are both layer 1 blockchains because they are the \textbf{underlying foundation that various layer 2 networks build on top of.} Examples of layer 2 projects include "rollups" on Ethereum and the Lightning Network on top of Bitcoin. All user transaction activity on these \ac{L2} projects can ultimately settle back to the layer 1 blockchain.
+Layer 1 is the base blockchain.\cite{l2} Ethereum and Bitcoin are both layer 1 blockchains because they are the \textbf{underlying foundation that various layer 2 networks build on top of.} Examples of layer 2 projects include "rollups" on Ethereum and the Lightning Network on top of Bitcoin. All user transaction activity on these \ac{L2} projects can ultimately settle back to the layer 1 blockchain.
 
 Ethereum also functions as a data availability layer for layer 2s. \ac{L2} projects will post their transaction data onto Ethereum, relying on it for data availability. This data can be used to get the state of the layer 2, or to dispute transactions on them. \\
 
@@ -371,7 +372,7 @@ Ethereum as the layer 1 includes:
 \end{itemize}
 
 \subsection{Why is a layer 2 needed?}
-A blockchain's three desirable properties are that it is \textbf{decentralized, secure, and scalable}. According to the blockchain trilemma, a simple blockchain architecture can only achieve two out of three. For example, scalability must be sacrificed in order for a blockchain to be both secure and decentralized.
+A blockchain's three desirable properties are that it is \textbf{decentralized, secure, and scalable}.\cite{l2} According to the blockchain trilemma, a simple blockchain architecture can only achieve two out of three. For example, scalability must be sacrificed in order for a blockchain to be both secure and decentralized.
 
 With 1+ million transactions per day and high demand for each of these transactions, Ethereum has reached the network's current capacity. Because of Ethereum's success and increased demand, gas prices have skyrocketed. As a result, the demand for scaling solutions has increased. Layer 2 networks come into play here. \\
 
@@ -447,14 +448,14 @@ Unlike other virtual worlds and social networks, Decentraland is not controlled 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{dcl.png}
+  \includegraphics[width=0.75\textwidth]{dcl.png}
   \caption{Screenshot of Decentraland}
   \label{fig:dcl}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.8\textwidth]{dcl_map.png}
+  \includegraphics[width=0.70\textwidth]{dcl_map.png}
   \caption{Top view of Decentraland's map \cite{genesisCity}}
   \label{fig:dcl_map}
 \end{figure}
@@ -586,7 +587,7 @@ Finally, Google Data Studio\cite{transparencyDashboard} is used to visualize the
 \subsection{From data to metrics}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{diagram.png}
+  \includegraphics[width=0.9\textwidth]{diagram.png}
   \caption{Data collection and transformation diagram}
   \label{fig:diagram}
 \end{figure}
@@ -607,11 +608,14 @@ Each of the data collection scripts, upon completion, generates a JSON and CSV f
 The first script is very simple and it's responsible for collecting the balances of the DAO's treasury. This is done by making a Covalent API call using the DAO's wallet addresses. The result is a JSON and CSV file with the amount of the different tokens with the values also expressed in US Dollars. \\
 
 The fields included are:
-\begin{table}[H]
-  \centering
-  \begin{tabularx}{\textwidth}{|l|l|X|}
+
+\begin{xltabular}{\textwidth}{|l|l|X|}
   \hline
   \textbf{Name} & \textbf{Type} & \textbf{Description}                         \\ \hline
+  \endfirsthead
+  \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                         \\ \hline
+  \endhead
   Timestamp     & ISODate       & The date on which the balance query was made \\ \hline
   Wallet        & String        & The name of the wallet                       \\ \hline
   Balance       & Number        & The amount of tokens in the wallet           \\ \hline
@@ -621,10 +625,9 @@ The fields included are:
   Network & String & The network on which such wallet is located (either Ethereum or Polygon) \\ \hline
   Address       & String        & The wallet's address                         \\ \hline
   Token         & String        & The smart contract's address of the token    \\ \hline
-  \end{tabularx}
   \caption{The fields in the balance script's output file in detail}
   \label{table:balace}
-\end{table}
+\end{xltabular}
 
 \subsubsection{Collections}
 The second script is also very simple and it's responsible for collecting the data about all wearable collections that are currently available in Decentraland. This is done by making a GraphQL\cite{graphql} query to the corresponding subgraph of The Graph. The result is a JSON and CSV file with the information about these collections. \\
@@ -677,11 +680,13 @@ The fields included are:
 This script is responsible for collecting data from all proposals made by the community in the DAO governance platform. This is done by combining a GraphQL query to the corresponding snapshot subgraph and an API call to the DAO platform. The result is a JSON and CSV file with the information about all the proposals. \\
 
 The fields included are:
-\begin{table}[H]
-  \centering
-  \begin{tabularx}{\textwidth}{|l|l|X|}
+\begin{xltabular}{\textwidth}{|l|l|X|}
   \hline
-  \textbf{Name} & \textbf{Type} & \textbf{Description}                                                             \\ \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                         \\ \hline
+  \endfirsthead
+  \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                         \\ \hline
+  \endhead
   Proposal ID   & String        & The unique identifier of the proposal of the DAO platform                        \\ \hline
   Snapshot ID  & String & The unique identifier of the proposal of the snapshot platform                           \\ \hline
   Author        & String        & The address of the author of the proposal                                        \\ \hline
@@ -698,21 +703,20 @@ The fields included are:
   NAMES VP      & Number        & The total amount of NAMES voting power in votes of the proposal                  \\ \hline
   DELEGATED VP & Number & The total amount of delegated voting power in votes of the proposal                      \\ \hline
   Votes         & Number        & The total amount of votes of the proposal                                        \\ \hline
-  \end{tabularx}
   \caption{The fields in the proposals script's output file in detail}
   \label{table:proposals}
-\end{table}
-
+\end{xltabular}
 \subsubsection{Grants}
 This script is responsible for collecting data from all grants made by the DAO. This is done by combining multiple sources such as: the JSON file resulting from the proposals script (\ref{proposals-script}), the Infura API to obtain information about vesting contracts, the Covalent API to obtain information about one-time-payment grant transactions, and the DAO platform to obtain information about updates made by grant beneficiaries. The result is a JSON and CSV file with the information about all the grants. \\
 
 The fields included are:
-\begin{table}[H]
-  \centering
-  \resizebox{\textwidth}{!}{%
-  \begin{tabular}{|l|l|l|}
+\begin{xltabular}{\textwidth}{|l|l|X|}
   \hline
-  \textbf{Name} & \textbf{Type} & \textbf{Description}                                                                              \\ \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                         \\ \hline
+  \endfirsthead
+  \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                         \\ \hline
+  \endhead
   Proposal ID                    & String  & The unique identifier of the proposal of the DAO platform                              \\ \hline
   Snapshot ID                    & String  & The unique identifier of the proposal of the snapshot platform                         \\ \hline
   Author                         & String  & The address of the author of the proposal                                              \\ \hline
@@ -745,11 +749,9 @@ The fields included are:
   Last Update                    & ISODate & The date on which the last update by the grant beneficiary was made                    \\ \hline
   Next Update                    & ISODate & The date on which the next update by the grant beneficiary will have to be made        \\ \hline
   Pending Updates                & Number  & The amount of pending updates by the grant beneficiary                                 \\ \hline
-  \end{tabular}%
-  }
   \caption{The fields in the grants script's output file in detail}
   \label{table:grants}
-\end{table}
+\end{xltabular}
 
 \subsubsection{Members}
 This script is responsible for collecting data from all members of the DAO who have voted on a proposal at least once. This is done by making a GraphQL query to the corresponding snapshot subgraph. The result is a JSON and CSV file with the information about all the members. \\
@@ -757,9 +759,10 @@ This script is responsible for collecting data from all members of the DAO who h
 The fields included are:
 \begin{table}[H]
   \centering
-  \begin{tabularx}{\textwidth}{|l|l|X|}
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{|l|l|l|}
   \hline
-  \textbf{Name} & \textbf{Type} & \textbf{Description}                                        \\ \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                                                                              \\ \hline
   Member            & String  & The address of the member                                     \\ \hline
   Total VP          & Number  & The total amount of voting power of the member                \\ \hline
   MANA VP           & Number  & The total amount of MANA voting power of the member           \\ \hline
@@ -772,7 +775,8 @@ The fields included are:
   Delegators Amount & Number  & The amount of delegators of the member                        \\ \hline
   Delegators        & String  & The addresses of the delegators of the member (if applicable) \\ \hline
   Avatar Preview    & String  & The preview url of the avatar of the member                   \\ \hline
-  \end{tabularx}
+  \end{tabular}%
+  }
   \caption{The fields in the members script's output file in detail}
   \label{table:members}
 \end{table}
@@ -792,11 +796,13 @@ Between all DAO wallets, there are 140,570 transactions as of October 21, 2022. 
 
 The result of this script is a JSON and CSV file with the information about all the transactions. The fields included are:
 
-\begin{table}[H]
-  \centering
-  \begin{tabularx}{\textwidth}{|l|l|X|}
+\begin{xltabular}{\textwidth}{|l|l|X|}
   \hline
-  \textbf{Name} & \textbf{Type} & \textbf{Description}                          \\ \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                         \\ \hline
+  \endfirsthead
+  \hline
+  \textbf{Name} & \textbf{Type} & \textbf{Description}                         \\ \hline
+  \endhead
   Date        & ISODate & The date on which the transaction was made            \\ \hline
   Wallet      & String  & The DAO wallet involved in the transaction            \\ \hline
   Network     & String  & The network in which the transaction was made         \\ \hline
@@ -811,10 +817,9 @@ The result of this script is a JSON and CSV file with the information about all 
   Block       & Number  & The block number of the transaction                   \\ \hline
   Hash        & String  & The hash of the transaction                           \\ \hline
   Contract    & String  & The token contract address used in the transaction    \\ \hline
-  \end{tabularx}
   \caption{The fields in the transactions script's output file in detail}
   \label{table:transactions}
-\end{table}
+\end{xltabular}
 
 \subsubsection{Votes\label{subsec_votes}}
 This script is responsible for collecting data from all votes made by members of the DAO. This is done by making a GraphQL query to the corresponding snapshot subgraph. The result is a JSON and CSV file with the information about all the votes. \\
@@ -892,7 +897,7 @@ This script uses all the output files from the previous scripts and generates a 
 
 \pagebreak
 
-Continuing with the explanation of the data flow in figure \ref{fig:diagram}, such scripts are periodically executed from a GitHub Action and the configuration file\cite{configFile} is as follows: \\
+Continuing with the explanation of the data flow in Figure \ref{fig:diagram}, such scripts are periodically executed from a GitHub Action and the configuration file\cite{configFile} is as follows: \\
 
 \begin{lstlisting}[caption={Code snippet from the Github Action configuration file}, label={code:ghAction}]
 name: Pull Data
@@ -1013,7 +1018,7 @@ The earliest form of data visualization can be traced back the Egyptians in the 
 The visualizations of the metrics that resulted from the data collected will be presented below. These are divided into the categories: Proposals, Voting Power, Grants, DAO Balances, Wearable Curations and DAO Members. The analysis period will be 12 months and will run from October 2021 to September 2022, unless otherwise clarified.
 
 \section{Proposals}
-Figure \ref{fig:proposal_types} shows the number of proposals created according to their category, being surveys, grants and points of interest the most frequents.
+Figure \ref{fig:proposal_types} shows the number of proposals created according to their category, being polls, grants and points of interest the most frequents.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/proposal_types.png}
@@ -1021,14 +1026,10 @@ Figure \ref{fig:proposal_types} shows the number of proposals created according 
   \label{fig:proposal_types}
 \end{figure}
 
-\begin{itemize}
-  \item \textbf{Surveys}: These are proposals that are used to collect information from the community.
-\end{itemize}
-
 Figure \ref{fig:proposal_status} shows the final result of the proposals once the voting period is over, where 66\% are rejected, 25\% are enacted and 8\% are approved.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{metrics/proposal_status.png}
+  \includegraphics[width=0.9\textwidth]{metrics/proposal_status.png}
   \caption{Status of proposals after the voting period}
   \label{fig:proposal_status}
 \end{figure}
@@ -1036,7 +1037,7 @@ Figure \ref{fig:proposal_status} shows the final result of the proposals once th
 Figure \ref{fig:proposals_by_month} shows the proposals created per month by category. It can be observed, on the one hand, that there is a constant number of grant requests and points of interest and, on the other hand, that very few polls become draft and then governance proposals.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{metrics/proposals_by_month.png}
+  \includegraphics[width=0.9\textwidth]{metrics/proposals_by_month.png}
   \caption{Number of proposals created per month by category}
   \label{fig:proposals_by_month}
 \end{figure}
@@ -1082,7 +1083,7 @@ Figure \ref{fig:vp_distribution} shows how DAO members' voting power is distribu
 Figure \ref{fig:votes_vp} shows how voting power breaks down in total votes by month. A rise in delegate VP, a drop in MANA VP and a steady VP of LAND and names can be seen.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{metrics/votes_breakdown.png}
+  \includegraphics[width=0.9\textwidth]{metrics/votes_breakdown.png}
   \caption{Votes VP breakdown per month}
   \label{fig:votes_vp}
 \end{figure}
@@ -1090,7 +1091,7 @@ Figure \ref{fig:votes_vp} shows how voting power breaks down in total votes by m
 Figure \ref{fig:vp_distribution_members} shows how voting power is distributed among DAO members. A large concentration of VP can be seen in a few of them.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{metrics/vp_distribution_members.png}
+  \includegraphics[width=0.9\textwidth]{metrics/vp_distribution_members.png}
   \caption{Voting Power distribution as of October 24, 2022}
   \label{fig:vp_distribution_members}
 \end{figure}
@@ -1121,7 +1122,7 @@ Figure \ref{fig:vote_weight} shows by month, the average weight of votes in the 
 Figure \ref{fig:grants_amount} shows the number of grants rejected and enacted per month, with an average of 36\% of grant submissions being approved. Since November 2021 there has been an increase in the number of submissions due to the boom in Decentraland after the company Meta announced that it was developing its own metaverse. As of March 2022, the level of participation stabilized.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{metrics/grants_amount.png}
+  \includegraphics[width=0.9\textwidth]{metrics/grants_amount.png}
   \caption{Enacted and rejected grants amount per month}
   \label{fig:grants_amount}
 \end{figure}
@@ -1129,7 +1130,7 @@ Figure \ref{fig:grants_amount} shows the number of grants rejected and enacted p
 Figure \ref{fig:funds_granted} shows the amount of funds allocated to grants per month. If the number o grants enacted per month from Figure \ref{fig:grants_amount} is considered, it gives a median of US\$79,400 per grant.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{metrics/funds_granted.png}
+  \includegraphics[width=0.9\textwidth]{metrics/funds_granted.png}
   \caption{Funds granted per month}
   \label{fig:funds_granted}
 \end{figure}
@@ -1161,7 +1162,7 @@ Figure \ref{fig:category_distribution} shows how the categories of grants enacte
 Figure \ref{fig:tier_distribution} shows the distribution of grant tiers requested, with Tier 4 (between US\$5,000 and US\$60,000) being the most requested. Tier 1 and 2 are one-time payments, Tier 3 is a 3-month vesting with a 1-month cliff and Tier 4 to 6 are 6-month vestings with a 1-month cliff.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{metrics/tier_distribution.png}
+  \includegraphics[width=0.85\textwidth]{metrics/tier_distribution.png}
   \caption{Grant tiers distribution}
   \label{fig:tier_distribution}
 \end{figure}
@@ -1172,19 +1173,19 @@ Figure \ref{fig:tier_distribution} shows the distribution of grant tiers request
 Figure \ref{fig:dao_balance}, \ref{fig:token_distribution} and \ref{fig:token_distribution_log} shows how the tokens in the different DAO wallets are allocated. The reliance on MANA, Decentraland's native token, is evident given that it accounts for 99\% of wallet holdings as of Oct. 24, 2022.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{metrics/dao_balance.png}
+  \includegraphics[width=0.73\textwidth]{metrics/dao_balance.png}
   \caption{DAO wallets balance as of October 24, 2022}
   \label{fig:dao_balance}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{metrics/token_distribution.png}
+  \includegraphics[width=0.9\textwidth]{metrics/token_distribution.png}
   \caption{Distribution of tokens in DAO wallets as of October 24, 2022}
   \label{fig:token_distribution}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{metrics/token_distribution_log.png}
+  \includegraphics[width=0.9\textwidth]{metrics/token_distribution_log.png}
   \caption{Distribution of tokens in DAO wallets in logarithmic scale as of October 24, 2022}
   \label{fig:token_distribution_log}
 \end{figure}
@@ -1196,7 +1197,7 @@ Figure \ref{fig:income} shows the DAO revenue sources by month and by category, 
   \caption{DAO revenue sources per month (*)}
   \label{fig:income}
 \end{figure}
-(*) Excluding DAO vesting contract\cite{DAOVesting}
+(*) Excluding DAO vesting contract\cite{DAOVesting} \\
 
 Figure \ref{fig:expenses} shows the DAO expenses by month and by category, highlighting cells based on their values.
 \begin{figure}[H]
@@ -1249,7 +1250,7 @@ Figure \ref{fig:submission_fees} shows how much money the DAO received per month
   \label{fig:submission_fees}
 \end{figure}
 
-Figure \ref{fig:curators_pay} shows the amount of money paid to the curators per month (expressed in U.S. dollars at the then current value) for curations performed. They are also paid with MANA and that explains why the values in US dollars are lower in the last months.
+Figure \ref{fig:curators_pay} shows the amount of money paid to the curators per month (expressed in U.S. dollars at the then current value) for curations performed. They are also paid with MANA and this is the main reason for the lower value in US dollars in recent months.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{metrics/curators_pay.png}
@@ -1268,7 +1269,7 @@ Figure \ref{fig:day_difference} shows by month, the average number of days diffe
 Figure \ref{fig:rarity_distribution} shows how the rarity of wearables in circulation as of October 24, 2022 is distributed. It is interesting to see how there are more rare objects in circulation than uncommon ones. Although the maximum supply of rare objects is lower than that of uncommon ones, it is possible that people demand more rare objects, which is why their circulation is higher than that of uncommon ones.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{metrics/rarity_distribution.png}
+  \includegraphics[width=0.9\textwidth]{metrics/rarity_distribution.png}
   \caption{Distribution of the rarity of circulating wearables}
   \label{fig:rarity_distribution}
 \end{figure}
@@ -1276,7 +1277,7 @@ Figure \ref{fig:rarity_distribution} shows how the rarity of wearables in circul
 Figure \ref{fig:sales_fees} shows the total fees received by the DAO per month for Decentraland assets transactions (wearables, LANDs and NAMES). These fees represent 2.5\% of the total value of the sales.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{metrics/sales_fees.png}
+  \includegraphics[width=0.9\textwidth]{metrics/sales_fees.png}
   \caption{Sales fees collected per month (including LAND and NAMES)}
   \label{fig:sales_fees}
 \end{figure}
@@ -1354,7 +1355,7 @@ To summarize in three simple sentences what has been learned after having done t
 \begin{enumerate}
   \item Both the DAO and the crypto ecosystem in general are still at an early stage of development with many challenges ahead to be solved.
   \item The fact that anyone can conduct their own analysis based on the blockchain's real, immutable, and public information opens up a world of possibilities for changing the status quo, which is already happening.
-  \item Specifically on the Decentraland DAO, there is still much room for improvement, especially on treasury management. Hopefully this work could be the starting point for such improvements.
+  \item Specifically on the Decentraland DAO, there is still much room for improvement, especially on treasury management. Hopefully this work could be the starting point for that.
 \end{enumerate}
 
 \section{What's next?}
@@ -1364,14 +1365,14 @@ Furthermore, on-chain analysis will be pursued to understand how funds are relea
 
 To better understand how community members vote, improvements in the visualization of votes will also be pursued. The Tally platform\cite{tally} might serve as an illustration of this, as several graphic representations of voter behavior and impact are provided for each proposal.
 
+Finally, a "nice-to-have" but not a priority would be to have the possibility to visualize the information in real time, since so far the data collection scripts are executed only once a day.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{votes_example.png}
   \caption{Example of voting visualization from the Tally platform}
   \label{fig:votes_example}
 \end{figure}
-
-Finally, a "nice-to-have" but not a priority would be to have the possibility to visualize the information in real time, since so far the data collection scripts are executed only once a day.
 
 \chapter{Glossary}
 \printnoidxglossaries
